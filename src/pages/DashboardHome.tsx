@@ -29,7 +29,7 @@ const DashboardHome = () => {
   ];
 
   const quickActions = [
-    { label: "添加设备", icon: Plus, path: "/dashboard/devices", desc: "绑定新的 OpenCLAW 设备" },
+    { label: "添加设备", icon: Plus, path: "/dashboard/devices", desc: "绑定新的 Q-CLAW 设备" },
     { label: "浏览技能", icon: ShoppingBag, path: "/dashboard/market", desc: "发现更多 AI 技能" },
     { label: "充值余额", icon: Wallet, path: "/dashboard/billing", desc: "为账户增加余额" },
     { label: "使用报告", icon: TrendingUp, path: "/dashboard/billing", desc: "查看消费与分析" },
@@ -48,7 +48,7 @@ const DashboardHome = () => {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <div>
             <h1 className="text-2xl font-bold text-foreground">你好，{user?.username} 👋</h1>
-            <p className="text-muted-foreground mt-1">欢迎回到 OpenCLAW 设备管理中心</p>
+            <p className="text-muted-foreground mt-1">欢迎回到 Q-CLAW 设备管理中心</p>
           </div>
           <div className="flex gap-2">
             <Button size="sm" onClick={() => navigate("/dashboard/devices")}>

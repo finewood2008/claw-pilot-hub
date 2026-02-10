@@ -28,7 +28,7 @@ const RechargePanel = () => {
   const [done, setDone] = useState(false);
 
   const finalAmount = isCustom ? Number(custom) || 0 : amount;
-  const discount = coupon.toUpperCase() === "OPENCLAW10" ? finalAmount * 0.1 : 0;
+  const discount = coupon.toUpperCase() === "QCLAW10" ? finalAmount * 0.1 : 0;
   const payAmount = Math.max(finalAmount - discount, 0);
 
   const handlePay = async () => {
@@ -96,7 +96,7 @@ const RechargePanel = () => {
           <CardHeader><CardTitle className="text-base">优惠券</CardTitle></CardHeader>
           <CardContent>
             <div className="flex gap-2">
-              <Input placeholder="输入优惠码（试试 OPENCLAW10）" value={coupon} onChange={(e) => setCoupon(e.target.value)} />
+              <Input placeholder="输入优惠码（试试 QCLAW10）" value={coupon} onChange={(e) => setCoupon(e.target.value)} />
               {discount > 0 && <Badge className="bg-success text-success-foreground whitespace-nowrap">-¥{discount.toFixed(2)}</Badge>}
             </div>
           </CardContent>

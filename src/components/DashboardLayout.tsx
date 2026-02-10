@@ -58,7 +58,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
         <div className="flex items-center justify-center w-8 h-8 rounded-lg auth-gradient flex-shrink-0">
           <Cpu className="w-4 h-4 text-primary-foreground" />
         </div>
-        {!collapsed && <span className="text-lg font-bold text-sidebar-accent-foreground">OpenCLAW</span>}
+        {!collapsed && <span className="text-lg font-bold text-sidebar-accent-foreground">Q-CLAW</span>}
       </div>
       <nav className="flex-1 p-3 space-y-1 overflow-y-auto">
         {navItems.map((item) => {
@@ -138,7 +138,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
         {/* Footer */}
         <footer className="border-t border-border bg-card px-4 md:px-6 py-3">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-muted-foreground">
-            <span>© 2026 OpenCLAW. All rights reserved.</span>
+            <span>© 2026 Q-CLAW. All rights reserved.</span>
             <div className="flex gap-4">
               <span className="hover:text-foreground cursor-pointer transition-colors">帮助中心</span>
               <span className="hover:text-foreground cursor-pointer transition-colors">文档</span>

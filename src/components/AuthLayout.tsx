@@ -10,7 +10,7 @@ const AuthLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-primary-foreground/20 backdrop-blur-sm">
             <Cpu className="w-10 h-10 text-primary-foreground" />
           </div>
-          <h1 className="text-4xl font-bold text-primary-foreground">OpenCLAW</h1>
+          <h1 className="text-4xl font-bold text-primary-foreground">Q-CLAW</h1>
           <p className="text-lg text-primary-foreground/80">
             本地AI助手设备管理平台
           </p>
@@ -30,7 +30,7 @@ const AuthLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             <div className="flex items-center justify-center w-10 h-10 rounded-xl auth-gradient">
               <Cpu className="w-5 h-5 text-primary-foreground" />
             </div>
-            <span className="text-xl font-bold text-foreground">OpenCLAW</span>
+            <span className="text-xl font-bold text-foreground">Q-CLAW</span>
           </div>
           {children}
         </div>

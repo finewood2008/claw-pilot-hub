@@ -41,7 +41,7 @@ const marketSkills: MarketSkill[] = [
     id: "s1", name: "天气查询", icon: "CloudSun", category: "数据处理",
     description: "实时天气查询与天气预报播报",
     longDescription: "支持全球主要城市的实时天气查询，包括温度、湿度、风速、空气质量等数据。可设置定时播报，支持自然语言查询。",
-    version: "v1.3", developer: "OpenCLAW 官方", publishedAt: "2025-10-15",
+    version: "v1.3", developer: "Q-CLAW 官方", publishedAt: "2025-10-15",
     rating: 4.7, ratingCount: 328, installs: 12580, requirements: "固件 >= 2.0",
     features: ["实时天气数据", "7天天气预报", "空气质量指数", "定时播报", "自然语言查询"],
     reviews: [
@@ -53,7 +53,7 @@ const marketSkills: MarketSkill[] = [
     id: "s2", name: "音乐播放", icon: "Music", category: "娱乐",
     description: "在线音乐播放与智能推荐",
     longDescription: "整合多个音乐平台的在线播放技能，支持语音点歌、歌单管理、个性化推荐。高品质音频输出，支持蓝牙连接。",
-    version: "v2.0", developer: "OpenCLAW 官方", publishedAt: "2025-11-20",
+    version: "v2.0", developer: "Q-CLAW 官方", publishedAt: "2025-11-20",
     rating: 4.5, ratingCount: 562, installs: 23400, requirements: "固件 >= 2.0，需要音频输出",
     features: ["语音点歌", "歌单管理", "个性化推荐", "高品质音频", "蓝牙输出"],
     reviews: [
@@ -64,7 +64,7 @@ const marketSkills: MarketSkill[] = [
     id: "s3", name: "日程管理", icon: "CalendarDays", category: "自动化",
     description: "智能日程提醒与任务管理",
     longDescription: "帮助您管理日常日程和待办事项。支持自然语言添加日程，智能提醒，与日历同步，支持重复事件设置。",
-    version: "v2.1", developer: "OpenCLAW 官方", publishedAt: "2025-12-10",
+    version: "v2.1", developer: "Q-CLAW 官方", publishedAt: "2025-12-10",
     rating: 4.8, ratingCount: 215, installs: 8930, requirements: "固件 >= 2.0",
     features: ["自然语言输入", "智能提醒", "日历同步", "重复事件", "优先级管理"],
     reviews: [
@@ -98,7 +98,7 @@ const marketSkills: MarketSkill[] = [
     id: "s6", name: "智能家居", icon: "Home", category: "自动化",
     description: "统一管理智能家居设备",
     longDescription: "连接和控制家中的智能设备，包括灯光、空调、窗帘等。支持场景联动，定时任务，语音控制。兼容主流智能家居协议。",
-    version: "v2.0", developer: "OpenCLAW 官方", publishedAt: "2025-08-20",
+    version: "v2.0", developer: "Q-CLAW 官方", publishedAt: "2025-08-20",
     rating: 4.4, ratingCount: 670, installs: 31200, requirements: "固件 >= 1.5，需要WiFi",
     features: ["多协议兼容", "场景联动", "定时任务", "语音控制", "能耗监控"],
     reviews: [
@@ -129,7 +129,7 @@ const marketSkills: MarketSkill[] = [
     id: "s9", name: "闹钟", icon: "AlarmClock", category: "自动化",
     description: "智能闹钟与唤醒服务",
     longDescription: "比普通闹钟更智能，根据天气和日程动态调整唤醒时间。支持自然声音唤醒、渐强唤醒等多种模式。",
-    version: "v1.1", developer: "OpenCLAW 官方", publishedAt: "2025-07-15",
+    version: "v1.1", developer: "Q-CLAW 官方", publishedAt: "2025-07-15",
     rating: 4.9, ratingCount: 890, installs: 42000, requirements: "固件 >= 1.0",
     features: ["智能唤醒", "多种铃声", "渐强模式", "日程联动", "贪睡设置"],
     reviews: [

@@ -40,7 +40,7 @@ const Login = () => {
     <AuthLayout>
       <div className="space-y-2">
         <h2 className="text-2xl font-bold text-foreground">欢迎回来</h2>
-        <p className="text-muted-foreground">登录 OpenCLAW 设备管理中心</p>
+        <p className="text-muted-foreground">登录 Q-CLAW 设备管理中心</p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-5">
