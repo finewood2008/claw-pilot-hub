@@ -62,7 +62,7 @@ const Register = () => {
     <AuthLayout>
       <div className="space-y-2">
         <h2 className="text-2xl font-bold text-foreground">创建账户</h2>
-        <p className="text-muted-foreground">注册 OpenCLAW 设备管理中心</p>
+        <p className="text-muted-foreground">注册 Q-CLAW 设备管理中心</p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
