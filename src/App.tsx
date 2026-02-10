@@ -15,6 +15,7 @@ import DeviceDetail from "./pages/DeviceDetail";
 import SkillMarket from "./pages/SkillMarket";
 import SkillDetail from "./pages/SkillDetail";
 import SkillManagement from "./pages/SkillManagement";
+import BillingPage from "./pages/BillingPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -37,7 +38,7 @@ const App = () => (
             <Route path="/dashboard/market" element={<ProtectedRoute><SkillMarket /></ProtectedRoute>} />
             <Route path="/dashboard/market/:id" element={<ProtectedRoute><SkillDetail /></ProtectedRoute>} />
             <Route path="/dashboard/skills" element={<ProtectedRoute><SkillManagement /></ProtectedRoute>} />
-            <Route path="/dashboard/billing" element={<ProtectedRoute><PlaceholderPage title="充值与消费" description="查看账户余额和消费记录" /></ProtectedRoute>} />
+            <Route path="/dashboard/billing" element={<ProtectedRoute><BillingPage /></ProtectedRoute>} />
             <Route path="/dashboard/settings" element={<ProtectedRoute><PlaceholderPage title="账户设置" description="管理你的账户信息" /></ProtectedRoute>} />
             <Route path="*" element={<NotFound />} />
           </Routes>
