@@ -1,11 +1,12 @@
 import { create } from "zustand";
+import { supabase } from "@/integrations/supabase/client";
 
 export interface Transaction {
   id: string;
   date: string;
   type: "api_call" | "skill_sub" | "recharge" | "other";
   description: string;
-  amount: number; // positive = income/recharge, negative = expense
+  amount: number;
   balance: number;
   deviceId?: string;
   status: "success" | "pending" | "failed";
@@ -13,7 +14,7 @@ export interface Transaction {
 
 export interface Bill {
   id: string;
-  month: string; // "2026-01"
+  month: string;
   total: number;
   status: "paid" | "unpaid" | "overdue";
   items: { category: string; amount: number }[];
@@ -37,31 +38,7 @@ export interface AlertSetting {
   notifyInApp: boolean;
 }
 
-const mockTransactions: Transaction[] = [
-  { id: "t1", date: "2026-02-10T14:30:00Z", type: "api_call", description: "天气查询 API 调用 x42", amount: -2.10, balance: 128.50, deviceId: "d1", status: "success" },
-  { id: "t2", date: "2026-02-09T10:00:00Z", type: "recharge", description: "账户充值", amount: 50.00, balance: 130.60, status: "success" },
-  { id: "t3", date: "2026-02-08T16:20:00Z", type: "skill_sub", description: "翻译助手月度订阅", amount: -9.90, balance: 80.60, deviceId: "d2", status: "success" },
-  { id: "t4", date: "2026-02-07T09:15:00Z", type: "api_call", description: "会议记录 API 调用 x5", amount: -1.50, balance: 90.50, deviceId: "d2", status: "success" },
-  { id: "t5", date: "2026-02-06T20:00:00Z", type: "api_call", description: "智能家居控制 x18", amount: -0.90, balance: 92.00, deviceId: "d4", status: "success" },
-  { id: "t6", date: "2026-02-05T11:30:00Z", type: "other", description: "技能市场推广奖励", amount: 5.00, balance: 92.90, status: "success" },
-  { id: "t7", date: "2026-02-04T08:00:00Z", type: "api_call", description: "语音识别 API 调用 x12", amount: -3.60, balance: 87.90, deviceId: "d3", status: "success" },
-  { id: "t8", date: "2026-02-03T15:45:00Z", type: "recharge", description: "账户充值", amount: 100.00, balance: 91.50, status: "success" },
-  { id: "t9", date: "2026-02-02T12:00:00Z", type: "skill_sub", description: "音乐播放月度订阅", amount: -4.90, balance: -8.50, deviceId: "d1", status: "success" },
-  { id: "t10", date: "2026-02-01T09:00:00Z", type: "api_call", description: "日程管理 API 调用 x8", amount: -0.80, balance: -3.60, deviceId: "d1", status: "success" },
-  { id: "t11", date: "2026-01-31T18:00:00Z", type: "api_call", description: "新闻播报 API 调用 x20", amount: -2.00, balance: -2.80, deviceId: "d4", status: "success" },
-  { id: "t12", date: "2026-01-30T10:30:00Z", type: "recharge", description: "账户充值", amount: 200.00, balance: -0.80, status: "success" },
-  { id: "t13", date: "2026-01-28T14:00:00Z", type: "api_call", description: "天气查询 API 调用 x55", amount: -2.75, balance: -200.80, deviceId: "d4", status: "success" },
-  { id: "t14", date: "2026-01-25T09:00:00Z", type: "skill_sub", description: "邮件管理月度订阅", amount: -6.90, balance: -198.05, deviceId: "d2", status: "success" },
-  { id: "t15", date: "2026-01-20T16:00:00Z", type: "api_call", description: "代码助手 API 调用 x3", amount: -1.20, balance: -191.15, deviceId: "d3", status: "success" },
-];
-
-const mockBills: Bill[] = [
-  { id: "b1", month: "2026-02", total: 18.00, status: "unpaid", items: [{ category: "API调用", amount: 8.10 }, { category: "技能订阅", amount: 9.90 }] },
-  { id: "b2", month: "2026-01", total: 42.85, status: "paid", items: [{ category: "API调用", amount: 25.15 }, { category: "技能订阅", amount: 11.80 }, { category: "其他", amount: 5.90 }] },
-  { id: "b3", month: "2025-12", total: 35.20, status: "paid", items: [{ category: "API调用", amount: 20.30 }, { category: "技能订阅", amount: 14.90 }] },
-  { id: "b4", month: "2025-11", total: 28.60, status: "paid", items: [{ category: "API调用", amount: 18.60 }, { category: "技能订阅", amount: 10.00 }] },
-];
-
+// Static plans (no DB needed)
 const plans: Plan[] = [
   { id: "p1", name: "免费版", price: 0, period: "永久", features: ["1 个设备", "基础技能", "每月 500 次 API 调用", "社区支持"], limits: { devices: 1, apiCalls: 500, skills: 3 } },
   { id: "p2", name: "基础版", price: 29, period: "月", features: ["3 个设备", "全部免费技能", "每月 5,000 次 API 调用", "邮件支持", "基础数据分析"], limits: { devices: 3, apiCalls: 5000, skills: 10 } },
@@ -69,7 +46,7 @@ const plans: Plan[] = [
   { id: "p4", name: "企业版", price: 299, period: "月", features: ["无限设备", "全部技能 + 定制", "无限 API 调用", "7×24 专属支持", "完整数据分析", "SLA 保障", "私有部署选项"], limits: { devices: -1, apiCalls: -1, skills: -1 } },
 ];
 
-// Cost analysis data
+// Static cost analytics data (would be computed from real data in production)
 export const costByDevice = [
   { name: "客厅助手", value: 32 },
   { name: "办公室助手", value: 28 },
@@ -102,16 +79,18 @@ interface BillingStore {
   bills: Bill[];
   plans: Plan[];
   alertSettings: AlertSetting;
-  recharge: (amount: number) => void;
-  setCurrentPlan: (planId: string) => void;
-  updateAlertSettings: (s: Partial<AlertSetting>) => void;
+  loading: boolean;
+  fetchBilling: () => Promise<void>;
+  recharge: (amount: number) => Promise<void>;
+  setCurrentPlan: (planId: string) => Promise<void>;
+  updateAlertSettings: (s: Partial<AlertSetting>) => Promise<void>;
 }
 
-export const useBillingStore = create<BillingStore>((set) => ({
-  balance: 128.50,
+export const useBillingStore = create<BillingStore>((set, get) => ({
+  balance: 0,
   currentPlan: "p2",
-  transactions: mockTransactions,
-  bills: mockBills,
+  transactions: [],
+  bills: [],
   plans,
   alertSettings: {
     balanceThreshold: 20,
@@ -120,23 +99,122 @@ export const useBillingStore = create<BillingStore>((set) => ({
     notifySms: false,
     notifyInApp: true,
   },
-  recharge: (amount) =>
+  loading: false,
+
+  fetchBilling: async () => {
+    set({ loading: true });
+    try {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) { set({ loading: false }); return; }
+
+      // Fetch in parallel
+      const [billingRes, txRes, billsRes, alertRes] = await Promise.all([
+        supabase.from("user_billing").select("*").eq("id", user.id).maybeSingle(),
+        supabase.from("transactions").select("*").eq("user_id", user.id).order("date", { ascending: false }),
+        supabase.from("bills").select("*").eq("user_id", user.id).order("month", { ascending: false }),
+        supabase.from("alert_settings").select("*").eq("id", user.id).maybeSingle(),
+      ]);
+
+      const billing = billingRes.data;
+      const transactions: Transaction[] = (txRes.data ?? []).map((t) => ({
+        id: t.id,
+        date: t.date,
+        type: t.type as Transaction["type"],
+        description: t.description,
+        amount: Number(t.amount),
+        balance: Number(t.balance),
+        deviceId: t.device_id ?? undefined,
+        status: t.status as Transaction["status"],
+      }));
+
+      const bills: Bill[] = (billsRes.data ?? []).map((b) => ({
+        id: b.id,
+        month: b.month,
+        total: Number(b.total),
+        status: b.status as Bill["status"],
+        items: (b.items as { category: string; amount: number }[]) ?? [],
+      }));
+
+      const alert = alertRes.data;
+
+      set({
+        balance: billing ? Number(billing.balance) : 128.50,
+        currentPlan: billing?.current_plan ?? "p2",
+        transactions,
+        bills,
+        alertSettings: alert ? {
+          balanceThreshold: Number(alert.balance_threshold),
+          usageThreshold: Number(alert.usage_threshold),
+          notifyEmail: alert.notify_email,
+          notifySms: alert.notify_sms,
+          notifyInApp: alert.notify_in_app,
+        } : get().alertSettings,
+        loading: false,
+      });
+    } catch (err) {
+      console.error("fetchBilling error:", err);
+      set({ loading: false });
+    }
+  },
+
+  recharge: async (amount) => {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return;
+
+    const newBalance = get().balance + amount;
+
+    // Update balance
+    await supabase.from("user_billing").update({ balance: newBalance }).eq("id", user.id);
+
+    // Insert transaction
+    const { data } = await supabase.from("transactions").insert({
+      user_id: user.id,
+      date: new Date().toISOString(),
+      type: "recharge",
+      description: "账户充值",
+      amount,
+      balance: newBalance,
+      status: "success",
+    }).select().single();
+
+    const newTx: Transaction = {
+      id: data?.id ?? crypto.randomUUID(),
+      date: new Date().toISOString(),
+      type: "recharge",
+      description: "账户充值",
+      amount,
+      balance: newBalance,
+      status: "success",
+    };
+
     set((s) => ({
-      balance: s.balance + amount,
-      transactions: [
-        {
-          id: `t${Date.now()}`,
-          date: new Date().toISOString(),
-          type: "recharge",
-          description: "账户充值",
-          amount,
-          balance: s.balance + amount,
-          status: "success",
-        },
-        ...s.transactions,
-      ],
-    })),
-  setCurrentPlan: (planId) => set({ currentPlan: planId }),
-  updateAlertSettings: (partial) =>
-    set((s) => ({ alertSettings: { ...s.alertSettings, ...partial } })),
+      balance: newBalance,
+      transactions: [newTx, ...s.transactions],
+    }));
+  },
+
+  setCurrentPlan: async (planId) => {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return;
+    await supabase.from("user_billing").update({ current_plan: planId }).eq("id", user.id);
+    set({ currentPlan: planId });
+  },
+
+  updateAlertSettings: async (partial) => {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return;
+
+    const update: Record<string, any> = {};
+    if (partial.balanceThreshold !== undefined) update.balance_threshold = partial.balanceThreshold;
+    if (partial.usageThreshold !== undefined) update.usage_threshold = partial.usageThreshold;
+    if (partial.notifyEmail !== undefined) update.notify_email = partial.notifyEmail;
+    if (partial.notifySms !== undefined) update.notify_sms = partial.notifySms;
+    if (partial.notifyInApp !== undefined) update.notify_in_app = partial.notifyInApp;
+
+    if (Object.keys(update).length > 0) {
+      await supabase.from("alert_settings").update(update).eq("id", user.id);
+    }
+
+    set((s) => ({ alertSettings: { ...s.alertSettings, ...partial } }));
+  },
 }));

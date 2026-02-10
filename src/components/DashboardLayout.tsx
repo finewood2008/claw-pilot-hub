@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { useInitData } from "@/hooks/useInitData";
 
 const navItems = [
   { title: "仪表板", icon: LayoutDashboard, path: "/dashboard" },
@@ -35,6 +36,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
   const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  useInitData();
 
   const handleLogout = async () => { await logout(); navigate("/login"); };
 
