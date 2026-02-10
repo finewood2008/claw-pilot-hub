@@ -9,7 +9,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ForgotPassword from "./pages/ForgotPassword";
 import DashboardHome from "./pages/DashboardHome";
-import PlaceholderPage from "@/components/PlaceholderPage";
+import SettingsPage from "./pages/SettingsPage";
 import DeviceList from "./pages/DeviceList";
 import DeviceDetail from "./pages/DeviceDetail";
 import SkillMarket from "./pages/SkillMarket";
@@ -39,7 +39,7 @@ const App = () => (
             <Route path="/dashboard/market/:id" element={<ProtectedRoute><SkillDetail /></ProtectedRoute>} />
             <Route path="/dashboard/skills" element={<ProtectedRoute><SkillManagement /></ProtectedRoute>} />
             <Route path="/dashboard/billing" element={<ProtectedRoute><BillingPage /></ProtectedRoute>} />
-            <Route path="/dashboard/settings" element={<ProtectedRoute><PlaceholderPage title="账户设置" description="管理你的账户信息" /></ProtectedRoute>} />
+            <Route path="/dashboard/settings" element={<ProtectedRoute><SettingsPage /></ProtectedRoute>} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </AuthProvider>
