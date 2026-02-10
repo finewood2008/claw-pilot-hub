@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { supabase } from "@/integrations/supabase/client";
 
 export interface Device {
   id: string;
@@ -17,130 +18,143 @@ export interface Device {
   configHistory: { date: string; summary: string }[];
 }
 
-const now = new Date().toISOString();
-
-const mockDevices: Device[] = [
-  {
-    id: "d1",
-    name: "客厅助手",
-    mac: "AA:BB:CC:DD:EE:01",
-    status: "online",
-    type: "personal",
-    description: "放置在客厅的AI助手设备",
-    ip: "192.168.1.101",
-    createdAt: "2025-11-20T08:30:00Z",
-    lastActiveAt: now,
-    cpu: 32,
-    memory: 58,
-    disk: 41,
-    skills: [
-      { name: "天气查询", version: "v1.3" },
-      { name: "音乐播放", version: "v2.0" },
-      { name: "日程管理", version: "v2.1" },
-    ],
-    configHistory: [
-      { date: "2026-02-08", summary: "更新唤醒词为「小爪」" },
-      { date: "2026-01-15", summary: "启用静音模式" },
-    ],
-  },
-  {
-    id: "d2",
-    name: "办公室助手",
-    mac: "AA:BB:CC:DD:EE:02",
-    status: "online",
-    type: "enterprise",
-    description: "办公室会议室的AI助手",
-    ip: "10.0.0.55",
-    createdAt: "2025-12-05T14:00:00Z",
-    lastActiveAt: "2026-02-10T09:15:00Z",
-    cpu: 15,
-    memory: 33,
-    disk: 22,
-    skills: [
-      { name: "会议记录", version: "v1.0" },
-      { name: "翻译助手", version: "v3.2" },
-    ],
-    configHistory: [
-      { date: "2026-02-01", summary: "配置企业API密钥" },
-    ],
-  },
-  {
-    id: "d3",
-    name: "测试设备 Alpha",
-    mac: "AA:BB:CC:DD:EE:03",
-    status: "offline",
-    type: "test",
-    description: "内部测试用设备",
-    ip: "192.168.2.200",
-    createdAt: "2026-01-10T10:00:00Z",
-    lastActiveAt: "2026-02-05T18:30:00Z",
-    cpu: 0,
-    memory: 0,
-    disk: 55,
-    skills: [
-      { name: "语音识别", version: "v0.9-beta" },
-    ],
-    configHistory: [],
-  },
-  {
-    id: "d4",
-    name: "卧室助手",
-    mac: "AA:BB:CC:DD:EE:04",
-    status: "online",
-    type: "personal",
-    description: "卧室床头的AI助手",
-    ip: "192.168.1.102",
-    createdAt: "2026-01-25T20:00:00Z",
-    lastActiveAt: now,
-    cpu: 8,
-    memory: 25,
-    disk: 18,
-    skills: [
-      { name: "闹钟", version: "v1.1" },
-      { name: "白噪音", version: "v1.0" },
-      { name: "天气查询", version: "v1.3" },
-      { name: "智能家居", version: "v2.0" },
-    ],
-    configHistory: [
-      { date: "2026-02-09", summary: "设置夜间免打扰 22:00-7:00" },
-    ],
-  },
-];
-
 interface DeviceStore {
   devices: Device[];
-  addDevice: (d: Omit<Device, "id" | "createdAt" | "lastActiveAt" | "cpu" | "memory" | "disk" | "skills" | "configHistory" | "ip">) => void;
-  removeDevice: (id: string) => void;
-  removeDevices: (ids: string[]) => void;
-  updateDevice: (id: string, partial: Partial<Device>) => void;
+  loading: boolean;
+  fetchDevices: () => Promise<void>;
+  addDevice: (d: Omit<Device, "id" | "createdAt" | "lastActiveAt" | "cpu" | "memory" | "disk" | "skills" | "configHistory" | "ip">) => Promise<void>;
+  removeDevice: (id: string) => Promise<void>;
+  removeDevices: (ids: string[]) => Promise<void>;
+  updateDevice: (id: string, partial: Partial<Device>) => Promise<void>;
 }
 
-let counter = 5;
+export const useDeviceStore = create<DeviceStore>((set, get) => ({
+  devices: [],
+  loading: false,
 
-export const useDeviceStore = create<DeviceStore>((set) => ({
-  devices: mockDevices,
-  addDevice: (d) =>
-    set((s) => ({
-      devices: [
-        ...s.devices,
-        {
-          ...d,
-          id: `d${counter++}`,
-          createdAt: new Date().toISOString(),
-          lastActiveAt: new Date().toISOString(),
-          ip: "0.0.0.0",
-          cpu: 0,
-          memory: 0,
-          disk: 0,
-          skills: [],
-          configHistory: [],
-        },
-      ],
-    })),
-  removeDevice: (id) => set((s) => ({ devices: s.devices.filter((d) => d.id !== id) })),
-  removeDevices: (ids) => set((s) => ({ devices: s.devices.filter((d) => !ids.includes(d.id)) })),
-  updateDevice: (id, partial) =>
+  fetchDevices: async () => {
+    set({ loading: true });
+    try {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) { set({ loading: false }); return; }
+
+      const { data: devicesData } = await supabase
+        .from("devices")
+        .select("*")
+        .eq("user_id", user.id)
+        .order("created_at", { ascending: true });
+
+      if (!devicesData) { set({ loading: false }); return; }
+
+      const { data: skillsData } = await supabase
+        .from("installed_skills")
+        .select("device_id, skill_id, version")
+        .eq("user_id", user.id);
+
+      const { data: historyData } = await supabase
+        .from("device_config_history")
+        .select("device_id, summary, created_at")
+        .eq("user_id", user.id)
+        .order("created_at", { ascending: false });
+
+      // Static skill name map
+      const skillNames: Record<string, string> = {
+        s1: "天气查询", s2: "音乐播放", s3: "日程管理", s4: "会议记录",
+        s5: "翻译助手", s6: "智能家居", s7: "语音识别", s8: "新闻播报",
+        s9: "闹钟", s10: "白噪音", s11: "代码助手", s12: "邮件管理",
+      };
+
+      const devices: Device[] = devicesData.map((d) => ({
+        id: d.id,
+        name: d.name,
+        mac: d.mac ?? "",
+        status: (d.status as "online" | "offline") ?? "offline",
+        type: (d.type as "personal" | "enterprise" | "test") ?? "personal",
+        description: d.description ?? "",
+        ip: d.ip ?? "0.0.0.0",
+        createdAt: d.created_at,
+        lastActiveAt: d.last_active_at,
+        cpu: Number(d.cpu) || 0,
+        memory: Number(d.memory) || 0,
+        disk: Number(d.disk) || 0,
+        skills: (skillsData ?? [])
+          .filter((s) => s.device_id === d.id)
+          .map((s) => ({ name: skillNames[s.skill_id] ?? s.skill_id, version: s.version })),
+        configHistory: (historyData ?? [])
+          .filter((h) => h.device_id === d.id)
+          .map((h) => ({ date: h.created_at.split("T")[0], summary: h.summary })),
+      }));
+
+      set({ devices, loading: false });
+    } catch (err) {
+      console.error("fetchDevices error:", err);
+      set({ loading: false });
+    }
+  },
+
+  addDevice: async (d) => {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return;
+
+    const { data, error } = await supabase
+      .from("devices")
+      .insert({
+        user_id: user.id,
+        name: d.name,
+        mac: d.mac,
+        status: d.status,
+        type: d.type,
+        description: d.description,
+      })
+      .select()
+      .single();
+
+    if (error || !data) { console.error("addDevice error:", error); return; }
+
+    const newDevice: Device = {
+      id: data.id,
+      name: data.name,
+      mac: data.mac ?? "",
+      status: (data.status as "online" | "offline") ?? "offline",
+      type: (data.type as "personal" | "enterprise" | "test") ?? "personal",
+      description: data.description ?? "",
+      ip: data.ip ?? "0.0.0.0",
+      createdAt: data.created_at,
+      lastActiveAt: data.last_active_at,
+      cpu: 0, memory: 0, disk: 0,
+      skills: [],
+      configHistory: [],
+    };
+    set((s) => ({ devices: [...s.devices, newDevice] }));
+  },
+
+  removeDevice: async (id) => {
+    await supabase.from("devices").delete().eq("id", id);
+    set((s) => ({ devices: s.devices.filter((d) => d.id !== id) }));
+  },
+
+  removeDevices: async (ids) => {
+    await supabase.from("devices").delete().in("id", ids);
+    set((s) => ({ devices: s.devices.filter((d) => !ids.includes(d.id)) }));
+  },
+
+  updateDevice: async (id, partial) => {
+    const update: Record<string, any> = {};
+    if (partial.name !== undefined) update.name = partial.name;
+    if (partial.mac !== undefined) update.mac = partial.mac;
+    if (partial.status !== undefined) update.status = partial.status;
+    if (partial.type !== undefined) update.type = partial.type;
+    if (partial.description !== undefined) update.description = partial.description;
+    if (partial.ip !== undefined) update.ip = partial.ip;
+    if (partial.cpu !== undefined) update.cpu = partial.cpu;
+    if (partial.memory !== undefined) update.memory = partial.memory;
+    if (partial.disk !== undefined) update.disk = partial.disk;
+
+    if (Object.keys(update).length > 0) {
+      await supabase.from("devices").update(update).eq("id", id);
+    }
     set((s) => ({
       devices: s.devices.map((d) => (d.id === id ? { ...d, ...partial } : d)),
-    })),
+    }));
+  },
 }));

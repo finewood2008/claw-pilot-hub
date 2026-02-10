@@ -14,6 +14,190 @@ export type Database = {
   }
   public: {
     Tables: {
+      alert_settings: {
+        Row: {
+          balance_threshold: number
+          id: string
+          notify_email: boolean
+          notify_in_app: boolean
+          notify_sms: boolean
+          updated_at: string
+          usage_threshold: number
+        }
+        Insert: {
+          balance_threshold?: number
+          id: string
+          notify_email?: boolean
+          notify_in_app?: boolean
+          notify_sms?: boolean
+          updated_at?: string
+          usage_threshold?: number
+        }
+        Update: {
+          balance_threshold?: number
+          id?: string
+          notify_email?: boolean
+          notify_in_app?: boolean
+          notify_sms?: boolean
+          updated_at?: string
+          usage_threshold?: number
+        }
+        Relationships: []
+      }
+      bills: {
+        Row: {
+          created_at: string
+          id: string
+          items: Json | null
+          month: string
+          status: string
+          total: number
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          items?: Json | null
+          month: string
+          status?: string
+          total?: number
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          items?: Json | null
+          month?: string
+          status?: string
+          total?: number
+          user_id?: string
+        }
+        Relationships: []
+      }
+      device_config_history: {
+        Row: {
+          created_at: string
+          device_id: string
+          id: string
+          summary: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          device_id: string
+          id?: string
+          summary: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          device_id?: string
+          id?: string
+          summary?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "device_config_history_device_id_fkey"
+            columns: ["device_id"]
+            isOneToOne: false
+            referencedRelation: "devices"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      devices: {
+        Row: {
+          cpu: number | null
+          created_at: string
+          description: string | null
+          disk: number | null
+          id: string
+          ip: string | null
+          last_active_at: string
+          mac: string
+          memory: number | null
+          name: string
+          status: string
+          type: string
+          user_id: string
+        }
+        Insert: {
+          cpu?: number | null
+          created_at?: string
+          description?: string | null
+          disk?: number | null
+          id?: string
+          ip?: string | null
+          last_active_at?: string
+          mac?: string
+          memory?: number | null
+          name: string
+          status?: string
+          type?: string
+          user_id: string
+        }
+        Update: {
+          cpu?: number | null
+          created_at?: string
+          description?: string | null
+          disk?: number | null
+          id?: string
+          ip?: string | null
+          last_active_at?: string
+          mac?: string
+          memory?: number | null
+          name?: string
+          status?: string
+          type?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      installed_skills: {
+        Row: {
+          config: Json | null
+          config_schema: Json | null
+          device_id: string
+          enabled: boolean
+          id: string
+          installed_at: string
+          skill_id: string
+          user_id: string
+          version: string
+        }
+        Insert: {
+          config?: Json | null
+          config_schema?: Json | null
+          device_id: string
+          enabled?: boolean
+          id?: string
+          installed_at?: string
+          skill_id: string
+          user_id: string
+          version?: string
+        }
+        Update: {
+          config?: Json | null
+          config_schema?: Json | null
+          device_id?: string
+          enabled?: boolean
+          id?: string
+          installed_at?: string
+          skill_id?: string
+          user_id?: string
+          version?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "installed_skills_device_id_fkey"
+            columns: ["device_id"]
+            isOneToOne: false
+            referencedRelation: "devices"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
           avatar_url: string | null
@@ -41,6 +225,77 @@ export type Database = {
           phone?: string | null
           updated_at?: string
           username?: string
+        }
+        Relationships: []
+      }
+      transactions: {
+        Row: {
+          amount: number
+          balance: number
+          created_at: string
+          date: string
+          description: string
+          device_id: string | null
+          id: string
+          status: string
+          type: string
+          user_id: string
+        }
+        Insert: {
+          amount?: number
+          balance?: number
+          created_at?: string
+          date?: string
+          description?: string
+          device_id?: string | null
+          id?: string
+          status?: string
+          type: string
+          user_id: string
+        }
+        Update: {
+          amount?: number
+          balance?: number
+          created_at?: string
+          date?: string
+          description?: string
+          device_id?: string | null
+          id?: string
+          status?: string
+          type?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "transactions_device_id_fkey"
+            columns: ["device_id"]
+            isOneToOne: false
+            referencedRelation: "devices"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      user_billing: {
+        Row: {
+          balance: number
+          created_at: string
+          current_plan: string
+          id: string
+          updated_at: string
+        }
+        Insert: {
+          balance?: number
+          created_at?: string
+          current_plan?: string
+          id: string
+          updated_at?: string
+        }
+        Update: {
+          balance?: number
+          created_at?: string
+          current_plan?: string
+          id?: string
+          updated_at?: string
         }
         Relationships: []
       }

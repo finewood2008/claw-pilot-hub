@@ -1,9 +1,10 @@
 import { create } from "zustand";
+import { supabase } from "@/integrations/supabase/client";
 
 export interface MarketSkill {
   id: string;
   name: string;
-  icon: string; // lucide icon name
+  icon: string;
   category: string;
   description: string;
   longDescription: string;
@@ -19,6 +20,7 @@ export interface MarketSkill {
 }
 
 export interface InstalledSkill {
+  id?: string; // DB row id
   skillId: string;
   deviceId: string;
   installedAt: string;
@@ -36,6 +38,7 @@ export interface ConfigField {
   defaultValue: string | number | boolean;
 }
 
+// ====== STATIC MARKET DATA (no DB needed) ======
 const marketSkills: MarketSkill[] = [
   {
     id: "s1", name: "天气查询", icon: "CloudSun", category: "数据处理",
@@ -56,9 +59,7 @@ const marketSkills: MarketSkill[] = [
     version: "v2.0", developer: "Q-CLAW 官方", publishedAt: "2025-11-20",
     rating: 4.5, ratingCount: 562, installs: 23400, requirements: "固件 >= 2.0，需要音频输出",
     features: ["语音点歌", "歌单管理", "个性化推荐", "高品质音频", "蓝牙输出"],
-    reviews: [
-      { user: "李华", rating: 5, comment: "音质不错，推荐很准", date: "2026-02-05" },
-    ],
+    reviews: [{ user: "李华", rating: 5, comment: "音质不错，推荐很准", date: "2026-02-05" }],
   },
   {
     id: "s3", name: "日程管理", icon: "CalendarDays", category: "自动化",
@@ -79,9 +80,7 @@ const marketSkills: MarketSkill[] = [
     version: "v1.0", developer: "效率工坊", publishedAt: "2026-01-05",
     rating: 4.3, ratingCount: 89, installs: 3200, requirements: "固件 >= 2.1，需要麦克风",
     features: ["实时记录", "摘要生成", "多人识别", "关键词提取", "纪要分发"],
-    reviews: [
-      { user: "陈七", rating: 4, comment: "多人识别准确率还行", date: "2026-02-03" },
-    ],
+    reviews: [{ user: "陈七", rating: 4, comment: "多人识别准确率还行", date: "2026-02-03" }],
   },
   {
     id: "s5", name: "翻译助手", icon: "Languages", category: "通讯",
@@ -90,9 +89,7 @@ const marketSkills: MarketSkill[] = [
     version: "v3.2", developer: "LinguaTech", publishedAt: "2025-09-01",
     rating: 4.6, ratingCount: 445, installs: 18700, requirements: "固件 >= 1.5",
     features: ["50+语言", "实时对话翻译", "离线模式", "口语优化", "文档翻译"],
-    reviews: [
-      { user: "林八", rating: 5, comment: "出国旅游必备", date: "2026-01-10" },
-    ],
+    reviews: [{ user: "林八", rating: 5, comment: "出国旅游必备", date: "2026-01-10" }],
   },
   {
     id: "s6", name: "智能家居", icon: "Home", category: "自动化",
@@ -101,9 +98,7 @@ const marketSkills: MarketSkill[] = [
     version: "v2.0", developer: "Q-CLAW 官方", publishedAt: "2025-08-20",
     rating: 4.4, ratingCount: 670, installs: 31200, requirements: "固件 >= 1.5，需要WiFi",
     features: ["多协议兼容", "场景联动", "定时任务", "语音控制", "能耗监控"],
-    reviews: [
-      { user: "周九", rating: 4, comment: "兼容性很好，就是配置稍复杂", date: "2026-01-25" },
-    ],
+    reviews: [{ user: "周九", rating: 4, comment: "兼容性很好，就是配置稍复杂", date: "2026-01-25" }],
   },
   {
     id: "s7", name: "语音识别", icon: "Mic", category: "开发工具",
@@ -121,9 +116,7 @@ const marketSkills: MarketSkill[] = [
     version: "v1.5", developer: "InfoStream", publishedAt: "2025-11-01",
     rating: 4.2, ratingCount: 180, installs: 7600, requirements: "固件 >= 2.0",
     features: ["个性化推送", "分类订阅", "定时播报", "智能摘要", "离线缓存"],
-    reviews: [
-      { user: "吴十", rating: 4, comment: "内容丰富，摘要功能很实用", date: "2026-02-07" },
-    ],
+    reviews: [{ user: "吴十", rating: 4, comment: "内容丰富，摘要功能很实用", date: "2026-02-07" }],
   },
   {
     id: "s9", name: "闹钟", icon: "AlarmClock", category: "自动化",
@@ -132,9 +125,7 @@ const marketSkills: MarketSkill[] = [
     version: "v1.1", developer: "Q-CLAW 官方", publishedAt: "2025-07-15",
     rating: 4.9, ratingCount: 890, installs: 42000, requirements: "固件 >= 1.0",
     features: ["智能唤醒", "多种铃声", "渐强模式", "日程联动", "贪睡设置"],
-    reviews: [
-      { user: "孙一", rating: 5, comment: "渐强唤醒太舒服了", date: "2026-02-08" },
-    ],
+    reviews: [{ user: "孙一", rating: 5, comment: "渐强唤醒太舒服了", date: "2026-02-08" }],
   },
   {
     id: "s10", name: "白噪音", icon: "Waves", category: "娱乐",
@@ -143,9 +134,7 @@ const marketSkills: MarketSkill[] = [
     version: "v1.0", developer: "SleepWell", publishedAt: "2025-12-20",
     rating: 4.6, ratingCount: 310, installs: 15800, requirements: "固件 >= 1.5，需要音频输出",
     features: ["50+音效", "混合播放", "定时关闭", "音量渐弱", "睡眠统计"],
-    reviews: [
-      { user: "郑二", rating: 5, comment: "睡眠质量明显改善", date: "2026-01-30" },
-    ],
+    reviews: [{ user: "郑二", rating: 5, comment: "睡眠质量明显改善", date: "2026-01-30" }],
   },
   {
     id: "s11", name: "代码助手", icon: "Code", category: "开发工具",
@@ -163,78 +152,138 @@ const marketSkills: MarketSkill[] = [
     version: "v1.8", developer: "MailPro", publishedAt: "2025-10-30",
     rating: 4.3, ratingCount: 155, installs: 6400, requirements: "固件 >= 2.0",
     features: ["智能分类", "语音回复", "垃圾过滤", "即时提醒", "多账户支持"],
-    reviews: [
-      { user: "冯三", rating: 4, comment: "分类很准确，节省了大量时间", date: "2026-02-02" },
-    ],
+    reviews: [{ user: "冯三", rating: 4, comment: "分类很准确，节省了大量时间", date: "2026-02-02" }],
   },
 ];
 
 const categories = ["全部", "自动化", "数据处理", "通讯", "开发工具", "娱乐"];
 
-// Pre-computed installed skills matching existing device data
-const initialInstalled: InstalledSkill[] = [
-  // 客厅助手 d1
-  { skillId: "s1", deviceId: "d1", installedAt: "2026-01-10", enabled: true, version: "v1.3", config: { city: "北京", interval: 60 }, configSchema: [{ key: "city", label: "默认城市", type: "text", defaultValue: "北京" }, { key: "interval", label: "更新间隔(分钟)", type: "number", defaultValue: 60 }] },
-  { skillId: "s2", deviceId: "d1", installedAt: "2026-01-12", enabled: true, version: "v2.0", config: { quality: "high" }, configSchema: [{ key: "quality", label: "音质", type: "select", options: ["low", "medium", "high"], defaultValue: "high" }] },
-  { skillId: "s3", deviceId: "d1", installedAt: "2026-01-15", enabled: true, version: "v2.1", config: {}, configSchema: [] },
-  // 办公室助手 d2
-  { skillId: "s4", deviceId: "d2", installedAt: "2026-01-20", enabled: true, version: "v1.0", config: { autoSummary: true }, configSchema: [{ key: "autoSummary", label: "自动生成摘要", type: "boolean", defaultValue: true }] },
-  { skillId: "s5", deviceId: "d2", installedAt: "2026-01-22", enabled: true, version: "v3.2", config: { targetLang: "英语" }, configSchema: [{ key: "targetLang", label: "目标语言", type: "text", defaultValue: "英语" }] },
-  // 测试设备 d3
-  { skillId: "s7", deviceId: "d3", installedAt: "2026-02-01", enabled: false, version: "v0.9-beta", config: {}, configSchema: [] },
-  // 卧室助手 d4
-  { skillId: "s9", deviceId: "d4", installedAt: "2026-01-26", enabled: true, version: "v1.1", config: { mode: "gradual" }, configSchema: [{ key: "mode", label: "唤醒模式", type: "select", options: ["normal", "gradual", "natural"], defaultValue: "gradual" }] },
-  { skillId: "s10", deviceId: "d4", installedAt: "2026-01-27", enabled: true, version: "v1.0", config: { timer: 30 }, configSchema: [{ key: "timer", label: "定时关闭(分钟)", type: "number", defaultValue: 30 }] },
-  { skillId: "s1", deviceId: "d4", installedAt: "2026-01-28", enabled: true, version: "v1.3", config: { city: "上海" }, configSchema: [{ key: "city", label: "默认城市", type: "text", defaultValue: "北京" }] },
-  { skillId: "s6", deviceId: "d4", installedAt: "2026-01-30", enabled: true, version: "v2.0", config: {}, configSchema: [] },
-];
-
 interface SkillStore {
   marketSkills: MarketSkill[];
   categories: string[];
   installed: InstalledSkill[];
-  installSkill: (skillId: string, deviceIds: string[]) => void;
-  uninstallSkill: (skillId: string, deviceId: string) => void;
-  toggleSkill: (skillId: string, deviceId: string) => void;
-  updateSkillConfig: (skillId: string, deviceId: string, config: Record<string, string | number | boolean>) => void;
+  loading: boolean;
+  fetchInstalled: () => Promise<void>;
+  installSkill: (skillId: string, deviceIds: string[]) => Promise<void>;
+  uninstallSkill: (skillId: string, deviceId: string) => Promise<void>;
+  toggleSkill: (skillId: string, deviceId: string) => Promise<void>;
+  updateSkillConfig: (skillId: string, deviceId: string, config: Record<string, string | number | boolean>) => Promise<void>;
 }
 
 export const useSkillStore = create<SkillStore>((set, get) => ({
   marketSkills,
   categories,
-  installed: initialInstalled,
-  installSkill: (skillId, deviceIds) => {
+  installed: [],
+  loading: false,
+
+  fetchInstalled: async () => {
+    set({ loading: true });
+    try {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) { set({ loading: false }); return; }
+
+      const { data } = await supabase
+        .from("installed_skills")
+        .select("*")
+        .eq("user_id", user.id);
+
+      const installed: InstalledSkill[] = (data ?? []).map((row) => ({
+        id: row.id,
+        skillId: row.skill_id,
+        deviceId: row.device_id,
+        installedAt: row.installed_at.split("T")[0],
+        enabled: row.enabled,
+        version: row.version,
+        config: (row.config as unknown as Record<string, string | number | boolean>) ?? {},
+        configSchema: (row.config_schema as unknown as ConfigField[]) ?? [],
+      }));
+
+      set({ installed, loading: false });
+    } catch (err) {
+      console.error("fetchInstalled error:", err);
+      set({ loading: false });
+    }
+  },
+
+  installSkill: async (skillId, deviceIds) => {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return;
+
     const skill = get().marketSkills.find((s) => s.id === skillId);
     if (!skill) return;
-    set((state) => ({
-      installed: [
-        ...state.installed,
-        ...deviceIds
-          .filter((did) => !state.installed.some((i) => i.skillId === skillId && i.deviceId === did))
-          .map((did) => ({
-            skillId,
-            deviceId: did,
-            installedAt: new Date().toISOString().split("T")[0],
-            enabled: true,
-            version: skill.version,
-            config: {},
-            configSchema: [],
-          })),
-      ],
+
+    const existing = get().installed;
+    const newDeviceIds = deviceIds.filter(
+      (did) => !existing.some((i) => i.skillId === skillId && i.deviceId === did)
+    );
+
+    if (newDeviceIds.length === 0) return;
+
+    const rows = newDeviceIds.map((did) => ({
+      user_id: user.id,
+      device_id: did,
+      skill_id: skillId,
+      version: skill.version,
+      config: {},
+      config_schema: [],
+    }));
+
+    const { data, error } = await supabase.from("installed_skills").insert(rows).select();
+    if (error) { console.error("installSkill error:", error); return; }
+
+    const newInstalled: InstalledSkill[] = (data ?? []).map((row) => ({
+      id: row.id,
+      skillId: row.skill_id,
+      deviceId: row.device_id,
+      installedAt: row.installed_at.split("T")[0],
+      enabled: true,
+      version: row.version,
+      config: {},
+      configSchema: [],
+    }));
+
+    set((s) => ({ installed: [...s.installed, ...newInstalled] }));
+  },
+
+  uninstallSkill: async (skillId, deviceId) => {
+    await supabase
+      .from("installed_skills")
+      .delete()
+      .eq("skill_id", skillId)
+      .eq("device_id", deviceId);
+    set((s) => ({
+      installed: s.installed.filter((i) => !(i.skillId === skillId && i.deviceId === deviceId)),
     }));
   },
-  uninstallSkill: (skillId, deviceId) =>
-    set((s) => ({ installed: s.installed.filter((i) => !(i.skillId === skillId && i.deviceId === deviceId)) })),
-  toggleSkill: (skillId, deviceId) =>
+
+  toggleSkill: async (skillId, deviceId) => {
+    const inst = get().installed.find((i) => i.skillId === skillId && i.deviceId === deviceId);
+    if (!inst) return;
+
+    await supabase
+      .from("installed_skills")
+      .update({ enabled: !inst.enabled })
+      .eq("skill_id", skillId)
+      .eq("device_id", deviceId);
+
     set((s) => ({
       installed: s.installed.map((i) =>
         i.skillId === skillId && i.deviceId === deviceId ? { ...i, enabled: !i.enabled } : i
       ),
-    })),
-  updateSkillConfig: (skillId, deviceId, config) =>
+    }));
+  },
+
+  updateSkillConfig: async (skillId, deviceId, config) => {
+    await supabase
+      .from("installed_skills")
+      .update({ config })
+      .eq("skill_id", skillId)
+      .eq("device_id", deviceId);
+
     set((s) => ({
       installed: s.installed.map((i) =>
         i.skillId === skillId && i.deviceId === deviceId ? { ...i, config } : i
       ),
-    })),
+    }));
+  },
 }));
