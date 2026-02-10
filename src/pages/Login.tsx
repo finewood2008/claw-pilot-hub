@@ -15,9 +15,15 @@ const Login = () => {
   const [showPw, setShowPw] = useState(false);
   const [remember, setRemember] = useState(false);
   const [loading, setLoading] = useState(false);
-  const { login } = useAuth();
+  const { login, isAuthenticated } = useAuth();
   const navigate = useNavigate();
   const { toast } = useToast();
+
+  // Redirect if already logged in
+  if (isAuthenticated) {
+    navigate("/dashboard", { replace: true });
+    return null;
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,8 +35,8 @@ const Login = () => {
     try {
       await login(email, password);
       navigate("/dashboard");
-    } catch {
-      toast({ title: "登录失败", variant: "destructive" });
+    } catch (err: any) {
+      toast({ title: "登录失败", description: err?.message || "请检查邮箱和密码", variant: "destructive" });
     } finally {
       setLoading(false);
     }
@@ -45,8 +51,8 @@ const Login = () => {
 
       <form onSubmit={handleSubmit} className="space-y-5">
         <div className="space-y-2">
-          <Label htmlFor="email">邮箱 / 用户名</Label>
-          <Input id="email" placeholder="your@email.com" value={email} onChange={(e) => setEmail(e.target.value)} />
+          <Label htmlFor="email">邮箱</Label>
+          <Input id="email" type="email" placeholder="your@email.com" value={email} onChange={(e) => setEmail(e.target.value)} />
         </div>
 
         <div className="space-y-2">
