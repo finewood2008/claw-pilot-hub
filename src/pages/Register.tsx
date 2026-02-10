@@ -39,6 +39,10 @@ const Register = () => {
       toast({ title: "请填写所有字段", variant: "destructive" });
       return;
     }
+    if (password.length < 6) {
+      toast({ title: "密码至少需要6个字符", variant: "destructive" });
+      return;
+    }
     if (password !== confirmPw) {
       toast({ title: "两次密码不一致", variant: "destructive" });
       return;
@@ -50,9 +54,10 @@ const Register = () => {
     setLoading(true);
     try {
       await register(email, username, password);
+      toast({ title: "注册成功", description: "欢迎加入 Q-CLAW！" });
       navigate("/dashboard");
-    } catch {
-      toast({ title: "注册失败", variant: "destructive" });
+    } catch (err: any) {
+      toast({ title: "注册失败", description: err?.message || "请稍后再试", variant: "destructive" });
     } finally {
       setLoading(false);
     }
