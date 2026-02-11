@@ -195,11 +195,25 @@ const Index = () => {
             </div>
           </div>
 
-          {/* 层间连接线 1→2 */}
-          <div className="flex justify-center my-1">
-            <div className="flex flex-col items-center">
-              <div className="w-px h-8 border-l-2 border-dashed border-blue-500/30 animate-dash-flow" />
-              <div className="w-0 h-0 border-l-[5px] border-r-[5px] border-t-[6px] border-l-transparent border-r-transparent border-t-blue-500/40" />
+          {/* 层间连接线 1→2：双向业务流 */}
+          <div className="flex justify-center my-2">
+            <div className="flex items-center gap-6">
+              {/* 左线：API 请求 ↓ */}
+              <div className="flex flex-col items-center gap-1">
+                <span className="text-[10px] text-blue-400/70 tracking-wide">API 请求 ↓</span>
+                <svg width="2" height="40" className="overflow-visible">
+                  <line x1="1" y1="0" x2="1" y2="40" stroke="hsl(217 91% 55%)" strokeWidth="2" strokeDasharray="6 4" strokeOpacity="0.5" className="animate-dash-flow" />
+                  <circle cx="1" cy="0" r="3" fill="hsl(217 91% 60%)" fillOpacity="0.8" className="animate-flow-dot-down" />
+                </svg>
+              </div>
+              {/* 右线：模型响应 ↑ */}
+              <div className="flex flex-col items-center gap-1">
+                <span className="text-[10px] text-cyan-400/70 tracking-wide">↑ 模型响应</span>
+                <svg width="2" height="40" className="overflow-visible">
+                  <line x1="1" y1="0" x2="1" y2="40" stroke="hsl(199 89% 48%)" strokeWidth="2" strokeDasharray="6 4" strokeOpacity="0.5" className="animate-dash-flow-reverse" />
+                  <circle cx="1" cy="0" r="3" fill="hsl(199 89% 55%)" fillOpacity="0.8" className="animate-flow-dot-up" />
+                </svg>
+              </div>
             </div>
           </div>
 
@@ -246,11 +260,25 @@ const Index = () => {
             </div>
           </div>
 
-          {/* 层间连接线 2→3 */}
-          <div className="flex justify-center my-1">
-            <div className="flex flex-col items-center">
-              <div className="w-px h-8 border-l-2 border-dashed border-purple-500/30 animate-dash-flow" />
-              <div className="w-0 h-0 border-l-[5px] border-r-[5px] border-t-[6px] border-l-transparent border-r-transparent border-t-purple-500/40" />
+          {/* 层间连接线 2→3：双向业务流 */}
+          <div className="flex justify-center my-2">
+            <div className="flex items-center gap-6">
+              {/* 左线：指令下发 ↓ */}
+              <div className="flex flex-col items-center gap-1">
+                <span className="text-[10px] text-purple-400/70 tracking-wide">指令下发 ↓</span>
+                <svg width="2" height="40" className="overflow-visible">
+                  <line x1="1" y1="0" x2="1" y2="40" stroke="hsl(270 70% 55%)" strokeWidth="2" strokeDasharray="6 4" strokeOpacity="0.5" className="animate-dash-flow" />
+                  <circle cx="1" cy="0" r="3" fill="hsl(270 70% 60%)" fillOpacity="0.8" className="animate-flow-dot-down" />
+                </svg>
+              </div>
+              {/* 右线：消息上报 ↑ */}
+              <div className="flex flex-col items-center gap-1">
+                <span className="text-[10px] text-fuchsia-400/70 tracking-wide">↑ 消息上报</span>
+                <svg width="2" height="40" className="overflow-visible">
+                  <line x1="1" y1="0" x2="1" y2="40" stroke="hsl(292 70% 50%)" strokeWidth="2" strokeDasharray="6 4" strokeOpacity="0.5" className="animate-dash-flow-reverse" />
+                  <circle cx="1" cy="0" r="3" fill="hsl(292 70% 55%)" fillOpacity="0.8" className="animate-flow-dot-up" />
+                </svg>
+              </div>
             </div>
           </div>
 
