@@ -301,12 +301,15 @@ const Index = () => {
             </div>
           </div>
 
-          {/* === SVG 连接线 C：OPENCLAW → LLM（向上偏右，最醒目）=== */}
-          <div className="relative h-16 hidden md:block" style={{ marginTop: '-80px', marginBottom: '64px' }}>
-            <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
-              <line x1="70%" y1="100%" x2="75%" y2="0" stroke="rgba(168,85,247,0.5)" strokeWidth="3" strokeDasharray="8 4" className="animate-dash-flow-reverse" />
+          {/* === SVG 连接线 C：OPENCLAW → LLM（右侧上行，最醒目）=== */}
+          <div className="relative h-20 hidden md:block">
+            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1000 100" preserveAspectRatio="none">
+              <line x1="780" y1="100" x2="820" y2="0" stroke="rgba(168,85,247,0.5)" strokeWidth="4" strokeDasharray="8 4" className="animate-dash-flow-reverse" />
+              <polygon points="817,8 823,8 820,0" fill="rgba(168,85,247,0.5)" />
             </svg>
-            <div className="absolute right-[18%] top-1/2 -translate-y-1/2 text-[10px] text-purple-400/80 bg-[#0a0e1a]/80 px-2 py-0.5 rounded whitespace-nowrap font-medium">↑ API 直连（数据不经过平台）</div>
+            <div className="absolute right-[4%] top-1/2 -translate-y-1/2 text-[10px] text-purple-400 bg-[#0a0e1a]/90 px-2.5 py-1 rounded border border-purple-500/20 whitespace-nowrap font-medium">
+              ↑ API 直连（数据不经过平台）
+            </div>
           </div>
 
           {/* === SVG 连接线 D：接入终端 → OPENCLAW（向上）=== */}
