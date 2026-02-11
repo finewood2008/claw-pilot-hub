@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { GeminiIcon, OpenAIIcon, QwenIcon, ClaudeIcon, DeepSeekIcon, LlamaIcon } from "@/components/icons/LLMIcons";
 import { imIconMap } from "@/components/icons/IMIcons";
+import logoImg from "@/assets/logo.png";
 
 const Index = () => {
   const scrollTo = (id: string) => {
@@ -35,9 +36,7 @@ const Index = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a0e1a]/80 backdrop-blur-xl border-b border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center font-bold text-sm text-white">
-              Q
-            </div>
+            <img src={logoImg} alt="Q-CLAW" className="w-8 h-8 rounded-lg object-contain" />
             <span className="text-lg font-bold text-white tracking-tight">Q-CLAW</span>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm text-gray-400">

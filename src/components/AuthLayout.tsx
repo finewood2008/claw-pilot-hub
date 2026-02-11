@@ -8,7 +8,7 @@ const AuthLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <div className="hidden lg:flex lg:w-1/2 auth-gradient items-center justify-center p-12">
         <div className="max-w-md text-center space-y-6">
           <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-primary-foreground/20 backdrop-blur-sm">
-            <Cpu className="w-10 h-10 text-primary-foreground" />
+            <img src="/logo.png" alt="Q-CLAW" className="w-14 h-14 object-contain" />
           </div>
           <h1 className="text-4xl font-bold text-primary-foreground">Q-CLAW</h1>
           <p className="text-lg text-primary-foreground/80">
@@ -27,8 +27,8 @@ const AuthLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <div className="flex-1 flex items-center justify-center p-6 sm:p-12 bg-background">
         <div className="w-full max-w-md space-y-8">
           <div className="lg:hidden flex items-center justify-center gap-3 mb-8">
-            <div className="flex items-center justify-center w-10 h-10 rounded-xl auth-gradient">
-              <Cpu className="w-5 h-5 text-primary-foreground" />
+            <div className="flex items-center justify-center w-10 h-10 rounded-xl">
+              <img src="/logo.png" alt="Q-CLAW" className="w-10 h-10 object-contain" />
             </div>
             <span className="text-xl font-bold text-foreground">Q-CLAW</span>
           </div>
