@@ -18,14 +18,15 @@ const DashboardHome = () => {
   const { balance, transactions } = useBillingStore();
 
   const onlineCount = devices.filter((d) => d.status === "online").length;
+  const currentMonth = new Date().toISOString().slice(0, 7);
   const thisMonthSpent = Math.abs(
-    transactions.filter((t) => t.date.startsWith("2026-02") && t.amount < 0).reduce((s, t) => s + t.amount, 0)
+    transactions.filter((t) => t.date.startsWith(currentMonth) && t.amount < 0).reduce((s, t) => s + t.amount, 0)
   );
 
   const stats = [
     { label: "设备总数", value: `${devices.length}`, sub: `${onlineCount} 在线`, icon: MonitorSmartphone, color: "text-primary" },
     { label: "已安装技能", value: `${installed.length}`, sub: `${new Set(installed.map(i => i.skillId)).size} 种`, icon: Puzzle, color: "text-info" },
-    { label: "当月消费", value: `¥${thisMonthSpent.toFixed(2)}`, sub: `${transactions.filter(t => t.date.startsWith("2026-02") && t.amount < 0).length} 笔`, icon: TrendingUp, color: "text-warning" },
+    { label: "当月消费", value: `¥${thisMonthSpent.toFixed(2)}`, sub: `${transactions.filter(t => t.date.startsWith(currentMonth) && t.amount < 0).length} 笔`, icon: TrendingUp, color: "text-warning" },
     { label: "账户余额", value: `¥${balance.toFixed(2)}`, sub: balance < 20 ? "余额不足" : "正常", icon: CreditCard, color: balance < 20 ? "text-destructive" : "text-success" },
   ];
 
