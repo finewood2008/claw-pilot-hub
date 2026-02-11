@@ -1,74 +1,67 @@
 
 
-## 精简架构图布局：拆分下层，减少拥挤
+## 清空演示数据，新用户看到真实空数据
 
-### 问题分析
+### 目标
+移除所有自动注入的假数据逻辑，让新用户注册后看到的是真实的空状态界面，而非预填充的演示数据。
 
-当前第3层（接入终端与 OPENCLAW 本地运行层）把接入终端、Channel 通道直连、Core Engine 全部塞在一个大框里，加上旋转动画和多个子卡片，视觉上非常拥挤。同时结合之前讨论的业务逻辑（OPENCLAW Core Engine 直连 LLM，Q-CLAW 仅负责鉴权），需要重新组织布局。
+### 需要修改的文件
 
-### 新架构布局
+**1. 删除种子数据逻辑 - `src/lib/seedData.ts`**
+- 移除所有 insert 操作（devices、installed_skills、transactions、bills、login_history、api_keys、device_config_history）
+- 仅保留确保 `user_settings` 记录存在的逻辑（因为这是系统必需的配置记录）
+- 函数简化为：检查并创建 user_settings，不再插入任何演示数据
 
-```text
-+--------------------------------------------------+
-|  LLM 大模型服务层                                  |
-|  [Gemini] [OpenAI] [Qwen] [Claude] [DeepSeek]    |
-+--------------------------------------------------+
-      |  鉴权验证              ^  API 直连调用
-      v                       |
-+--------------------+    +---------------------------+
-| Q-CLAW API 管理平台 |    | OPENCLAW Core Engine      |
-| (鉴权/计费/配置)    | -> | (本地运行，数据不上云)       |
-| [充值] [IM配置]     |    |                           |
-| [Market] [训练]     |    +---------------------------+
-| 不存储用户数据      |        ^
-+--------------------+        | Channel 通道直连
-                       +---------------------------+
-                       | 接入终端 CLIENTS            |
-                       | [IM] [APP] [小程序] [ESP32] |
-                       +---------------------------+
-```
+**2. 简化初始化钩子 - `src/hooks/useInitData.ts`**
+- 保持结构不变，仍调用 seedDemoData（现在只确保 user_settings 存在）
+- 仍然并行 fetch 各 store 数据
 
-### 具体改动
+**3. 各页面添加空状态展示**
+- 检查设备列表、技能管理、账单页面等是否已有空数据时的友好提示
+- 如果没有，需要为以下页面添加空状态 UI：
+  - 设备列表页 - "暂无设备，点击添加"
+  - 账单页 - "暂无账单记录"
+  - 交易记录 - "暂无交易"
+  - 成本分析 - 无数据时显示提示
 
-**文件：`src/pages/Index.tsx`（约 168-320 行）**
-
-1. **将原来的三层垂直结构改为四个独立区块**
-   - 第1层：LLM 大模型服务层（保持不变，顶部全宽）
-   - 第2层：Q-CLAW 管理平台 + OPENCLAW Core Engine（左右并排）
-   - 第3层：接入终端 CLIENTS（独立一行，简洁卡片网格）
-
-2. **第2层拆分为左右两块（`md:flex-row`）**
-   - **左侧 Q-CLAW 管理平台**：Cloud 图标 + 标题 + 功能卡片（充值、IM 配置、Market、训练）+ "不存储用户数据" 隐私提示
-   - **右侧 OPENCLAW Core Engine**：保留圆形引擎图标和旋转动画，去掉 Channel 通道直连（移到下方）。增加 "数据不上云" 标注
-
-3. **第3层简化为接入终端**
-   - 仅保留 4 个终端卡片（IM 平台、APP、小程序、ESP32），以简洁的一行网格展示
-   - Channel 通道直连作为第3层和第2层右侧之间的连接线标注
-
-4. **重绘 SVG 连接线（带动画）**
-   - 线路 A：LLM 层 → Q-CLAW 管理平台（向下偏左），蓝色虚线，标注 "鉴权 Key 验证"
-   - 线路 B：Q-CLAW → OPENCLAW（水平向右），青色虚线，标注 "Key 下发 / 配置同步"
-   - 线路 C：OPENCLAW → LLM 层（向上偏右），紫色虚线，标注 "API 直连（数据不经过平台）"，最粗最醒目
-   - 线路 D：接入终端 → OPENCLAW（向上），绿色虚线，标注 "Channel 通道直连"
-
-5. **新增隐私声明**
-   - 在 Q-CLAW 管理平台块内或架构图下方添加一条说明
-   - "Q-CLAW 仅负责鉴权与计费，所有用户数据由 OPENCLAW 本地处理，不经过云端"
-   - 使用 `ShieldCheck` 图标 + 绿色风格
-
-**文件：`src/index.css`**
-
-6. **新增反向流动动画**
-   - `dash-flow-reverse` keyframe（`stroke-dashoffset: 0 -> 20`）用于向上/向左流动
-   - 对应 `.animate-dash-flow-reverse` 工具类
+**4. 清理现有数据库中的演示数据**
+- 按依赖顺序删除已有的演示数据：
+  1. `installed_skills`
+  2. `device_config_history`
+  3. `transactions`
+  4. `bills`
+  5. `login_history`
+  6. `api_keys`
+  7. `devices`
+- 注意：仅删除数据，不删除表结构
 
 ### 技术细节
 
-- 连接线使用相对定位的 SVG 元素，通过 `stroke-dasharray` + `animation` 实现流动效果
-- 移动端：左右并排改为垂直堆叠，连接线简化为垂直虚线
-- 所有新增图标已在现有 imports 中（`Shield`、`Cloud`、`Layers` 等），可能需新增 `ShieldCheck`
+`seedDemoData()` 函数将简化为：
 
-### 涉及文件
-- `src/pages/Index.tsx`：重构架构图区域（约 168-320 行）
-- `src/index.css`：新增 `dash-flow-reverse` 动画
+```text
+async function seedDemoData() {
+  1. 获取当前用户
+  2. 检查 user_settings 是否存在
+  3. 如不存在则创建（仅此一步）
+  4. 返回
+}
+```
 
+数据库清理 SQL（按外键依赖顺序）：
+
+```text
+DELETE FROM installed_skills;
+DELETE FROM device_config_history;
+DELETE FROM transactions;
+DELETE FROM bills;
+DELETE FROM login_history;
+DELETE FROM api_keys;
+DELETE FROM devices;
+```
+
+### 不会改动的部分
+- 数据库表结构保持不变
+- RLS 策略保持不变
+- 各 store 的 fetch 逻辑保持不变（只是查询结果为空）
+- user_settings 和 user_billing 的自动创建触发器保持不变
