@@ -66,7 +66,7 @@ const Index = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-24 overflow-hidden">
+      <section className="relative pt-24 pb-16 overflow-hidden">
         {/* Background glow */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-gradient-to-b from-blue-600/20 via-purple-600/10 to-transparent rounded-full blur-3xl" />
@@ -74,13 +74,13 @@ const Index = () => {
 
         <div className="relative max-w-4xl mx-auto px-4 text-center">
           {/* Promo tag */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-sm mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-sm mb-5">
             <Zap size={14} />
             <span>限时福利，新用户注册赠送 300万 Token</span>
           </div>
 
           {/* Main heading */}
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4">
             <span className="text-white">Q-CLAW</span>
             <br />
             <span className="text-gray-300">让每个人都能轻松驾驭</span>
@@ -91,7 +91,7 @@ const Index = () => {
           </h1>
 
           {/* Subtitle */}
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-gray-400 text-base max-w-2xl mx-auto mb-8 leading-relaxed">
             Q-CLAW 是一个开源的 AI 助手管理平台，支持多端接入、人民币直充、免配置安装，
             让你在微信、QQ、飞书、钉钉等平台无缝使用 AI 能力。
           </p>
@@ -117,16 +117,16 @@ const Index = () => {
       </section>
 
       {/* Core Features */}
-      <section id="features" className="py-24 px-4">
+      <section id="features" className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">核心特性</h2>
-            <p className="text-gray-400 max-w-xl mx-auto">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">核心特性</h2>
+            <p className="text-gray-400 max-w-xl mx-auto text-sm">
               简单、安全、高效——为每一位用户打造极致的 AI 使用体验
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
               {
                 icon: Zap,
@@ -159,15 +159,15 @@ const Index = () => {
             ].map((feature) => (
               <div
                 key={feature.title}
-                className="group rounded-2xl border border-white/5 bg-[#111827]/60 p-8 hover:border-white/10 transition-colors"
+                className="group rounded-2xl border border-white/5 bg-[#111827]/60 p-6 hover:border-white/10 transition-colors"
               >
                 <div
-                  className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-5`}
+                  className={`w-10 h-10 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-4`}
                 >
                   <feature.icon className={feature.iconColor} size={22} />
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-3">{feature.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{feature.desc}</p>
+                <h3 className="text-base font-semibold text-white mb-2">{feature.title}</h3>
+                <p className="text-gray-400 text-xs leading-relaxed">{feature.desc}</p>
               </div>
             ))}
           </div>
@@ -175,11 +175,11 @@ const Index = () => {
       </section>
 
       {/* Architecture Diagram */}
-      <section className="py-24 px-4">
+      <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Q-CLAW 运行原理说明</h2>
-            <p className="text-gray-400">OPENCLAW 直连 LLM，Q-CLAW 仅负责鉴权，数据不经过云端</p>
+          <div className="text-center mb-10">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">Q-CLAW 运行原理说明</h2>
+            <p className="text-gray-400 text-sm">OPENCLAW 直连 LLM，Q-CLAW 仅负责鉴权，数据不经过云端</p>
           </div>
 
           {/* === 第1层：LLM 大模型服务层 === */}
@@ -378,12 +378,12 @@ const Index = () => {
       </section>
 
       {/* Channel Ecosystem */}
-      <section id="channels" className="py-24 px-4">
+      <section id="channels" className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-12 gap-4">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 gap-4">
             <div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2">多端渠道生态矩阵</h2>
-              <p className="text-gray-400">覆盖主流 IM 平台与终端设备，一套系统全渠道接入</p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">多端渠道生态矩阵</h2>
+              <p className="text-gray-400 text-sm">覆盖主流 IM 平台与终端设备，一套系统全渠道接入</p>
             </div>
             <a
               href="#"
@@ -395,7 +395,7 @@ const Index = () => {
           </div>
 
           {/* IM Channels */}
-          <div className="mb-8">
+          <div className="mb-6">
             <h3 className="text-sm text-gray-500 uppercase tracking-widest mb-4">
               即时通讯渠道 · 主流 IM 平台直连
             </h3>
@@ -406,9 +406,9 @@ const Index = () => {
                   return (
                     <div
                       key={name}
-                      className="flex flex-col items-center gap-2 px-3 py-4 rounded-xl bg-[#111827]/60 border border-white/5 hover:border-white/10 transition-colors"
+                      className="flex flex-col items-center gap-1.5 px-3 py-3 rounded-xl bg-[#111827]/60 border border-white/5 hover:border-white/10 transition-colors"
                     >
-                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
+                      <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
                         {im ? <im.Icon size={20} className={im.color} /> : <MessageSquare size={18} className="text-gray-400" />}
                       </div>
                       <span className="text-xs text-gray-400">{name}</span>
@@ -440,7 +440,7 @@ const Index = () => {
             ].map((item) => (
               <div
                 key={item.title}
-                className="rounded-xl border border-white/5 bg-[#111827]/60 p-6 hover:border-white/10 transition-colors"
+                className="rounded-xl border border-white/5 bg-[#111827]/60 p-5 hover:border-white/10 transition-colors"
               >
                 <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center mb-4">
                   <item.icon size={18} className="text-purple-400" />
@@ -454,7 +454,7 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-white/5 py-8 px-4">
+      <footer className="border-t border-white/5 py-6 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-gray-500 text-sm">
             © 2026 Q-CLAW Platform. Powered by OpenClaw.
