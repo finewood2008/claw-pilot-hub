@@ -14,8 +14,9 @@ import {
   AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { Badge } from "@/components/ui/badge";
-import { Plus, Search, Trash2, Download, Eye } from "lucide-react";
+import { Plus, Search, Trash2, Download, Eye, MonitorSmartphone } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import EmptyState from "@/components/EmptyState";
 
 const DeviceList = () => {
   const { devices, removeDevice, removeDevices } = useDeviceStore();
@@ -134,8 +135,18 @@ const DeviceList = () => {
             <TableBody>
               {filtered.length === 0 ? (
                 <TableRow>
-                  <TableCell colSpan={7} className="text-center py-12 text-muted-foreground">
-                    {search ? "没有找到匹配的设备" : "暂无设备，点击「添加新设备」开始"}
+                  <TableCell colSpan={7} className="p-0">
+                    {search ? (
+                      <div className="text-center py-12 text-muted-foreground">没有找到匹配的设备</div>
+                    ) : (
+                      <EmptyState
+                        icon={MonitorSmartphone}
+                        title="还没有设备"
+                        description="绑定你的第一个 Q-CLAW 设备，开始体验 AI 技能"
+                        actionLabel="添加新设备"
+                        onAction={() => setAddOpen(true)}
+                      />
+                    )}
                   </TableCell>
                 </TableRow>
               ) : (

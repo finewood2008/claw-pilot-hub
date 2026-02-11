@@ -67,19 +67,23 @@ const BillingOverview = ({ onNavigate }: Props) => {
           <Button variant="ghost" size="sm" onClick={() => onNavigate("records")}>查看全部 <ArrowRight className="w-3.5 h-3.5 ml-1" /></Button>
         </CardHeader>
         <CardContent>
-          <div className="space-y-3">
-            {transactions.slice(0, 5).map((t) => (
-              <div key={t.id} className="flex items-center justify-between py-2 border-b border-border last:border-0">
-                <div>
-                  <p className="text-sm font-medium text-foreground">{t.description}</p>
-                  <p className="text-xs text-muted-foreground">{new Date(t.date).toLocaleString("zh-CN", { month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit" })}</p>
+          {transactions.length === 0 ? (
+            <div className="text-center py-8 text-muted-foreground text-sm">暂无交易记录</div>
+          ) : (
+            <div className="space-y-3">
+              {transactions.slice(0, 5).map((t) => (
+                <div key={t.id} className="flex items-center justify-between py-2 border-b border-border last:border-0">
+                  <div>
+                    <p className="text-sm font-medium text-foreground">{t.description}</p>
+                    <p className="text-xs text-muted-foreground">{new Date(t.date).toLocaleString("zh-CN", { month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit" })}</p>
+                  </div>
+                  <span className={`text-sm font-semibold ${t.amount > 0 ? "text-success" : "text-foreground"}`}>
+                    {t.amount > 0 ? "+" : ""}{t.amount.toFixed(2)}
+                  </span>
                 </div>
-                <span className={`text-sm font-semibold ${t.amount > 0 ? "text-success" : "text-foreground"}`}>
-                  {t.amount > 0 ? "+" : ""}{t.amount.toFixed(2)}
-                </span>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </CardContent>
       </Card>
     </div>
