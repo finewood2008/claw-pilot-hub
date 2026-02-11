@@ -203,12 +203,31 @@ const Index = () => {
             </svg>
             <div className="absolute left-[28%] top-1/2 -translate-y-1/2 text-[10px] text-blue-400/70 bg-[#0a0e1a]/80 px-2 py-0.5 rounded">鉴权 Key 验证 ↓</div>
           </div>
+
+          {/* === SVG 连接线 C：OPENCLAW ↔ LLM（右侧双向，最醒目）=== */}
+          <div className="relative h-16 hidden md:block">
+            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1000 80" preserveAspectRatio="none">
+              {/* 上行线（OPENCLAW → LLM） */}
+              <line x1="720" y1="80" x2="740" y2="0" stroke="rgba(168,85,247,0.5)" strokeWidth="3" strokeDasharray="8 4" className="animate-dash-flow-reverse" />
+              <polygon points="737,8 743,8 740,0" fill="rgba(168,85,247,0.6)" />
+              {/* 下行线（LLM → OPENCLAW） */}
+              <line x1="760" y1="0" x2="780" y2="80" stroke="rgba(168,85,247,0.35)" strokeWidth="3" strokeDasharray="8 4" className="animate-dash-flow" />
+              <polygon points="777,72 783,72 780,80" fill="rgba(168,85,247,0.5)" />
+            </svg>
+            <div className="absolute right-[8%] top-1/2 -translate-y-1/2 text-[10px] text-purple-400 bg-[#0a0e1a]/90 px-2.5 py-1 rounded border border-purple-500/20 whitespace-nowrap font-medium">
+              ↕ API 直连（数据不经过平台）
+            </div>
+          </div>
+
           {/* 移动端简化连接线 */}
           <div className="flex justify-center my-1 md:hidden">
             <div className="flex flex-col items-center">
               <div className="w-px h-8 border-l-2 border-dashed border-blue-500/30 animate-dash-flow" />
               <div className="w-0 h-0 border-l-[5px] border-r-[5px] border-t-[6px] border-l-transparent border-r-transparent border-t-blue-500/40" />
               <span className="text-[10px] text-blue-400/60 mt-1">鉴权 Key 验证</span>
+              <div className="w-px h-4 border-l-2 border-dashed border-purple-500/30 animate-dash-flow-reverse" />
+              <span className="text-[10px] text-purple-400/60">↕ API 直连</span>
+              <div className="w-px h-4 border-l-2 border-dashed border-purple-500/30 animate-dash-flow" />
             </div>
           </div>
 
@@ -301,16 +320,8 @@ const Index = () => {
             </div>
           </div>
 
-          {/* === SVG 连接线 C：OPENCLAW → LLM（右侧上行，最醒目）=== */}
-          <div className="relative h-20 hidden md:block">
-            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1000 100" preserveAspectRatio="none">
-              <line x1="780" y1="100" x2="820" y2="0" stroke="rgba(168,85,247,0.5)" strokeWidth="4" strokeDasharray="8 4" className="animate-dash-flow-reverse" />
-              <polygon points="817,8 823,8 820,0" fill="rgba(168,85,247,0.5)" />
-            </svg>
-            <div className="absolute right-[4%] top-1/2 -translate-y-1/2 text-[10px] text-purple-400 bg-[#0a0e1a]/90 px-2.5 py-1 rounded border border-purple-500/20 whitespace-nowrap font-medium">
-              ↑ API 直连（数据不经过平台）
-            </div>
-          </div>
+
+
 
           {/* === SVG 连接线 D：接入终端 → OPENCLAW（向上）=== */}
           <div className="relative h-12 hidden md:block">
