@@ -18,14 +18,17 @@ import {
 import {
   Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogDescription,
 } from "@/components/ui/dialog";
-import { Trash2, Settings, RefreshCw } from "lucide-react";
+import { Trash2, Settings, RefreshCw, Puzzle } from "lucide-react";
 import SkillIcon from "@/components/skills/SkillIcon";
 import { useToast } from "@/hooks/use-toast";
+import EmptyState from "@/components/EmptyState";
+import { useNavigate } from "react-router-dom";
 
 const SkillManagement = () => {
   const { marketSkills, installed, toggleSkill, uninstallSkill, updateSkillConfig } = useSkillStore();
   const { devices } = useDeviceStore();
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [uninstallTarget, setUninstallTarget] = useState<{ skillId: string; deviceId: string } | null>(null);
   const [configTarget, setConfigTarget] = useState<{ skillId: string; deviceId: string } | null>(null);
   const [configValues, setConfigValues] = useState<Record<string, string | number | boolean>>({});
@@ -74,7 +77,13 @@ const SkillManagement = () => {
         </div>
 
         {deviceGroups.length === 0 ? (
-          <div className="text-center py-16 text-muted-foreground">暂未安装任何技能</div>
+          <EmptyState
+            icon={Puzzle}
+            title="暂未安装任何技能"
+            description="前往技能市场，为你的设备安装 AI 技能"
+            actionLabel="浏览技能市场"
+            onAction={() => navigate("/dashboard/market")}
+          />
         ) : (
           deviceGroups.map(({ device, skills }) => (
             <Card key={device.id} className="glass-card">

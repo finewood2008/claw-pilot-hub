@@ -139,7 +139,7 @@ const TransactionRecords = () => {
           </TableHeader>
           <TableBody>
             {paged.length === 0 ? (
-              <TableRow><TableCell colSpan={6} className="text-center py-12 text-muted-foreground">没有找到匹配的记录</TableCell></TableRow>
+              <TableRow><TableCell colSpan={6} className="text-center py-12 text-muted-foreground">{transactions.length === 0 ? "暂无交易记录，使用设备后将自动产生" : "没有找到匹配的记录"}</TableCell></TableRow>
             ) : paged.map((t) => (
               <TableRow key={t.id}>
                 <TableCell className="text-sm text-muted-foreground whitespace-nowrap">

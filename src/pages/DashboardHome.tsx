@@ -4,10 +4,11 @@ import DashboardLayout from "@/components/DashboardLayout";
 import { useDeviceStore } from "@/stores/deviceStore";
 import { useSkillStore } from "@/stores/skillStore";
 import { useBillingStore } from "@/stores/billingStore";
-import { MonitorSmartphone, Puzzle, CreditCard, TrendingUp, Plus, ShoppingBag, Wallet, Bell, AlertTriangle } from "lucide-react";
+import { MonitorSmartphone, Puzzle, CreditCard, TrendingUp, Plus, ShoppingBag, Wallet, Bell, AlertTriangle, Rocket } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import EmptyState from "@/components/EmptyState";
 
 const DashboardHome = () => {
   const { user } = useAuth();
@@ -108,19 +109,23 @@ const DashboardHome = () => {
               <Button variant="ghost" size="sm" onClick={() => navigate("/dashboard/billing")}>查看全部</Button>
             </CardHeader>
             <CardContent className="space-y-2">
-              {recentTx.map((t) => (
-                <div key={t.id} className="flex items-center justify-between py-2 border-b border-border last:border-0">
-                  <div>
-                    <p className="text-sm text-foreground">{t.description}</p>
-                    <p className="text-xs text-muted-foreground">
-                      {new Date(t.date).toLocaleString("zh-CN", { month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit" })}
-                    </p>
+              {recentTx.length === 0 ? (
+                <div className="text-center py-8 text-muted-foreground text-sm">暂无交易记录</div>
+              ) : (
+                recentTx.map((t) => (
+                  <div key={t.id} className="flex items-center justify-between py-2 border-b border-border last:border-0">
+                    <div>
+                      <p className="text-sm text-foreground">{t.description}</p>
+                      <p className="text-xs text-muted-foreground">
+                        {new Date(t.date).toLocaleString("zh-CN", { month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit" })}
+                      </p>
+                    </div>
+                    <span className={`text-sm font-semibold ${t.amount > 0 ? "text-success" : "text-foreground"}`}>
+                      {t.amount > 0 ? "+" : ""}{t.amount.toFixed(2)}
+                    </span>
                   </div>
-                  <span className={`text-sm font-semibold ${t.amount > 0 ? "text-success" : "text-foreground"}`}>
-                    {t.amount > 0 ? "+" : ""}{t.amount.toFixed(2)}
-                  </span>
-                </div>
-              ))}
+                ))
+              )}
             </CardContent>
           </Card>
         </div>
@@ -132,18 +137,28 @@ const DashboardHome = () => {
             <Button variant="ghost" size="sm" onClick={() => navigate("/dashboard/devices")}>管理设备</Button>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-              {devices.map((d) => (
-                <button key={d.id} onClick={() => navigate(`/dashboard/devices/${d.id}`)}
-                  className="flex items-center gap-3 p-3 rounded-lg border border-border hover:border-primary/30 hover:bg-accent transition-colors text-left">
-                  <div className={`w-2 h-2 rounded-full flex-shrink-0 ${d.status === "online" ? "bg-success" : "bg-muted-foreground/40"}`} />
-                  <div className="min-w-0">
-                    <p className="text-sm font-medium text-foreground truncate">{d.name}</p>
-                    <p className="text-xs text-muted-foreground">{d.skills.length} 个技能</p>
-                  </div>
-                </button>
-              ))}
-            </div>
+            {devices.length === 0 ? (
+              <EmptyState
+                icon={MonitorSmartphone}
+                title="还没有设备"
+                description="绑定你的第一个 Q-CLAW 设备，开始体验 AI 技能"
+                actionLabel="添加设备"
+                onAction={() => navigate("/dashboard/devices")}
+              />
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                {devices.map((d) => (
+                  <button key={d.id} onClick={() => navigate(`/dashboard/devices/${d.id}`)}
+                    className="flex items-center gap-3 p-3 rounded-lg border border-border hover:border-primary/30 hover:bg-accent transition-colors text-left">
+                    <div className={`w-2 h-2 rounded-full flex-shrink-0 ${d.status === "online" ? "bg-success" : "bg-muted-foreground/40"}`} />
+                    <div className="min-w-0">
+                      <p className="text-sm font-medium text-foreground truncate">{d.name}</p>
+                      <p className="text-xs text-muted-foreground">{d.skills.length} 个技能</p>
+                    </div>
+                  </button>
+                ))}
+              </div>
+            )}
           </CardContent>
         </Card>
       </div>
