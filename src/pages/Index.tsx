@@ -15,6 +15,7 @@ import {
   Server,
   Layers,
   Cloud,
+  Brain,
 } from "lucide-react";
 
 const Index = () => {
@@ -163,115 +164,141 @@ const Index = () => {
 
       {/* Architecture Diagram */}
       <section className="py-24 px-4">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Q-CLAW 运行原理说明</h2>
             <p className="text-gray-400">从终端到引擎，一站式消息处理架构</p>
           </div>
 
-          <div className="rounded-2xl border border-white/5 bg-[#111827]/40 p-8 md:p-12">
-            {/* Desktop: Triangle topology / Mobile: vertical stack */}
-            <div className="relative min-h-[420px] md:min-h-[480px]">
-
-              {/* SVG Connection Lines */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none hidden md:block" preserveAspectRatio="none">
-                {/* API Platform → Clients (top-center to bottom-left) */}
-                <line x1="50%" y1="22%" x2="22%" y2="55%" stroke="url(#dashGrad)" strokeWidth="1.5" strokeDasharray="6,4" className="animate-dash-flow" />
-                {/* API Platform → Engine (top-center to right) */}
-                <line x1="50%" y1="22%" x2="75%" y2="55%" stroke="url(#dashGrad)" strokeWidth="1.5" strokeDasharray="6,4" className="animate-dash-flow" style={{ animationDelay: '0.5s' }} />
-                {/* Clients → Engine (bottom-left to right, through channel) */}
-                <line x1="35%" y1="68%" x2="62%" y2="68%" stroke="url(#dashGrad2)" strokeWidth="1.5" strokeDasharray="6,4" className="animate-dash-flow" style={{ animationDelay: '1s' }} />
-                <defs>
-                  <linearGradient id="dashGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="rgba(96,165,250,0.6)" />
-                    <stop offset="100%" stopColor="rgba(168,85,247,0.6)" />
-                  </linearGradient>
-                  <linearGradient id="dashGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="rgba(34,211,238,0.5)" />
-                    <stop offset="100%" stopColor="rgba(168,85,247,0.5)" />
-                  </linearGradient>
-                </defs>
-              </svg>
-
-              {/* === TOP: API Management Platform === */}
-              <div className="flex justify-center mb-12 md:mb-0 md:absolute md:top-[-2%] md:left-[50%] md:-translate-x-1/2 animate-fade-in-up">
-                <div className="flex flex-col items-center gap-3">
-                  <div className="w-16 h-16 rounded-full border-2 border-blue-500/40 bg-blue-600/10 flex items-center justify-center animate-float">
-                    <Cloud size={28} className="text-blue-400" />
+          {/* LLM Provider Layer */}
+          <div className="mb-6 animate-fade-in-up">
+            <div className="rounded-2xl border border-white/5 bg-[#111827]/40 p-6">
+              <p className="text-xs text-gray-500 uppercase tracking-widest mb-4 text-center">LLM 大模型服务层</p>
+              <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
+                {[
+                  { name: "Gemini", color: "text-blue-400", bg: "bg-blue-500/10", border: "border-blue-500/20" },
+                  { name: "OpenAI", color: "text-green-400", bg: "bg-green-500/10", border: "border-green-500/20" },
+                  { name: "Qwen", color: "text-purple-400", bg: "bg-purple-500/10", border: "border-purple-500/20" },
+                  { name: "Claude", color: "text-orange-400", bg: "bg-orange-500/10", border: "border-orange-500/20" },
+                  { name: "DeepSeek", color: "text-cyan-400", bg: "bg-cyan-500/10", border: "border-cyan-500/20" },
+                  { name: "Llama", color: "text-amber-400", bg: "bg-amber-500/10", border: "border-amber-500/20" },
+                ].map((model) => (
+                  <div key={model.name} className={`flex flex-col items-center gap-2 px-3 py-3 rounded-xl ${model.bg} border ${model.border} hover:scale-105 transition-transform`}>
+                    <Brain size={20} className={model.color} />
+                    <span className={`text-xs font-medium ${model.color}`}>{model.name}</span>
                   </div>
-                  <div className="text-center">
-                    <p className="text-blue-300 font-semibold text-sm">Q-CLAW API 管理平台</p>
-                    <p className="text-gray-500 text-xs mt-1">Key 鉴权 / Token 计费 / 配置同步</p>
-                  </div>
-                </div>
+                ))}
               </div>
+            </div>
+          </div>
 
-              {/* === BOTTOM-LEFT: Clients === */}
-              <div className="mb-10 md:mb-0 md:absolute md:bottom-4 md:left-0 md:w-[40%] animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-                <div className="rounded-xl border border-white/10 bg-[#0d1424]/80 p-4">
-                  <p className="text-xs text-gray-500 uppercase tracking-widest mb-3 text-center">接入终端 CLIENTS</p>
-                  <div className="grid grid-cols-2 gap-2">
-                    {[
-                      { icon: MessageSquare, label: "IM 平台", color: "text-green-400", bg: "bg-green-500/10", border: "border-green-500/20" },
-                      { icon: Smartphone, label: "APP", color: "text-blue-400", bg: "bg-blue-500/10", border: "border-blue-500/20" },
-                      { icon: Globe, label: "小程序", color: "text-green-400", bg: "bg-green-500/10", border: "border-green-500/20" },
-                      { icon: Cpu, label: "ESP32", color: "text-green-400", bg: "bg-green-500/10", border: "border-green-500/20" },
-                    ].map((item) => (
-                      <div key={item.label} className={`flex items-center gap-2 px-3 py-2.5 rounded-lg ${item.bg} border ${item.border}`}>
-                        <item.icon size={15} className={item.color} />
-                        <span className="text-xs text-gray-300">{item.label}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
+          {/* Vertical dashed connector from LLM to Agent frame */}
+          <div className="flex justify-center my-1">
+            <div className="w-px h-8 border-l-2 border-dashed border-blue-500/30 animate-dash-flow" />
+          </div>
 
-              {/* === CENTER: Channel 通道直连 === */}
-              <div className="flex justify-center mb-10 md:mb-0 md:absolute md:bottom-[15%] md:left-[42%] animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-500/30 bg-cyan-500/5">
-                  <span className="text-xs text-cyan-300 font-medium">Channel 通道直连</span>
-                  <ArrowRight size={14} className="text-cyan-400 animate-pulse-arrow" />
-                </div>
-              </div>
+          {/* Q-CLAW Agent Proxy Frame */}
+          <div className="relative rounded-2xl border-2 border-purple-500/20 bg-gradient-to-b from-purple-900/5 to-blue-900/5 p-2 md:p-3 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+            {/* Agent label */}
+            <div className="absolute -top-3.5 left-6 px-3 py-0.5 rounded-full bg-[#0a0e1a] border border-purple-500/30">
+              <span className="text-xs text-purple-400 font-medium tracking-wider">Q-CLAW Agent 代理层</span>
+            </div>
 
-              {/* === RIGHT: Core Engine === */}
-              <div className="flex justify-center md:absolute md:right-0 md:top-1/2 md:-translate-y-1/2 md:w-[35%] animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-                <div className="flex flex-col items-center gap-3">
-                  {/* Q-CLAW 封装层 label */}
-                  <p className="text-xs text-purple-400/70 tracking-wider">Q-CLAW 封装层</p>
-                  
-                  {/* Engine circle with rotating ring */}
-                  <div className="relative">
-                    {/* Outer rotating ring */}
-                    <div className="absolute -inset-4 rounded-full border-2 border-transparent animate-spin-slow"
-                      style={{
-                        borderTopColor: 'rgba(168,85,247,0.5)',
-                        borderRightColor: 'rgba(168,85,247,0.2)',
-                        borderBottomColor: 'rgba(96,165,250,0.3)',
-                      }}
-                    />
-                    {/* Second ring */}
-                    <div className="absolute -inset-2 rounded-full border border-purple-500/15" />
-                    
-                    {/* Core circle */}
-                    <div className="w-36 h-36 md:w-44 md:h-44 rounded-full bg-gradient-to-br from-purple-900/60 via-blue-900/40 to-purple-800/50 border border-purple-500/30 flex flex-col items-center justify-center">
-                      <Layers size={26} className="text-purple-400 mb-1.5" />
-                      <span className="text-[11px] text-purple-300 font-semibold tracking-wide text-center leading-tight">
-                        OPENCLAW
-                        <br />
-                        Core Engine
-                      </span>
+            <div className="rounded-xl border border-white/5 bg-[#111827]/40 p-8 md:p-12">
+              {/* Desktop: Triangle topology / Mobile: vertical stack */}
+              <div className="relative min-h-[420px] md:min-h-[520px]">
+
+                {/* SVG Connection Lines */}
+                <svg className="absolute inset-0 w-full h-full pointer-events-none hidden md:block" preserveAspectRatio="none">
+                  {/* API Platform → Clients (top-center to bottom-left) */}
+                  <line x1="50%" y1="18%" x2="22%" y2="50%" stroke="url(#dashGrad)" strokeWidth="1.5" strokeDasharray="6,4" className="animate-dash-flow" />
+                  {/* API Platform → Engine (top-center to right) */}
+                  <line x1="50%" y1="18%" x2="75%" y2="50%" stroke="url(#dashGrad)" strokeWidth="1.5" strokeDasharray="6,4" className="animate-dash-flow" style={{ animationDelay: '0.5s' }} />
+                  {/* Clients → Engine (bottom-left to right, through channel) */}
+                  <line x1="35%" y1="65%" x2="62%" y2="65%" stroke="url(#dashGrad2)" strokeWidth="1.5" strokeDasharray="6,4" className="animate-dash-flow" style={{ animationDelay: '1s' }} />
+                  <defs>
+                    <linearGradient id="dashGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="rgba(96,165,250,0.6)" />
+                      <stop offset="100%" stopColor="rgba(168,85,247,0.6)" />
+                    </linearGradient>
+                    <linearGradient id="dashGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="rgba(34,211,238,0.5)" />
+                      <stop offset="100%" stopColor="rgba(168,85,247,0.5)" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+
+                {/* === TOP: API Management Platform === */}
+                <div className="flex justify-center mb-12 md:mb-0 md:absolute md:top-[-2%] md:left-[50%] md:-translate-x-1/2 animate-fade-in-up">
+                  <div className="flex flex-col items-center gap-3">
+                    <div className="w-16 h-16 rounded-full border-2 border-blue-500/40 bg-blue-600/10 flex items-center justify-center animate-float">
+                      <Cloud size={28} className="text-blue-400" />
+                    </div>
+                    <div className="text-center">
+                      <p className="text-blue-300 font-semibold text-sm">Q-CLAW API 管理平台</p>
+                      <p className="text-gray-500 text-xs mt-1">Key 鉴权 / Token 计费 / 配置同步</p>
                     </div>
                   </div>
+                </div>
 
-                  {/* Open source badge */}
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20">
-                    <Shield size={12} className="text-green-400" />
-                    <span className="text-[11px] text-green-400 font-medium">此部分完全开源</span>
+                {/* === BOTTOM-LEFT: Clients === */}
+                <div className="mb-10 md:mb-0 md:absolute md:bottom-4 md:left-0 md:w-[40%] animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+                  <div className="rounded-xl border border-white/10 bg-[#0d1424]/80 p-4">
+                    <p className="text-xs text-gray-500 uppercase tracking-widest mb-3 text-center">接入终端 CLIENTS</p>
+                    <div className="grid grid-cols-2 gap-2">
+                      {[
+                        { icon: MessageSquare, label: "IM 平台", color: "text-green-400", bg: "bg-green-500/10", border: "border-green-500/20" },
+                        { icon: Smartphone, label: "APP", color: "text-blue-400", bg: "bg-blue-500/10", border: "border-blue-500/20" },
+                        { icon: Globe, label: "小程序", color: "text-green-400", bg: "bg-green-500/10", border: "border-green-500/20" },
+                        { icon: Cpu, label: "ESP32", color: "text-green-400", bg: "bg-green-500/10", border: "border-green-500/20" },
+                      ].map((item) => (
+                        <div key={item.label} className={`flex items-center gap-2 px-3 py-2.5 rounded-lg ${item.bg} border ${item.border}`}>
+                          <item.icon size={15} className={item.color} />
+                          <span className="text-xs text-gray-300">{item.label}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
 
+                {/* === CENTER: Channel 通道直连 === */}
+                <div className="flex justify-center mb-10 md:mb-0 md:absolute md:bottom-[12%] md:left-[42%] animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-500/30 bg-cyan-500/5">
+                    <span className="text-xs text-cyan-300 font-medium">Channel 通道直连</span>
+                    <ArrowRight size={14} className="text-cyan-400 animate-pulse-arrow" />
+                  </div>
+                </div>
+
+                {/* === RIGHT: Core Engine === */}
+                <div className="flex justify-center md:absolute md:right-0 md:top-1/2 md:-translate-y-1/2 md:w-[35%] animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+                  <div className="flex flex-col items-center gap-3">
+                    <p className="text-xs text-purple-400/70 tracking-wider">Q-CLAW 封装层</p>
+                    <div className="relative">
+                      <div className="absolute -inset-4 rounded-full border-2 border-transparent animate-spin-slow"
+                        style={{
+                          borderTopColor: 'rgba(168,85,247,0.5)',
+                          borderRightColor: 'rgba(168,85,247,0.2)',
+                          borderBottomColor: 'rgba(96,165,250,0.3)',
+                        }}
+                      />
+                      <div className="absolute -inset-2 rounded-full border border-purple-500/15" />
+                      <div className="w-36 h-36 md:w-44 md:h-44 rounded-full bg-gradient-to-br from-purple-900/60 via-blue-900/40 to-purple-800/50 border border-purple-500/30 flex flex-col items-center justify-center">
+                        <Layers size={26} className="text-purple-400 mb-1.5" />
+                        <span className="text-[11px] text-purple-300 font-semibold tracking-wide text-center leading-tight">
+                          OPENCLAW
+                          <br />
+                          Core Engine
+                        </span>
+                      </div>
+                    </div>
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20">
+                      <Shield size={12} className="text-green-400" />
+                      <span className="text-[11px] text-green-400 font-medium">此部分完全开源</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
             </div>
           </div>
         </div>
