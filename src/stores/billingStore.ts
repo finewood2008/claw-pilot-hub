@@ -64,7 +64,7 @@ interface BillingStore {
 
 export const useBillingStore = create<BillingStore>((set, get) => ({
   balance: 0,
-  currentPlan: "p2",
+  currentPlan: "p1",
   transactions: [],
   bills: [],
   plans,
@@ -114,8 +114,8 @@ export const useBillingStore = create<BillingStore>((set, get) => ({
       const alert = alertRes.data;
 
       set({
-        balance: billing ? Number(billing.balance) : 128.50,
-        currentPlan: billing?.current_plan ?? "p2",
+        balance: billing ? Number(billing.balance) : 0,
+        currentPlan: billing?.current_plan ?? "p1",
         transactions,
         bills,
         alertSettings: alert ? {

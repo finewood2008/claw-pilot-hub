@@ -9,7 +9,8 @@ const BillingOverview = ({ onNavigate }: Props) => {
   const { balance, transactions, plans, currentPlan } = useBillingStore();
   const plan = plans.find((p) => p.id === currentPlan);
 
-  const thisMonth = transactions.filter((t) => t.date.startsWith("2026-02") && t.amount < 0);
+  const currentMonth = new Date().toISOString().slice(0, 7);
+  const thisMonth = transactions.filter((t) => t.date.startsWith(currentMonth) && t.amount < 0);
   const totalSpent = Math.abs(thisMonth.reduce((s, t) => s + t.amount, 0));
 
   return (
@@ -54,7 +55,7 @@ const BillingOverview = ({ onNavigate }: Props) => {
             <BarChart3 className="w-5 h-5 text-warning" />
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-bold text-foreground">1,284</div>
+            <div className="text-3xl font-bold text-foreground">0</div>
             <p className="text-xs text-muted-foreground mt-1">/ {plan?.limits.apiCalls?.toLocaleString()} 次</p>
           </CardContent>
         </Card>
