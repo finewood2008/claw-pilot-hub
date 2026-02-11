@@ -21,7 +21,11 @@ import {
   ShoppingBag,
   GraduationCap,
 } from "lucide-react";
-import { GeminiIcon, OpenAIIcon, QwenIcon, ClaudeIcon, DeepSeekIcon, LlamaIcon } from "@/components/icons/LLMIcons";
+import { GeminiIcon, OpenAIIcon } from "@/components/icons/LLMIcons";
+import qwenLogo from "@/assets/llm/qwen.png";
+import claudeLogo from "@/assets/llm/claude.png";
+import deepseekLogo from "@/assets/llm/deepseek.png";
+import llamaLogo from "@/assets/llm/llama.png";
 import { imIconMap } from "@/components/icons/IMIcons";
 import logoImg from "@/assets/logo.png";
 import qqLogo from "@/assets/im/qq.png";
@@ -193,15 +197,19 @@ const Index = () => {
               <p className="text-xs text-gray-500 uppercase tracking-widest mb-4 text-center">LLM 大模型服务层</p>
               <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
                 {[
-                  { name: "Gemini", Icon: GeminiIcon, color: "text-blue-400", bg: "bg-blue-500/10", border: "border-blue-500/20" },
-                  { name: "OpenAI", Icon: OpenAIIcon, color: "text-green-400", bg: "bg-green-500/10", border: "border-green-500/20" },
-                  { name: "Qwen", Icon: QwenIcon, color: "text-purple-400", bg: "bg-purple-500/10", border: "border-purple-500/20" },
-                  { name: "Claude", Icon: ClaudeIcon, color: "text-orange-400", bg: "bg-orange-500/10", border: "border-orange-500/20" },
-                  { name: "DeepSeek", Icon: DeepSeekIcon, color: "text-cyan-400", bg: "bg-cyan-500/10", border: "border-cyan-500/20" },
-                  { name: "Llama", Icon: LlamaIcon, color: "text-amber-400", bg: "bg-amber-500/10", border: "border-amber-500/20" },
+                  { name: "Gemini", type: "icon" as const, Icon: GeminiIcon, color: "text-blue-400", bg: "bg-blue-500/10", border: "border-blue-500/20" },
+                  { name: "OpenAI", type: "icon" as const, Icon: OpenAIIcon, color: "text-green-400", bg: "bg-green-500/10", border: "border-green-500/20" },
+                  { name: "Qwen", type: "img" as const, logo: qwenLogo, color: "text-purple-400", bg: "bg-purple-500/10", border: "border-purple-500/20" },
+                  { name: "Claude", type: "img" as const, logo: claudeLogo, color: "text-orange-400", bg: "bg-orange-500/10", border: "border-orange-500/20" },
+                  { name: "DeepSeek", type: "img" as const, logo: deepseekLogo, color: "text-cyan-400", bg: "bg-cyan-500/10", border: "border-cyan-500/20" },
+                  { name: "Llama", type: "img" as const, logo: llamaLogo, color: "text-amber-400", bg: "bg-amber-500/10", border: "border-amber-500/20" },
                 ].map((model) => (
                   <div key={model.name} className={`flex flex-col items-center gap-2 px-3 py-3 rounded-xl ${model.bg} border ${model.border} hover:scale-105 transition-transform`}>
-                    <model.Icon size={22} className={model.color} />
+                    {model.type === "img" ? (
+                      <img src={model.logo} alt={model.name} className="w-6 h-6 object-contain" />
+                    ) : (
+                      <model.Icon size={22} className={model.color} />
+                    )}
                     <span className={`text-xs font-medium ${model.color}`}>{model.name}</span>
                   </div>
                 ))}
