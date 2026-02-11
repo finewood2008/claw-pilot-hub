@@ -125,7 +125,7 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
                 icon: Zap,
@@ -147,6 +147,13 @@ const Index = () => {
                 desc: "一个平台，多端使用。支持 IM 对话、小程序、原生 APP、ESP32 硬件等多种接入方式，随时随地使用 AI。",
                 gradient: "from-blue-500/20 to-purple-500/20",
                 iconColor: "text-blue-400",
+              },
+              {
+                icon: ShoppingBag,
+                title: "SKILL 技能库",
+                desc: "丰富的预置技能市场，涵盖翻译、写作、编程、数据分析等场景，一键安装即可为 AI 助手赋能，支持自定义训练专属技能。",
+                gradient: "from-purple-500/20 to-pink-500/20",
+                iconColor: "text-purple-400",
               },
             ].map((feature) => (
               <div
