@@ -194,7 +194,7 @@ const Index = () => {
               </svg>
 
               {/* === TOP: API Management Platform === */}
-              <div className="flex justify-center mb-12 md:mb-0 md:absolute md:top-[-10%] md:left-[50%] md:-translate-x-1/2 animate-fade-in-up">
+              <div className="flex justify-center mb-12 md:mb-0 md:absolute md:top-[-2%] md:left-[44%] md:-translate-x-1/2 animate-fade-in-up">
                 <div className="flex flex-col items-center gap-3">
                   <div className="w-16 h-16 rounded-full border-2 border-blue-500/40 bg-blue-600/10 flex items-center justify-center animate-float">
                     <Cloud size={28} className="text-blue-400" />
