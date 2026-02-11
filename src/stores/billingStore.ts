@@ -46,31 +46,7 @@ const plans: Plan[] = [
   { id: "p4", name: "企业版", price: 299, period: "月", features: ["无限设备", "全部技能 + 定制", "无限 API 调用", "7×24 专属支持", "完整数据分析", "SLA 保障", "私有部署选项"], limits: { devices: -1, apiCalls: -1, skills: -1 } },
 ];
 
-// Static cost analytics data (would be computed from real data in production)
-export const costByDevice = [
-  { name: "客厅助手", value: 32 },
-  { name: "办公室助手", value: 28 },
-  { name: "卧室助手", value: 25 },
-  { name: "测试设备", value: 15 },
-];
-
-export const costBySkill = [
-  { name: "翻译助手", value: 22 },
-  { name: "天气查询", value: 18 },
-  { name: "会议记录", value: 15 },
-  { name: "音乐播放", value: 12 },
-  { name: "智能家居", value: 10 },
-  { name: "其他", value: 23 },
-];
-
-export const costTrend = [
-  { month: "2025-09", amount: 18.5 },
-  { month: "2025-10", amount: 22.3 },
-  { month: "2025-11", amount: 28.6 },
-  { month: "2025-12", amount: 35.2 },
-  { month: "2026-01", amount: 42.85 },
-  { month: "2026-02", amount: 18.0 },
-];
+// Cost analytics data is now computed dynamically in CostAnalytics component
 
 interface BillingStore {
   balance: number;

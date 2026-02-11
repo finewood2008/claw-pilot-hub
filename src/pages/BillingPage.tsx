@@ -1,6 +1,6 @@
 import { useState } from "react";
 import DashboardLayout from "@/components/DashboardLayout";
-import { useBillingStore, costByDevice, costBySkill, costTrend } from "@/stores/billingStore";
+import { useBillingStore } from "@/stores/billingStore";
 import { useDeviceStore } from "@/stores/deviceStore";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import BillingOverview from "@/components/billing/BillingOverview";

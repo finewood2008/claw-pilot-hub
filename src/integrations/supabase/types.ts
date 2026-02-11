@@ -44,6 +44,33 @@ export type Database = {
         }
         Relationships: []
       }
+      api_keys: {
+        Row: {
+          created_at: string
+          id: string
+          key_value: string
+          last_used_at: string | null
+          name: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          key_value?: string
+          last_used_at?: string | null
+          name?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          key_value?: string
+          last_used_at?: string | null
+          name?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       bills: {
         Row: {
           created_at: string
@@ -198,6 +225,36 @@ export type Database = {
           },
         ]
       }
+      login_history: {
+        Row: {
+          device: string
+          id: string
+          ip: string
+          is_current: boolean
+          location: string
+          logged_in_at: string
+          user_id: string
+        }
+        Insert: {
+          device?: string
+          id?: string
+          ip?: string
+          is_current?: boolean
+          location?: string
+          logged_in_at?: string
+          user_id: string
+        }
+        Update: {
+          device?: string
+          id?: string
+          ip?: string
+          is_current?: boolean
+          location?: string
+          logged_in_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
@@ -295,6 +352,48 @@ export type Database = {
           created_at?: string
           current_plan?: string
           id?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      user_settings: {
+        Row: {
+          id: string
+          language: string
+          notif_billing: boolean
+          notif_frequency: string
+          notif_marketing: boolean
+          notif_security: boolean
+          notif_updates: boolean
+          theme: string
+          timezone: string
+          two_fa_enabled: boolean
+          updated_at: string
+        }
+        Insert: {
+          id: string
+          language?: string
+          notif_billing?: boolean
+          notif_frequency?: string
+          notif_marketing?: boolean
+          notif_security?: boolean
+          notif_updates?: boolean
+          theme?: string
+          timezone?: string
+          two_fa_enabled?: boolean
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          language?: string
+          notif_billing?: boolean
+          notif_frequency?: string
+          notif_marketing?: boolean
+          notif_security?: boolean
+          notif_updates?: boolean
+          theme?: string
+          timezone?: string
+          two_fa_enabled?: boolean
           updated_at?: string
         }
         Relationships: []

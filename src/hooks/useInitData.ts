@@ -3,6 +3,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useDeviceStore } from "@/stores/deviceStore";
 import { useSkillStore } from "@/stores/skillStore";
 import { useBillingStore } from "@/stores/billingStore";
+import { useSettingsStore } from "@/stores/settingsStore";
 import { seedDemoData } from "@/lib/seedData";
 
 /**
@@ -14,6 +15,7 @@ export function useInitData() {
   const fetchDevices = useDeviceStore((s) => s.fetchDevices);
   const fetchInstalled = useSkillStore((s) => s.fetchInstalled);
   const fetchBilling = useBillingStore((s) => s.fetchBilling);
+  const fetchSettings = useSettingsStore((s) => s.fetchSettings);
   const initialized = useRef(false);
 
   useEffect(() => {
@@ -24,8 +26,8 @@ export function useInitData() {
       // Seed demo data for new users (no-op if already has data)
       await seedDemoData();
       // Fetch all data in parallel
-      await Promise.all([fetchDevices(), fetchInstalled(), fetchBilling()]);
+      await Promise.all([fetchDevices(), fetchInstalled(), fetchBilling(), fetchSettings()]);
     };
     init();
-  }, [isAuthenticated, fetchDevices, fetchInstalled, fetchBilling]);
+  }, [isAuthenticated, fetchDevices, fetchInstalled, fetchBilling, fetchSettings]);
 }
