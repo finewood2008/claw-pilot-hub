@@ -28,7 +28,7 @@ const BillingPage = () => {
             <TabsTrigger value="recharge">充值</TabsTrigger>
             <TabsTrigger value="records">消费记录</TabsTrigger>
             <TabsTrigger value="bills">账单</TabsTrigger>
-            <TabsTrigger value="plans">订阅计划</TabsTrigger>
+            <TabsTrigger value="plans" disabled className="opacity-50 cursor-not-allowed">订阅计划</TabsTrigger>
             <TabsTrigger value="analytics">成本分析</TabsTrigger>
             <TabsTrigger value="alerts">告警设置</TabsTrigger>
           </TabsList>
