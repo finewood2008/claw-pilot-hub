@@ -21,6 +21,8 @@ import {
   ShoppingBag,
   GraduationCap,
 } from "lucide-react";
+import { GeminiIcon, OpenAIIcon, QwenIcon, ClaudeIcon, DeepSeekIcon, LlamaIcon } from "@/components/icons/LLMIcons";
+import { imIconMap } from "@/components/icons/IMIcons";
 
 const Index = () => {
   const scrollTo = (id: string) => {
@@ -187,15 +189,15 @@ const Index = () => {
               <p className="text-xs text-gray-500 uppercase tracking-widest mb-4 text-center">LLM 大模型服务层</p>
               <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
                 {[
-                  { name: "Gemini", color: "text-blue-400", bg: "bg-blue-500/10", border: "border-blue-500/20" },
-                  { name: "OpenAI", color: "text-green-400", bg: "bg-green-500/10", border: "border-green-500/20" },
-                  { name: "Qwen", color: "text-purple-400", bg: "bg-purple-500/10", border: "border-purple-500/20" },
-                  { name: "Claude", color: "text-orange-400", bg: "bg-orange-500/10", border: "border-orange-500/20" },
-                  { name: "DeepSeek", color: "text-cyan-400", bg: "bg-cyan-500/10", border: "border-cyan-500/20" },
-                  { name: "Llama", color: "text-amber-400", bg: "bg-amber-500/10", border: "border-amber-500/20" },
+                  { name: "Gemini", Icon: GeminiIcon, color: "text-blue-400", bg: "bg-blue-500/10", border: "border-blue-500/20" },
+                  { name: "OpenAI", Icon: OpenAIIcon, color: "text-green-400", bg: "bg-green-500/10", border: "border-green-500/20" },
+                  { name: "Qwen", Icon: QwenIcon, color: "text-purple-400", bg: "bg-purple-500/10", border: "border-purple-500/20" },
+                  { name: "Claude", Icon: ClaudeIcon, color: "text-orange-400", bg: "bg-orange-500/10", border: "border-orange-500/20" },
+                  { name: "DeepSeek", Icon: DeepSeekIcon, color: "text-cyan-400", bg: "bg-cyan-500/10", border: "border-cyan-500/20" },
+                  { name: "Llama", Icon: LlamaIcon, color: "text-amber-400", bg: "bg-amber-500/10", border: "border-amber-500/20" },
                 ].map((model) => (
                   <div key={model.name} className={`flex flex-col items-center gap-2 px-3 py-3 rounded-xl ${model.bg} border ${model.border} hover:scale-105 transition-transform`}>
-                    <Brain size={20} className={model.color} />
+                    <model.Icon size={22} className={model.color} />
                     <span className={`text-xs font-medium ${model.color}`}>{model.name}</span>
                   </div>
                 ))}
@@ -400,17 +402,20 @@ const Index = () => {
             </h3>
             <div className="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-9 gap-3">
               {["QQ", "微信", "企业微信", "飞书", "钉钉", "Slack", "Discord", "Telegram", "WhatsApp"].map(
-                (name) => (
-                  <div
-                    key={name}
-                    className="flex flex-col items-center gap-2 px-3 py-4 rounded-xl bg-[#111827]/60 border border-white/5 hover:border-white/10 transition-colors"
-                  >
-                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
-                      <MessageSquare size={18} className="text-gray-400" />
+                (name) => {
+                  const im = imIconMap[name];
+                  return (
+                    <div
+                      key={name}
+                      className="flex flex-col items-center gap-2 px-3 py-4 rounded-xl bg-[#111827]/60 border border-white/5 hover:border-white/10 transition-colors"
+                    >
+                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
+                        {im ? <im.Icon size={20} className={im.color} /> : <MessageSquare size={18} className="text-gray-400" />}
+                      </div>
+                      <span className="text-xs text-gray-400">{name}</span>
                     </div>
-                    <span className="text-xs text-gray-400">{name}</span>
-                  </div>
-                )
+                  );
+                }
               )}
             </div>
           </div>
