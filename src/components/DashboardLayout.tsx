@@ -57,9 +57,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
   const SidebarContent = () => (
     <div className="flex flex-col h-full">
       <div className="flex items-center gap-3 px-4 h-16 border-b border-sidebar-border">
-        <div className="flex items-center justify-center w-8 h-8 rounded-lg auth-gradient flex-shrink-0">
-          <Cpu className="w-4 h-4 text-primary-foreground" />
-        </div>
+        <img src="/logo.png" alt="Q-CLAW" className="w-8 h-8 rounded-lg object-contain flex-shrink-0" />
         {!collapsed && <span className="text-lg font-bold text-sidebar-accent-foreground">Q-CLAW</span>}
       </div>
       <nav className="flex-1 p-3 space-y-1 overflow-y-auto">
