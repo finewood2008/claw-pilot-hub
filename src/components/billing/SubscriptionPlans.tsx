@@ -44,11 +44,10 @@ const SubscriptionPlans = () => {
                 </div>
                 <Button
                   className="w-full"
-                  variant={isCurrent ? "outline" : p.recommended ? "default" : "outline"}
-                  disabled={isCurrent}
-                  onClick={() => { setCurrentPlan(p.id); toast({ title: `已切换到${p.name}` }); }}
+                  variant="outline"
+                  disabled
                 >
-                  {isCurrent ? "当前套餐" : p.price === 0 ? "选择" : "升级"}
+                  {isCurrent ? "当前套餐" : "暂未开放"}
                 </Button>
               </CardContent>
             </Card>
