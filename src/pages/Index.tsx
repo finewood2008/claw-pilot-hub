@@ -170,8 +170,8 @@ const Index = () => {
             <p className="text-gray-400">从终端到引擎，一站式消息处理架构</p>
           </div>
 
-          {/* === 第1层：LLM 大模型服务层 === */}
-          <div className="animate-fade-in-up">
+          {/* LLM Provider Layer */}
+          <div className="mb-6 animate-fade-in-up">
             <div className="rounded-2xl border border-white/5 bg-[#111827]/40 p-6">
               <p className="text-xs text-gray-500 uppercase tracking-widest mb-4 text-center">LLM 大模型服务层</p>
               <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
@@ -192,45 +192,57 @@ const Index = () => {
             </div>
           </div>
 
-          {/* 层间连接线 1→2 */}
+          {/* Vertical dashed connector from LLM to Agent frame */}
           <div className="flex justify-center my-1">
-            <div className="flex flex-col items-center">
-              <div className="w-px h-8 border-l-2 border-dashed border-blue-500/30 animate-dash-flow" />
-              <div className="w-0 h-0 border-l-[5px] border-r-[5px] border-t-[6px] border-l-transparent border-r-transparent border-t-blue-500/40" />
-            </div>
+            <div className="w-px h-8 border-l-2 border-dashed border-blue-500/30 animate-dash-flow" />
           </div>
 
-          {/* === 第2层：Q-CLAW API 管理平台层 === */}
-          <div className="animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-            <div className="rounded-2xl border border-white/5 bg-[#111827]/40 p-8">
-              <p className="text-xs text-gray-500 uppercase tracking-widest mb-5 text-center">Q-CLAW API 管理平台层</p>
-              <div className="flex flex-col items-center gap-3">
-                <div className="w-16 h-16 rounded-full border-2 border-blue-500/40 bg-blue-600/10 flex items-center justify-center animate-float">
-                  <Cloud size={28} className="text-blue-400" />
+          {/* Q-CLAW Agent Proxy Frame */}
+          <div className="relative rounded-2xl border-2 border-purple-500/20 bg-gradient-to-b from-purple-900/5 to-blue-900/5 p-2 md:p-3 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+            {/* Agent label */}
+            <div className="absolute -top-3.5 left-6 px-3 py-0.5 rounded-full bg-[#0a0e1a] border border-purple-500/30">
+              <span className="text-xs text-purple-400 font-medium tracking-wider">Q-CLAW Agent 代理层</span>
+            </div>
+
+            <div className="rounded-xl border border-white/5 bg-[#111827]/40 p-8 md:p-12">
+              {/* Desktop: Triangle topology / Mobile: vertical stack */}
+              <div className="relative min-h-[420px] md:min-h-[520px]">
+
+                {/* SVG Connection Lines */}
+                <svg className="absolute inset-0 w-full h-full pointer-events-none hidden md:block" preserveAspectRatio="none">
+                  {/* API Platform → Clients (top-center to bottom-left) */}
+                  <line x1="50%" y1="18%" x2="22%" y2="50%" stroke="url(#dashGrad)" strokeWidth="1.5" strokeDasharray="6,4" className="animate-dash-flow" />
+                  {/* API Platform → Engine (top-center to right) */}
+                  <line x1="50%" y1="18%" x2="75%" y2="50%" stroke="url(#dashGrad)" strokeWidth="1.5" strokeDasharray="6,4" className="animate-dash-flow" style={{ animationDelay: '0.5s' }} />
+                  {/* Clients → Engine (bottom-left to right, through channel) */}
+                  <line x1="35%" y1="65%" x2="62%" y2="65%" stroke="url(#dashGrad2)" strokeWidth="1.5" strokeDasharray="6,4" className="animate-dash-flow" style={{ animationDelay: '1s' }} />
+                  <defs>
+                    <linearGradient id="dashGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="rgba(96,165,250,0.6)" />
+                      <stop offset="100%" stopColor="rgba(168,85,247,0.6)" />
+                    </linearGradient>
+                    <linearGradient id="dashGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="rgba(34,211,238,0.5)" />
+                      <stop offset="100%" stopColor="rgba(168,85,247,0.5)" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+
+                {/* === TOP: API Management Platform === */}
+                <div className="flex justify-center mb-12 md:mb-0 md:absolute md:top-[-2%] md:left-[50%] md:-translate-x-1/2 animate-fade-in-up">
+                  <div className="flex flex-col items-center gap-3">
+                    <div className="w-16 h-16 rounded-full border-2 border-blue-500/40 bg-blue-600/10 flex items-center justify-center animate-float">
+                      <Cloud size={28} className="text-blue-400" />
+                    </div>
+                    <div className="text-center">
+                      <p className="text-blue-300 font-semibold text-sm">Q-CLAW API 管理平台</p>
+                      <p className="text-gray-500 text-xs mt-1">Key 鉴权 / Token 计费 / 配置同步</p>
+                    </div>
+                  </div>
                 </div>
-                <div className="text-center">
-                  <p className="text-blue-300 font-semibold text-sm">Q-CLAW API 管理平台</p>
-                  <p className="text-gray-500 text-xs mt-1">Key 鉴权 / Token 计费 / 配置同步</p>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          {/* 层间连接线 2→3 */}
-          <div className="flex justify-center my-1">
-            <div className="flex flex-col items-center">
-              <div className="w-px h-8 border-l-2 border-dashed border-purple-500/30 animate-dash-flow" />
-              <div className="w-0 h-0 border-l-[5px] border-r-[5px] border-t-[6px] border-l-transparent border-r-transparent border-t-purple-500/40" />
-            </div>
-          </div>
-
-          {/* === 第3层：接入终端与 OPENCLAW 本地运行层 === */}
-          <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <div className="rounded-2xl border border-white/5 bg-[#111827]/40 p-6 md:p-8">
-              <p className="text-xs text-gray-500 uppercase tracking-widest mb-5 text-center">接入终端与 OPENCLAW 本地运行层</p>
-              <div className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8">
-                {/* 左侧：接入终端 */}
-                <div className="flex-1 w-full">
+                {/* === BOTTOM-LEFT: Clients === */}
+                <div className="mb-10 md:mb-0 md:absolute md:bottom-4 md:left-0 md:w-[40%] animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
                   <div className="rounded-xl border border-white/10 bg-[#0d1424]/80 p-4">
                     <p className="text-xs text-gray-500 uppercase tracking-widest mb-3 text-center">接入终端 CLIENTS</p>
                     <div className="grid grid-cols-2 gap-2">
@@ -249,16 +261,16 @@ const Index = () => {
                   </div>
                 </div>
 
-                {/* 中间：Channel 通道直连 */}
-                <div className="flex items-center justify-center shrink-0">
+                {/* === CENTER: Channel 通道直连 === */}
+                <div className="flex justify-center mb-10 md:mb-0 md:absolute md:bottom-[12%] md:left-[42%] animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
                   <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-cyan-500/30 bg-cyan-500/5">
                     <span className="text-xs text-cyan-300 font-medium">Channel 通道直连</span>
                     <ArrowRight size={14} className="text-cyan-400 animate-pulse-arrow" />
                   </div>
                 </div>
 
-                {/* 右侧：Core Engine */}
-                <div className="flex-1 flex justify-center">
+                {/* === RIGHT: Core Engine === */}
+                <div className="flex justify-center md:absolute md:right-0 md:top-1/2 md:-translate-y-1/2 md:w-[35%] animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
                   <div className="flex flex-col items-center gap-3">
                     <p className="text-xs text-purple-400/70 tracking-wider">Q-CLAW 封装层</p>
                     <div className="relative">
@@ -285,6 +297,7 @@ const Index = () => {
                     </div>
                   </div>
                 </div>
+
               </div>
             </div>
           </div>
