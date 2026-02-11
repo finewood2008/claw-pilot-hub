@@ -176,9 +176,9 @@ const Index = () => {
               {/* SVG Connection Lines */}
               <svg className="absolute inset-0 w-full h-full pointer-events-none hidden md:block" preserveAspectRatio="none">
                 {/* API Platform → Clients (top-center to bottom-left) */}
-                <line x1="48%" y1="22%" x2="22%" y2="55%" stroke="url(#dashGrad)" strokeWidth="1.5" strokeDasharray="6,4" className="animate-dash-flow" />
+                <line x1="38%" y1="22%" x2="22%" y2="55%" stroke="url(#dashGrad)" strokeWidth="1.5" strokeDasharray="6,4" className="animate-dash-flow" />
                 {/* API Platform → Engine (top-center to right) */}
-                <line x1="48%" y1="22%" x2="75%" y2="55%" stroke="url(#dashGrad)" strokeWidth="1.5" strokeDasharray="6,4" className="animate-dash-flow" style={{ animationDelay: '0.5s' }} />
+                <line x1="38%" y1="22%" x2="75%" y2="55%" stroke="url(#dashGrad)" strokeWidth="1.5" strokeDasharray="6,4" className="animate-dash-flow" style={{ animationDelay: '0.5s' }} />
                 {/* Clients → Engine (bottom-left to right, through channel) */}
                 <line x1="35%" y1="68%" x2="62%" y2="68%" stroke="url(#dashGrad2)" strokeWidth="1.5" strokeDasharray="6,4" className="animate-dash-flow" style={{ animationDelay: '1s' }} />
                 <defs>
@@ -194,7 +194,7 @@ const Index = () => {
               </svg>
 
               {/* === TOP: API Management Platform === */}
-              <div className="flex justify-center mb-12 md:mb-0 md:absolute md:top-[-2%] md:left-[44%] md:-translate-x-1/2 animate-fade-in-up">
+              <div className="flex justify-center mb-12 md:mb-0 md:absolute md:top-[-2%] md:left-[38%] md:-translate-x-1/2 animate-fade-in-up">
                 <div className="flex flex-col items-center gap-3">
                   <div className="w-16 h-16 rounded-full border-2 border-blue-500/40 bg-blue-600/10 flex items-center justify-center animate-float">
                     <Cloud size={28} className="text-blue-400" />
