@@ -149,3 +149,33 @@
 .animate-pulse-arrow {
   animation: pulse-arrow 1.5s ease-in-out infinite;
 }
+
+@keyframes dash-flow-reverse {
+  to { stroke-dashoffset: 20; }
+}
+
+@keyframes flow-dot-down {
+  0% { transform: translateY(-4px); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateY(44px); opacity: 0; }
+}
+
+@keyframes flow-dot-up {
+  0% { transform: translateY(44px); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateY(-4px); opacity: 0; }
+}
+
+.animate-dash-flow-reverse {
+  animation: dash-flow-reverse 1s linear infinite;
+}
+
+.animate-flow-dot-down {
+  animation: flow-dot-down 2s ease-in-out infinite;
+}
+
+.animate-flow-dot-up {
+  animation: flow-dot-up 2s ease-in-out infinite;
+}
