@@ -16,6 +16,9 @@ import {
   Layers,
   Cloud,
   Brain,
+  CreditCard,
+  ShoppingBag,
+  GraduationCap,
 } from "lucide-react";
 
 const Index = () => {
@@ -204,13 +207,40 @@ const Index = () => {
           <div className="animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
             <div className="rounded-2xl border border-white/5 bg-[#111827]/40 p-8">
               <p className="text-xs text-gray-500 uppercase tracking-widest mb-5 text-center">Q-CLAW API 管理平台层</p>
-              <div className="flex flex-col items-center gap-3">
-                <div className="w-16 h-16 rounded-full border-2 border-blue-500/40 bg-blue-600/10 flex items-center justify-center animate-float">
-                  <Cloud size={28} className="text-blue-400" />
+              <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+                {/* 左侧：国内平台充值 + 自动化IM配置 */}
+                <div className="flex flex-row gap-3">
+                  <div className="flex items-center gap-2 px-3 py-2.5 rounded-lg bg-green-500/10 border border-green-500/20">
+                    <CreditCard size={15} className="text-green-400" />
+                    <span className="text-xs text-gray-300">国内平台充值</span>
+                  </div>
+                  <div className="flex items-center gap-2 px-3 py-2.5 rounded-lg bg-blue-500/10 border border-blue-500/20">
+                    <MessageSquare size={15} className="text-blue-400" />
+                    <span className="text-xs text-gray-300">自动化 IM 配置</span>
+                  </div>
                 </div>
-                <div className="text-center">
-                  <p className="text-blue-300 font-semibold text-sm">Q-CLAW API 管理平台</p>
-                  <p className="text-gray-500 text-xs mt-1">Key 鉴权 / Token 计费 / 配置同步</p>
+
+                {/* 中间：Cloud 图标 + 标题 */}
+                <div className="flex flex-col items-center gap-3">
+                  <div className="w-16 h-16 rounded-full border-2 border-blue-500/40 bg-blue-600/10 flex items-center justify-center animate-float">
+                    <Cloud size={28} className="text-blue-400" />
+                  </div>
+                  <div className="text-center">
+                    <p className="text-blue-300 font-semibold text-sm">Q-CLAW API 管理平台</p>
+                    <p className="text-gray-500 text-xs mt-1">Key 鉴权 / Token 计费 / 配置同步</p>
+                  </div>
+                </div>
+
+                {/* 右侧：SKILL Market + SKILL 模型训练 */}
+                <div className="flex flex-row gap-3">
+                  <div className="flex items-center gap-2 px-3 py-2.5 rounded-lg bg-purple-500/10 border border-purple-500/20">
+                    <ShoppingBag size={15} className="text-purple-400" />
+                    <span className="text-xs text-gray-300">SKILL Market</span>
+                  </div>
+                  <div className="flex items-center gap-2 px-3 py-2.5 rounded-lg bg-orange-500/10 border border-orange-500/20">
+                    <GraduationCap size={15} className="text-orange-400" />
+                    <span className="text-xs text-gray-300">SKILL 训练</span>
+                  </div>
                 </div>
               </div>
             </div>
