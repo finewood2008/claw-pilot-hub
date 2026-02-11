@@ -1,12 +1,326 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Link } from "react-router-dom";
+import {
+  Zap,
+  Wallet,
+  Monitor,
+  Github,
+  Download,
+  ArrowRight,
+  MessageSquare,
+  Smartphone,
+  Cpu,
+  ExternalLink,
+  Globe,
+  Shield,
+  Server,
+  Layers,
+} from "lucide-react";
 
 const Index = () => {
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-[#0a0e1a] text-gray-100 font-sans">
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a0e1a]/80 backdrop-blur-xl border-b border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center font-bold text-sm text-white">
+              Q
+            </div>
+            <span className="text-lg font-bold text-white tracking-tight">Q-CLAW</span>
+          </div>
+          <div className="hidden md:flex items-center gap-8 text-sm text-gray-400">
+            <button onClick={() => scrollTo("features")} className="hover:text-white transition-colors">
+              功能介绍
+            </button>
+            <button onClick={() => scrollTo("channels")} className="hover:text-white transition-colors">
+              下载中心
+            </button>
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors flex items-center gap-1"
+            >
+              <Github size={14} />
+              GitHub
+            </a>
+          </div>
+          <Link
+            to="/login"
+            className="px-5 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-medium hover:opacity-90 transition-opacity"
+          >
+            控制台
+          </Link>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-24 overflow-hidden">
+        {/* Background glow */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-gradient-to-b from-blue-600/20 via-purple-600/10 to-transparent rounded-full blur-3xl" />
+        </div>
+
+        <div className="relative max-w-4xl mx-auto px-4 text-center">
+          {/* Promo tag */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-sm mb-8">
+            <Zap size={14} />
+            <span>限时福利，新用户注册赠送 300万 Token</span>
+          </div>
+
+          {/* Main heading */}
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6">
+            <span className="text-white">Q-CLAW</span>
+            <br />
+            <span className="text-gray-300">让每个人都能轻松驾驭</span>
+            <br />
+            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              AI 助手
+            </span>
+          </h1>
+
+          {/* Subtitle */}
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+            Q-CLAW 是一个开源的 AI 助手管理平台，支持多端接入、人民币直充、免配置安装，
+            让你在微信、QQ、飞书、钉钉等平台无缝使用 AI 能力。
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href="#"
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium hover:opacity-90 transition-opacity"
+            >
+              <Download size={18} />
+              下载 Q-CLAW 客户端
+            </a>
+            <a
+              href="#"
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-lg border border-gray-600 text-gray-300 font-medium hover:border-gray-400 hover:text-white transition-colors"
+            >
+              <Github size={18} />
+              GitHub 源码
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Core Features */}
+      <section id="features" className="py-24 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">核心特性</h2>
+            <p className="text-gray-400 max-w-xl mx-auto">
+              简单、安全、高效——为每一位用户打造极致的 AI 使用体验
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                icon: Zap,
+                title: "免配置安装",
+                desc: "无需复杂的环境搭建和 API Key 配置，下载即用，一键启动你的 AI 助手，真正做到零门槛上手。",
+                gradient: "from-yellow-500/20 to-orange-500/20",
+                iconColor: "text-yellow-400",
+              },
+              {
+                icon: Wallet,
+                title: "人民币直充",
+                desc: "支持微信、支付宝等主流支付方式直接充值，无需信用卡，无需海外支付渠道，国内用户友好。",
+                gradient: "from-green-500/20 to-emerald-500/20",
+                iconColor: "text-green-400",
+              },
+              {
+                icon: Monitor,
+                title: "多端无缝连接",
+                desc: "一个平台，多端使用。支持 IM 对话、小程序、原生 APP、ESP32 硬件等多种接入方式，随时随地使用 AI。",
+                gradient: "from-blue-500/20 to-purple-500/20",
+                iconColor: "text-blue-400",
+              },
+            ].map((feature) => (
+              <div
+                key={feature.title}
+                className="group rounded-2xl border border-white/5 bg-[#111827]/60 p-8 hover:border-white/10 transition-colors"
+              >
+                <div
+                  className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-5`}
+                >
+                  <feature.icon className={feature.iconColor} size={22} />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-3">{feature.title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">{feature.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Architecture Diagram */}
+      <section className="py-24 px-4">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Q-CLAW 运行原理说明</h2>
+            <p className="text-gray-400">从终端到引擎，一站式消息处理架构</p>
+          </div>
+
+          <div className="rounded-2xl border border-white/5 bg-[#111827]/40 p-8 md:p-12">
+            {/* Top: API Platform */}
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600/20 border border-blue-500/30">
+                <Server size={18} className="text-blue-400" />
+                <span className="text-blue-300 font-medium">Q-CLAW API 管理平台</span>
+              </div>
+            </div>
+
+            {/* Arrow down */}
+            <div className="flex justify-center mb-8">
+              <div className="w-px h-10 bg-gradient-to-b from-blue-500/40 to-purple-500/40" />
+            </div>
+
+            {/* Clients row */}
+            <div className="mb-8">
+              <p className="text-center text-xs text-gray-500 uppercase tracking-widest mb-4">
+                接入终端 CLIENTS
+              </p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                {[
+                  { icon: MessageSquare, label: "IM 对话" },
+                  { icon: Smartphone, label: "APP" },
+                  { icon: Globe, label: "小程序" },
+                  { icon: Cpu, label: "ESP32" },
+                ].map((item) => (
+                  <div
+                    key={item.label}
+                    className="flex items-center gap-2 px-4 py-3 rounded-lg bg-[#0a0e1a]/60 border border-white/5 justify-center"
+                  >
+                    <item.icon size={16} className="text-gray-400" />
+                    <span className="text-sm text-gray-300">{item.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Arrow down */}
+            <div className="flex justify-center mb-8">
+              <div className="flex flex-col items-center gap-1">
+                <div className="w-px h-6 bg-purple-500/30" />
+                <span className="text-xs text-gray-500">Channel 消息传达</span>
+                <div className="w-px h-6 bg-purple-500/30" />
+              </div>
+            </div>
+
+            {/* Core Engine */}
+            <div className="flex justify-center mb-8">
+              <div className="relative">
+                <div className="w-40 h-40 rounded-full border-2 border-purple-500/30 bg-gradient-to-br from-purple-900/30 to-blue-900/30 flex flex-col items-center justify-center">
+                  <Layers size={28} className="text-purple-400 mb-2" />
+                  <span className="text-xs text-purple-300 font-medium text-center leading-tight">
+                    OPENCLAW
+                    <br />
+                    Core Engine
+                  </span>
+                </div>
+                <div className="absolute -inset-3 rounded-full border border-purple-500/10 animate-pulse" />
+              </div>
+            </div>
+
+            {/* Q-CLAW wrapper label */}
+            <div className="text-center">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#0a0e1a]/60 border border-white/5">
+                <Shield size={14} className="text-green-400" />
+                <span className="text-xs text-gray-400">自建 · 安全 · 开源</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Channel Ecosystem */}
+      <section id="channels" className="py-24 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-12 gap-4">
+            <div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2">多端渠道生态矩阵</h2>
+              <p className="text-gray-400">覆盖主流 IM 平台与终端设备，一套系统全渠道接入</p>
+            </div>
+            <a
+              href="#"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-blue-600/20 border border-blue-500/30 text-blue-300 text-sm font-medium hover:bg-blue-600/30 transition-colors"
+            >
+              前往下载中心
+              <ArrowRight size={14} />
+            </a>
+          </div>
+
+          {/* IM Channels */}
+          <div className="mb-8">
+            <h3 className="text-sm text-gray-500 uppercase tracking-widest mb-4">
+              即时通讯渠道 · 主流 IM 平台直连
+            </h3>
+            <div className="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-9 gap-3">
+              {["QQ", "微信", "企业微信", "飞书", "钉钉", "Slack", "Discord", "Telegram", "WhatsApp"].map(
+                (name) => (
+                  <div
+                    key={name}
+                    className="flex flex-col items-center gap-2 px-3 py-4 rounded-xl bg-[#111827]/60 border border-white/5 hover:border-white/10 transition-colors"
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
+                      <MessageSquare size={18} className="text-gray-400" />
+                    </div>
+                    <span className="text-xs text-gray-400">{name}</span>
+                  </div>
+                )
+              )}
+            </div>
+          </div>
+
+          {/* Bottom cards */}
+          <div className="grid md:grid-cols-3 gap-4">
+            {[
+              {
+                icon: Globe,
+                title: "小程序矩阵",
+                desc: "微信小程序、支付宝小程序等多端小程序接入方案",
+              },
+              {
+                icon: Smartphone,
+                title: "原生 APP",
+                desc: "iOS / Android 原生应用，提供完整的移动端 AI 体验",
+              },
+              {
+                icon: Cpu,
+                title: "硬件组件",
+                desc: "ESP32 等 IoT 硬件模块接入，将 AI 带入物联网场景",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="rounded-xl border border-white/5 bg-[#111827]/60 p-6 hover:border-white/10 transition-colors"
+              >
+                <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center mb-4">
+                  <item.icon size={18} className="text-purple-400" />
+                </div>
+                <h4 className="text-white font-medium mb-2">{item.title}</h4>
+                <p className="text-sm text-gray-400">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-white/5 py-8 px-4">
+        <div className="max-w-6xl mx-auto text-center">
+          <p className="text-gray-500 text-sm">
+            © 2026 Q-CLAW Platform. Powered by OpenClaw.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
