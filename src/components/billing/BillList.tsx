@@ -23,6 +23,9 @@ const BillList = () => {
 
   return (
     <div className="space-y-4 pt-2">
+      {bills.length === 0 ? (
+        <div className="text-center py-12 text-muted-foreground">暂无账单记录</div>
+      ) : (
       <div className="grid grid-cols-1 gap-3">
         {bills.map((b) => {
           const st = statusMap[b.status];
