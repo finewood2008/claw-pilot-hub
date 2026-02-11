@@ -208,11 +208,11 @@ const Index = () => {
           <div className="relative h-16 hidden md:block">
             <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1000 80" preserveAspectRatio="none">
               {/* 上行线（OPENCLAW → LLM） */}
-              <line x1="720" y1="80" x2="740" y2="0" stroke="rgba(168,85,247,0.5)" strokeWidth="3" strokeDasharray="8 4" className="animate-dash-flow-reverse" />
+              <line x1="740" y1="80" x2="740" y2="0" stroke="rgba(168,85,247,0.5)" strokeWidth="3" strokeDasharray="8 4" className="animate-dash-flow-reverse" />
               <polygon points="737,8 743,8 740,0" fill="rgba(168,85,247,0.6)" />
               {/* 下行线（LLM → OPENCLAW） */}
-              <line x1="760" y1="0" x2="780" y2="80" stroke="rgba(168,85,247,0.35)" strokeWidth="3" strokeDasharray="8 4" className="animate-dash-flow" />
-              <polygon points="777,72 783,72 780,80" fill="rgba(168,85,247,0.5)" />
+              <line x1="770" y1="0" x2="770" y2="80" stroke="rgba(168,85,247,0.35)" strokeWidth="3" strokeDasharray="8 4" className="animate-dash-flow" />
+              <polygon points="767,72 773,72 770,80" fill="rgba(168,85,247,0.5)" />
             </svg>
             <div className="absolute right-[8%] top-1/2 -translate-y-1/2 text-[10px] text-purple-400 bg-[#0a0e1a]/90 px-2.5 py-1 rounded border border-purple-500/20 whitespace-nowrap font-medium">
               ↕ API 直连（数据不经过平台）
