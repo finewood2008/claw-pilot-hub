@@ -1,80 +1,80 @@
 
-# 重建"Q-CLAW 运行原理说明"板块
 
-## 参考图片分析
+## 重新设计「Q-CLAW API 管理平台」板块
 
-图片展示的布局与当前实现有很大不同：
+用户选中的是 API 管理平台节点，要求：
+1. 整体板块更大
+2. 外面加一个框，代表"代理"
+3. 在 API 管理平台上方新增一层，展示各种大模型（Gemini、OpenAI、Qwen 等）
 
-1. **顶部**：云图标 + "Q-CLAW API 管理平台" + 副标题 "Key 鉴权 / Token 计费 / 配置同步"
-2. **中间**：从 API 平台向下延伸两条虚线，分别连接左下角的"接入终端"和右侧的"核心引擎"
-3. **左下角**："接入终端 (CLIENTS)" 卡片区，2x2 网格布局：IM 平台（绿色图标）、APP（蓝色图标）、小程序（绿色图标）、ESP32（绿色图标）
-4. **中间偏下**："Channel 通道直连" 标签 + 右箭头，连接到右侧引擎
-5. **右侧**：大圆形 "OPENCLAW Core Engine"，外围紫色弧线环绕，标注"Q-CLAW 封装层"
-6. **右下角**："此部分完全开源" 绿色标签
+### 新布局结构（自上而下共 4 层）
 
-整体呈**三角形拓扑**布局（API平台在上，Clients在左下，Engine在右），而非当前的垂直线性排列。
+```text
++--------------------------------------------------+
+|          LLM 大模型层 (新增)                       |
+|  [Gemini] [OpenAI] [Qwen] [Claude] [DeepSeek]    |
+|             ... 虚线向下连接 ...                    |
++--------------------------------------------------+
+          |
++---------v----------------------------------------+
+|       Q-CLAW 代理框 (新增外框)                     |
+|  +--------------------------------------------+  |
+|  |       Q-CLAW API 管理平台 (云图标)           |  |
+|  |    Key 鉴权 / Token 计费 / 配置同步          |  |
+|  +--------------------------------------------+  |
+|              /              \                     |
+|             /                \                    |
+|  [接入终端 CLIENTS]    [OPENCLAW Core Engine]     |
+|  IM / APP / 小程序      Channel 通道直连           |
+|  / ESP32                                         |
++--------------------------------------------------+
+```
 
-## 实现计划
+### 具体实现
 
-### 文件变更：`src/pages/Index.tsx`
+#### 1. 文件：`src/pages/Index.tsx`
 
-**替换架构图部分**（约第163-240行），重新实现为：
+**新增 imports**：`Brain` 图标（用于大模型通用图标）
 
-1. **布局改为相对定位 + 三角拓扑**
-   - 使用 CSS Grid 或 Flexbox，在桌面端实现三角形布局
-   - API 管理平台居中偏上
-   - 接入终端在左下
-   - Core Engine 在右侧
-   - 虚线用 CSS border-dashed 连接各节点
+**新增大模型层**（位于架构图容器上方或内部最顶部）：
+- 一行横排展示 5-6 个大模型品牌卡片
+- 每个卡片：品牌图标 + 名称（Gemini、GPT / OpenAI、Qwen / 通义、Claude、DeepSeek、Llama）
+- 使用各品牌代表色区分
+- 下方虚线连接到 API 管理平台
 
-2. **API 管理平台节点**
-   - 云朵图标（Cloud from lucide-react），带圆形边框
-   - 标题 "Q-CLAW API 管理平台"
-   - 副标题 "Key 鉴权 / Token 计费 / 配置同步"
+**添加代理外框**：
+- 在现有的三角拓扑外层包裹一个带标签的虚线/实线边框
+- 左上角标注 "Q-CLAW Agent 代理层"
+- 边框样式：圆角 + 半透明紫蓝渐变边框
 
-3. **接入终端 (CLIENTS) 卡片**
-   - 带边框的矩形容器
-   - 2x2 网格：IM 平台、APP、小程序、ESP32
-   - 每个小卡片有独立图标和彩色样式（绿色/蓝色）
+**调整整体尺寸**：
+- `max-w-5xl` 改为 `max-w-6xl`
+- `min-h-[480px]` 改为 `min-h-[600px]`
+- 增加内边距
 
-4. **Channel 通道直连**
-   - 居中的标签，带边框，青色文字
-   - 右侧三角箭头指向引擎
+**更新 SVG 连线**：
+- 新增从大模型层到 API 管理平台的垂直虚线
+- 调整现有连线的 y 坐标，因为整体向下偏移
 
-5. **OPENCLAW Core Engine**
-   - 大圆形，蓝紫渐变背景
-   - 外围紫色弧线（用 CSS border 实现）
-   - 上方标注 "Q-CLAW 封装层"
-   - 下方绿色标签 "此部分完全开源"
+#### 2. 文件：`src/index.css`
 
-6. **虚线连接**
-   - 从 API 平台到 Clients 和 Engine 的虚线，使用绝对定位的 SVG 或 CSS 虚线实现
+无需额外动画，现有的 `animate-fade-in-up`、`animate-dash-flow` 等已足够。
 
-### 动画效果
+### 大模型列表
 
-使用 CSS animations（@keyframes + Tailwind animate 类）：
+| 名称 | 颜色 | 图标说明 |
+|------|------|---------|
+| Gemini | blue-400 | lucide Brain 或自定义 |
+| OpenAI | green-400 | lucide Brain |
+| Qwen (通义) | purple-400 | lucide Brain |
+| Claude | orange-400 | lucide Brain |
+| DeepSeek | cyan-400 | lucide Brain |
+| Llama | amber-400 | lucide Brain |
 
-- **云图标**：轻微上下浮动动画（floating）
-- **Core Engine 外环**：缓慢旋转动画（rotate）
-- **虚线连接**：流动虚线效果（stroke-dashoffset 动画，模拟数据流动）
-- **Channel 标签箭头**：脉冲/闪烁效果
-- **整体入场**：各元素依次淡入（fade-in + translate，通过 animation-delay 实现错落效果）
-
-### 文件变更：`src/index.css`
-
-添加自定义 @keyframes 动画：
-- `@keyframes float` — 上下浮动
-- `@keyframes spin-slow` — 慢速旋转
-- `@keyframes dash-flow` — 虚线流动
-- `@keyframes fade-in-up` — 淡入上移
+由于无法引入品牌 SVG logo，将使用 lucide 图标 + 品牌色 + 文字名称来区分各模型。
 
 ### 响应式处理
 
-- 桌面端（md+）：三角形拓扑布局
-- 移动端：改为垂直堆叠布局，保持逻辑流向
+- 桌面端：大模型横排一行，代理框包裹三角拓扑
+- 移动端：大模型换行为 2-3 列网格，下方垂直堆叠
 
-## 技术细节
-
-- 不引入额外依赖，纯 CSS + Tailwind 实现动画
-- 虚线连接使用 SVG path 元素实现精确的三角形连线
-- 动画使用 CSS @keyframes，不需要 framer-motion
