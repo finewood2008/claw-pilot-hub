@@ -15,7 +15,28 @@ export async function seedDemoData(): Promise<boolean> {
     .eq("user_id", user.id)
     .limit(1);
 
-  if (existing && existing.length > 0) return false; // Already seeded
+  if (existing && existing.length > 0) {
+    // Ensure user_settings exists for existing users (may not have been created by trigger)
+    const { data: settingsExist } = await supabase
+      .from("user_settings")
+      .select("id")
+      .eq("id", user.id)
+      .maybeSingle();
+    if (!settingsExist) {
+      await supabase.from("user_settings").insert({ id: user.id });
+    }
+    return false;
+  }
+
+  // Ensure user_settings exists
+  const { data: settingsExist } = await supabase
+    .from("user_settings")
+    .select("id")
+    .eq("id", user.id)
+    .maybeSingle();
+  if (!settingsExist) {
+    await supabase.from("user_settings").insert({ id: user.id });
+  }
 
   // ---- Insert devices ----
   const { data: devicesData, error: devErr } = await supabase.from("devices").insert([
@@ -80,6 +101,20 @@ export async function seedDemoData(): Promise<boolean> {
     { user_id: user.id, month: "2026-01", total: 42.85, status: "paid", items: [{ category: "API调用", amount: 25.15 }, { category: "技能订阅", amount: 11.80 }, { category: "其他", amount: 5.90 }] },
     { user_id: user.id, month: "2025-12", total: 35.20, status: "paid", items: [{ category: "API调用", amount: 20.30 }, { category: "技能订阅", amount: 14.90 }] },
     { user_id: user.id, month: "2025-11", total: 28.60, status: "paid", items: [{ category: "API调用", amount: 18.60 }, { category: "技能订阅", amount: 10.00 }] },
+  ]);
+
+  // ---- Login history (demo) ----
+  await supabase.from("login_history").insert([
+    { user_id: user.id, logged_in_at: new Date().toISOString(), ip: "116.25.xx.xx", device: "Chrome / macOS", location: "深圳", is_current: true },
+    { user_id: user.id, logged_in_at: "2026-02-09T09:15:00Z", ip: "116.25.xx.xx", device: "Safari / iPhone", location: "深圳", is_current: false },
+    { user_id: user.id, logged_in_at: "2026-02-07T20:00:00Z", ip: "183.60.xx.xx", device: "Chrome / Windows", location: "广州", is_current: false },
+    { user_id: user.id, logged_in_at: "2026-02-05T11:30:00Z", ip: "116.25.xx.xx", device: "Firefox / macOS", location: "深圳", is_current: false },
+  ]);
+
+  // ---- API keys (demo) ----
+  await supabase.from("api_keys").insert([
+    { user_id: user.id, name: "生产环境", key_value: "oc_live_a1b2c3d4e5f6g7h8i9j0k1l2" },
+    { user_id: user.id, name: "测试环境", key_value: "oc_test_x7y8z9w0q1r2s3t4u5v6w7x8" },
   ]);
 
   return true;

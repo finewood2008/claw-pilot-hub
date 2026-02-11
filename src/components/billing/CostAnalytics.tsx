@@ -1,4 +1,7 @@
-import { costByDevice, costBySkill, costTrend } from "@/stores/billingStore";
+import { useMemo } from "react";
+import { useBillingStore } from "@/stores/billingStore";
+import { useDeviceStore } from "@/stores/deviceStore";
+import { useSkillStore } from "@/stores/skillStore";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PieChart, Pie, Cell, LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, BarChart, Bar, CartesianGrid } from "recharts";
 
@@ -12,7 +15,98 @@ const COLORS = [
 ];
 
 const CostAnalytics = () => {
-  const predicted = [...costTrend, { month: "2026-03", amount: 25.0 }, { month: "2026-04", amount: 30.0 }];
+  const { transactions } = useBillingStore();
+  const { devices } = useDeviceStore();
+  const { marketSkills, installed } = useSkillStore();
+
+  // Build device name map
+  const deviceNameMap = useMemo(() => {
+    const map: Record<string, string> = {};
+    devices.forEach((d) => { map[d.id] = d.name; });
+    return map;
+  }, [devices]);
+
+  // Skill name map from market + installed
+  const skillNameMap = useMemo(() => {
+    const map: Record<string, string> = {};
+    marketSkills.forEach((s) => { map[s.id] = s.name; });
+    return map;
+  }, [marketSkills]);
+
+  // Cost by device (from actual transactions)
+  const costByDevice = useMemo(() => {
+    const map: Record<string, number> = {};
+    const spending = transactions.filter((t) => t.amount < 0);
+    spending.forEach((t) => {
+      const name = t.deviceId ? (deviceNameMap[t.deviceId] || "未知设备") : "平台费用";
+      map[name] = (map[name] || 0) + Math.abs(t.amount);
+    });
+    const total = Object.values(map).reduce((s, v) => s + v, 0) || 1;
+    return Object.entries(map)
+      .map(([name, value]) => ({ name, value: Math.round((value / total) * 100) }))
+      .sort((a, b) => b.value - a.value);
+  }, [transactions, deviceNameMap]);
+
+  // Cost by skill (derive from transaction descriptions)
+  const costBySkill = useMemo(() => {
+    const map: Record<string, number> = {};
+    const spending = transactions.filter((t) => t.amount < 0);
+    spending.forEach((t) => {
+      // Try to extract skill name from description
+      const desc = t.description;
+      let skillName = "其他";
+      // Match patterns like "天气查询 API 调用" or "翻译助手月度订阅"
+      for (const ms of marketSkills) {
+        if (desc.includes(ms.name)) {
+          skillName = ms.name;
+          break;
+        }
+      }
+      map[skillName] = (map[skillName] || 0) + Math.abs(t.amount);
+    });
+    const total = Object.values(map).reduce((s, v) => s + v, 0) || 1;
+    return Object.entries(map)
+      .map(([name, value]) => ({ name, value: Math.round((value / total) * 100) }))
+      .sort((a, b) => b.value - a.value)
+      .slice(0, 6);
+  }, [transactions, marketSkills]);
+
+  // Cost trend by month
+  const costTrend = useMemo(() => {
+    const map: Record<string, number> = {};
+    transactions
+      .filter((t) => t.amount < 0)
+      .forEach((t) => {
+        const month = t.date.slice(0, 7); // "YYYY-MM"
+        map[month] = (map[month] || 0) + Math.abs(t.amount);
+      });
+    return Object.entries(map)
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(([month, amount]) => ({ month, amount: Math.round(amount * 100) / 100 }));
+  }, [transactions]);
+
+  const predicted = useMemo(() => {
+    if (costTrend.length === 0) return [];
+    const avg = costTrend.reduce((s, t) => s + t.amount, 0) / costTrend.length;
+    const last = costTrend[costTrend.length - 1];
+    const lastDate = new Date(last.month + "-01");
+    const m1 = new Date(lastDate); m1.setMonth(m1.getMonth() + 1);
+    const m2 = new Date(lastDate); m2.setMonth(m2.getMonth() + 2);
+    const fmt = (d: Date) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
+    return [
+      ...costTrend,
+      { month: fmt(m1), amount: Math.round(avg * 100) / 100 },
+      { month: fmt(m2), amount: Math.round(avg * 1.1 * 100) / 100 },
+    ];
+  }, [costTrend]);
+
+  if (transactions.length === 0) {
+    return (
+      <div className="pt-2 text-center text-muted-foreground py-12">
+        暂无消费数据，使用设备后将自动生成成本分析
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-4 pt-2">
