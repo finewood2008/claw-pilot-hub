@@ -24,6 +24,11 @@ import {
 import { GeminiIcon, OpenAIIcon, QwenIcon, ClaudeIcon, DeepSeekIcon, LlamaIcon } from "@/components/icons/LLMIcons";
 import { imIconMap } from "@/components/icons/IMIcons";
 import logoImg from "@/assets/logo.png";
+import qqLogo from "@/assets/im/qq.png";
+import wechatLogo from "@/assets/im/wechat.png";
+import wecomLogo from "@/assets/im/wecom.png";
+import feishuLogo from "@/assets/im/feishu.png";
+import dingtalkLogo from "@/assets/im/dingtalk.png";
 
 const Index = () => {
   const scrollTo = (id: string) => {
@@ -400,18 +405,33 @@ const Index = () => {
               即时通讯渠道 · 主流 IM 平台直连
             </h3>
             <div className="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-9 gap-3">
-              {["QQ", "微信", "企业微信", "飞书", "钉钉", "Slack", "Discord", "Telegram", "WhatsApp"].map(
-                (name) => {
-                  const im = imIconMap[name];
+              {[
+                { name: "QQ", logo: qqLogo },
+                { name: "微信", logo: wechatLogo },
+                { name: "企业微信", logo: wecomLogo },
+                { name: "飞书", logo: feishuLogo },
+                { name: "钉钉", logo: dingtalkLogo },
+                { name: "Slack" },
+                { name: "Discord" },
+                { name: "Telegram" },
+                { name: "WhatsApp" },
+              ].map((item) => {
+                  const im = imIconMap[item.name];
                   return (
                     <div
-                      key={name}
+                      key={item.name}
                       className="flex flex-col items-center gap-1.5 px-3 py-3 rounded-xl bg-[#111827]/60 border border-white/5 hover:border-white/10 transition-colors"
                     >
-                      <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
-                        {im ? <im.Icon size={20} className={im.color} /> : <MessageSquare size={18} className="text-gray-400" />}
+                      <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center overflow-hidden">
+                        {item.logo ? (
+                          <img src={item.logo} alt={item.name} className="w-7 h-7 object-contain" />
+                        ) : im ? (
+                          <im.Icon size={20} className={im.color} />
+                        ) : (
+                          <MessageSquare size={18} className="text-gray-400" />
+                        )}
                       </div>
-                      <span className="text-xs text-gray-400">{name}</span>
+                      <span className="text-xs text-gray-400">{item.name}</span>
                     </div>
                   );
                 }
