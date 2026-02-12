@@ -499,9 +499,9 @@ const Index = () => {
             <p className="text-gray-400 text-sm">构建私有化知识库，让数字员工"读懂"公司历史</p>
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-6 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr_1fr] gap-6 items-start">
             {/* 左侧：数据捕获 */}
-            <div className="lg:w-1/4">
+            <div className="pt-2">
               <p className="text-orange-400 text-xs font-semibold tracking-widest mb-4">01 数据捕获</p>
               <div className="grid grid-cols-2 gap-3">
                 {[
@@ -510,7 +510,7 @@ const Index = () => {
                   { icon: MessageSquare, label: "业务沟通日志" },
                   { icon: ExternalLink, label: "销售与调研报告" },
                 ].map((item) => (
-                  <div key={item.label} className="flex items-center gap-2 px-3 py-2.5 rounded-lg bg-[#111827]/60 border border-white/5">
+                  <div key={item.label} className="flex items-center gap-2 px-3 py-3 rounded-lg bg-[#111827]/60 border border-white/5">
                     <item.icon size={14} className="text-blue-400 shrink-0" />
                     <span className="text-xs text-gray-300">{item.label}</span>
                   </div>
@@ -519,20 +519,20 @@ const Index = () => {
             </div>
 
             {/* 中间：向量化引擎 */}
-            <div className="lg:w-2/4 flex items-center justify-center">
-              <div className="w-full rounded-2xl border border-white/5 bg-[#111827]/40 p-8 text-center">
-                <div className="w-16 h-16 mx-auto rounded-full bg-green-500/10 border border-green-500/20 flex items-center justify-center mb-4">
+            <div className="flex items-center justify-center">
+              <div className="w-full rounded-2xl border border-white/5 bg-[#111827]/40 px-6 py-10 text-center">
+                <div className="w-16 h-16 mx-auto rounded-full bg-green-500/10 border border-green-500/20 flex items-center justify-center mb-5">
                   <Brain size={28} className="text-green-400" />
                 </div>
-                <p className="text-white font-semibold text-lg mb-2">本地向量化引擎</p>
-                <p className="text-gray-400 text-xs leading-relaxed max-w-md mx-auto">
+                <p className="text-white font-semibold text-lg mb-3">本地向量化引擎</p>
+                <p className="text-gray-400 text-xs leading-relaxed max-w-sm mx-auto">
                   通过深度学习模型，将非结构化文档转化为高维向量。确保敏感数据<span className="text-red-400 font-medium">不出库</span>、<span className="text-red-400 font-medium">不联网</span>，在本地构建起企业的"长效记忆"。
                 </p>
               </div>
             </div>
 
             {/* 右侧：决策执行 */}
-            <div className="lg:w-1/4">
+            <div className="pt-2">
               <p className="text-orange-400 text-xs font-semibold tracking-widest mb-4">02 决策执行</p>
               <div className="space-y-3">
                 {[
