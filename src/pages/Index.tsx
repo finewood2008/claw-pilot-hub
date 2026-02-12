@@ -85,24 +85,21 @@ const Index = () => {
           {/* Promo tag */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-sm mb-5">
             <Zap size={14} />
-            <span>限时福利，新用户注册赠送 300万 Token</span>
+            <span>限时福利，企业新用户注册赠送 300万 Token</span>
           </div>
 
           {/* Main heading */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4">
-            <span className="text-white">Q-CLAW</span>
-            <br />
-            <span className="text-gray-300">让每个人都能轻松驾驭</span>
+            <span className="text-white">Q-CLAW / 企业级数字员工管理平台</span>
             <br />
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              AI 助手
+              新一代企业核心效率引擎
             </span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-gray-400 text-base max-w-2xl mx-auto mb-8 leading-relaxed">
-            Q-CLAW 是一个开源的 AI 助手管理平台，支持多端接入、人民币直充、免配置安装，
-            让你在微信、QQ、飞书、钉钉等平台无缝使用 AI 能力。
+            Q-CLAW 是面向企业的 AI 数字员工管理平台，通过智能 SKILL 编排与多端协同，替代传统 ERP 繁琐流程，让企业以更低成本、更高效率驱动业务增长。
           </p>
 
           {/* CTA Buttons */}
@@ -129,9 +126,9 @@ const Index = () => {
       <section id="features" className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">核心特性</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">为什么选择 Q-CLAW</h2>
             <p className="text-gray-400 max-w-xl mx-auto text-sm">
-              简单、安全、高效——为每一位用户打造极致的 AI 使用体验
+              重新定义企业效率工具——从 ERP 到 AI 数字员工
             </p>
           </div>
 
@@ -139,29 +136,29 @@ const Index = () => {
             {[
               {
                 icon: Zap,
-                title: "免配置安装",
-                desc: "无需复杂的环境搭建和 API Key 配置，下载即用，一键启动你的 AI 助手，真正做到零门槛上手。",
+                title: "即装即用，零门槛部署",
+                desc: "企业无需复杂的环境搭建，下载即用，一键部署数字员工，IT 部门零负担，业务团队即刻上手。",
                 gradient: "from-yellow-500/20 to-orange-500/20",
                 iconColor: "text-yellow-400",
               },
               {
                 icon: Wallet,
-                title: "人民币直充",
-                desc: "支持微信、支付宝等主流支付方式直接充值，无需信用卡，无需海外支付渠道，国内用户友好。",
+                title: "灵活计费，成本可控",
+                desc: "支持微信、支付宝等主流支付方式，按需充值、按量计费，企业无需预付高额许可费，真正做到成本透明可控。",
                 gradient: "from-green-500/20 to-emerald-500/20",
                 iconColor: "text-green-400",
               },
               {
                 icon: Monitor,
-                title: "多端无缝连接",
-                desc: "一个平台，多端使用。支持 IM 对话、小程序、原生 APP、ESP32 硬件等多种接入方式，随时随地使用 AI。",
+                title: "全渠道协同，统一管理",
+                desc: "打通企业微信、飞书、钉钉等办公 IM，覆盖 APP、小程序、IoT 硬件等多端场景，一个平台统一管理所有数字员工。",
                 gradient: "from-blue-500/20 to-purple-500/20",
                 iconColor: "text-blue-400",
               },
               {
                 icon: ShoppingBag,
-                title: "SKILL 技能库",
-                desc: "丰富的预置技能市场，涵盖翻译、写作、编程、数据分析等场景，一键安装即可为 AI 助手赋能，支持自定义训练专属技能。",
+                title: "SKILL 技能编排",
+                desc: "丰富的企业级预置技能，涵盖客服、财务、HR、数据分析等业务场景，支持自定义训练专属企业技能，打造适配业务流程的数字员工。",
                 gradient: "from-purple-500/20 to-pink-500/20",
                 iconColor: "text-purple-400",
               },
@@ -262,13 +259,13 @@ const Index = () => {
                   <Cloud size={24} className="text-blue-400" />
                 </div>
                 <div className="text-center">
-                  <p className="text-blue-300 font-semibold text-sm">Q-CLAW API 管理平台</p>
-                  <p className="text-gray-500 text-xs mt-1">Key 鉴权 / Token 计费 / 配置同步</p>
+                   <p className="text-blue-300 font-semibold text-sm">Q-CLAW 企业级 API 管理平台</p>
+                   <p className="text-gray-500 text-xs mt-1">Key 鉴权 / Token 计费 / 配置同步</p>
                 </div>
                 <div className="grid grid-cols-2 gap-2 w-full">
                   <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-green-500/10 border border-green-500/20">
                     <CreditCard size={14} className="text-green-400" />
-                    <span className="text-xs text-gray-300">国内平台充值</span>
+                    <span className="text-xs text-gray-300">企业账户充值</span>
                   </div>
                   <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-blue-500/10 border border-blue-500/20">
                     <MessageSquare size={14} className="text-blue-400" />
@@ -384,7 +381,7 @@ const Index = () => {
           <div className="mt-6 rounded-xl border border-emerald-500/20 bg-emerald-500/5 px-5 py-3 flex items-center gap-3">
             <ShieldCheck size={18} className="text-emerald-400 shrink-0" />
             <p className="text-xs text-emerald-300/80 leading-relaxed">
-              Q-CLAW 仅负责鉴权与计费，所有用户数据由 OPENCLAW 本地处理，不经过云端存储。
+              Q-CLAW 仅负责鉴权与计费，所有企业数据由 OPENCLAW 本地处理，不经过云端存储，满足企业数据合规要求。
             </p>
           </div>
         </div>
@@ -395,8 +392,8 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 gap-4">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">多端渠道生态矩阵</h2>
-              <p className="text-gray-400 text-sm">覆盖主流 IM 平台与终端设备，一套系统全渠道接入</p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">企业全渠道接入矩阵</h2>
+              <p className="text-gray-400 text-sm">覆盖主流企业 IM 与终端设备，一套平台全渠道接入</p>
             </div>
             <a
               href="#"
@@ -485,7 +482,7 @@ const Index = () => {
       <footer className="border-t border-white/5 py-6 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-gray-500 text-sm">
-            © 2026 Q-CLAW Platform. Powered by OpenClaw.
+            © 2026 Q-CLAW — 企业级数字员工管理平台. Powered by OpenClaw.
           </p>
         </div>
       </footer>
