@@ -489,6 +489,137 @@ const Index = () => {
         </div>
       </section>
 
+      {/* 企业知识大脑 */}
+      <section className="py-16 px-4 border-t border-white/5">
+        <div className="max-w-6xl mx-auto">
+          {/* 标题 */}
+          <div className="mb-10">
+            <div className="w-10 h-1 bg-orange-500 rounded-full mb-4" />
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">企业知识大脑：实现企业经验的记忆传承</h2>
+            <p className="text-gray-400 text-sm">构建私有化知识库，让数字员工"读懂"公司历史</p>
+          </div>
+
+          <div className="flex flex-col lg:flex-row gap-6 items-stretch">
+            {/* 左侧：数据捕获 */}
+            <div className="lg:w-1/4">
+              <p className="text-orange-400 text-xs font-semibold tracking-widest mb-4">01 数据捕获</p>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { icon: Layers, label: "历史 ERP 数据" },
+                  { icon: GraduationCap, label: "SOP/操作手册" },
+                  { icon: MessageSquare, label: "业务沟通日志" },
+                  { icon: ExternalLink, label: "销售与调研报告" },
+                ].map((item) => (
+                  <div key={item.label} className="flex items-center gap-2 px-3 py-2.5 rounded-lg bg-[#111827]/60 border border-white/5">
+                    <item.icon size={14} className="text-blue-400 shrink-0" />
+                    <span className="text-xs text-gray-300">{item.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* 中间：向量化引擎 */}
+            <div className="lg:w-2/4 flex items-center justify-center">
+              <div className="w-full rounded-2xl border border-white/5 bg-[#111827]/40 p-8 text-center">
+                <div className="w-16 h-16 mx-auto rounded-full bg-green-500/10 border border-green-500/20 flex items-center justify-center mb-4">
+                  <Brain size={28} className="text-green-400" />
+                </div>
+                <p className="text-white font-semibold text-lg mb-2">本地向量化引擎</p>
+                <p className="text-gray-400 text-xs leading-relaxed max-w-md mx-auto">
+                  通过深度学习模型，将非结构化文档转化为高维向量。确保敏感数据<span className="text-red-400 font-medium">不出库</span>、<span className="text-red-400 font-medium">不联网</span>，在本地构建起企业的"长效记忆"。
+                </p>
+              </div>
+            </div>
+
+            {/* 右侧：决策执行 */}
+            <div className="lg:w-1/4">
+              <p className="text-orange-400 text-xs font-semibold tracking-widest mb-4">02 决策执行</p>
+              <div className="space-y-3">
+                {[
+                  { title: "精准决策", desc: "基于过往成功案例，而非泛泛的通用知识进行决策。" },
+                  { title: "经验传承", desc: "即便资深员工离职，其操作逻辑与判断准则依然留存。" },
+                  { title: "高效对齐", desc: "数字员工执行标准与公司战略高度一致。" },
+                ].map((item) => (
+                  <div key={item.title} className="rounded-lg border border-white/5 bg-[#111827]/60 p-4 border-l-2 border-l-green-500/50">
+                    <p className="text-white font-semibold text-sm mb-1">{item.title}</p>
+                    <p className="text-gray-400 text-xs leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* 底部安全声明 */}
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 border-t border-white/5">
+            <div className="flex items-center gap-2 text-emerald-400">
+              <ShieldCheck size={16} />
+              <span className="text-xs font-medium">数据主权保障：全栈私有化部署，确保商业机密绝对安全</span>
+            </div>
+            <span className="text-xs text-gray-600">Q-CLAW KNOWLEDGE ENGINE v1.0</span>
+          </div>
+        </div>
+      </section>
+
+      {/* 企业级数字员工定制 */}
+      <section className="py-16 px-4 border-t border-white/5">
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-10">
+            <div className="w-10 h-1 bg-purple-500 rounded-full mb-4" />
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">企业级数字员工定制</h2>
+            <p className="text-gray-400 text-sm">用 10% 的成本，雇佣一个 7×24 无休的数字员工，复刻企业高度非标准化工作流</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                icon: Layers,
+                title: "非标工作流复刻",
+                desc: "深度适配企业独有的审批链路、业务规则和分支逻辑，而非套用通用模板。每一个数字员工都按照企业实际流程量身打造。",
+                gradient: "from-purple-500/20 to-blue-500/20",
+                iconColor: "text-purple-400",
+              },
+              {
+                icon: Cpu,
+                title: "7×24 全天候运行",
+                desc: "数字员工不请假、不倦怠，全年无休地处理重复性高、规则性强的工作任务，释放人力去做更有价值的创造性工作。",
+                gradient: "from-blue-500/20 to-cyan-500/20",
+                iconColor: "text-blue-400",
+              },
+              {
+                icon: Wallet,
+                title: "10% 成本替代",
+                desc: "相较传统人力成本，数字员工仅需 10% 的投入即可完成同等工作量。按量计费，无五险一金，无管理开销，ROI 极致可控。",
+                gradient: "from-green-500/20 to-emerald-500/20",
+                iconColor: "text-green-400",
+              },
+            ].map((item) => (
+              <div key={item.title} className="rounded-2xl border border-white/5 bg-[#111827]/60 p-6 hover:border-white/10 transition-colors">
+                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-5`}>
+                  <item.icon size={24} className={item.iconColor} />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-3">{item.title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* 数据对比 */}
+          <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { value: "10%", label: "人力成本占比" },
+              { value: "7×24", label: "全天候运行" },
+              { value: "100%", label: "流程复刻还原度" },
+              { value: "0", label: "管理开销" },
+            ].map((stat) => (
+              <div key={stat.label} className="rounded-xl border border-white/5 bg-[#111827]/40 p-5 text-center">
+                <p className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent mb-1">{stat.value}</p>
+                <p className="text-xs text-gray-500">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="border-t border-white/5 py-6 px-4">
         <div className="max-w-6xl mx-auto text-center">
