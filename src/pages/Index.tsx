@@ -280,7 +280,7 @@ const Index = () => {
                   </div>
                 </div>
                 {/* 隐私提示 */}
-                <div className="flex flex-col items-center gap-2">
+                <div className="flex items-center gap-2">
                   <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20">
                     <ShieldCheck size={12} className="text-emerald-400" />
                     <span className="text-[11px] text-emerald-400 font-medium">不存储用户数据</span>
