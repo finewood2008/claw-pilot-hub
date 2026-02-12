@@ -335,9 +335,15 @@ const Index = () => {
                   <p className="text-purple-300 font-semibold text-sm">本地运行引擎</p>
                   <p className="text-gray-500 text-xs mt-1">数据不上云，完全本地处理</p>
                 </div>
-                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20">
-                  <Shield size={12} className="text-green-400" />
-                  <span className="text-[11px] text-green-400 font-medium">此部分完全开源</span>
+                <div className="flex items-center gap-2">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20">
+                    <Shield size={12} className="text-green-400" />
+                    <span className="text-[11px] text-green-400 font-medium">此部分完全开源</span>
+                  </div>
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20">
+                    <Shield size={12} className="text-green-400" />
+                    <span className="text-[11px] text-green-400 font-medium">可部署企业本地服务器</span>
+                  </div>
                 </div>
               </div>
             </div>
