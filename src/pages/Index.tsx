@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import {
   Zap,
   Wallet,
-  Monitor,
+  
   
   Download,
   ArrowRight,
@@ -90,7 +90,7 @@ const Index = () => {
 
           {/* Subtitle */}
           <p className="text-gray-400 text-base max-w-2xl mx-auto mb-8 leading-relaxed">
-            Q-CLAW 是面向企业的 AI 数字员工管理平台，通过智能 SKILL 编排与多端协同，替代传统 ERP 繁琐流程，让企业以更低成本、更高效率驱动业务增长。
+            Q-CLAW 是面向企业的 AI 数字员工管理平台，基于本地算力与企数大模型构建企业私有知识库，数据完全不上云，让企业以更低成本、更高效率驱动业务增长。
           </p>
 
           {/* CTA Buttons */}
@@ -132,9 +132,9 @@ const Index = () => {
               iconColor: "text-green-400"
             },
             {
-              icon: Monitor,
-              title: "全渠道协同，统一管理",
-              desc: "打通企业微信、飞书、钉钉等办公 IM，覆盖 APP、小程序、IoT 硬件等多端场景，一个平台统一管理所有数字员工。",
+              icon: Brain,
+              title: "企业私有知识库，数据不出门",
+              desc: "基于本地算力与企数大模型，对企业文档、SOP、业务日志进行向量化处理，构建完全私有的知识库。数据全程不上云，确保商业机密绝对安全。",
               gradient: "from-blue-500/20 to-purple-500/20",
               iconColor: "text-blue-400"
             },
