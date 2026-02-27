@@ -56,12 +56,13 @@ const Index = () => {
               下载中心
             </button>
           </div>
-          <Link
-            to="/login"
+          <a
+            href="https://console.qclaw.qeeshu.com/login"
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-5 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-medium hover:opacity-90 transition-opacity">
-
             控制台
-          </Link>
+          </a>
         </div>
       </nav>
 
