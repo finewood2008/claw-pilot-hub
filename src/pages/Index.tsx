@@ -170,7 +170,7 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">企数大模型本地运行架构</h2>
-            <p className="text-gray-400 text-sm">企数大模型（国家级认证备案）· 企业数据全程本地处理，私有知识库不依赖云端</p>
+            <p className="text-gray-400 text-sm">企业数据全程本地处理，私有知识库不依赖云端</p>
           </div>
 
           {/* === 第1层：LLM 大模型服务层 === */}
@@ -414,7 +414,7 @@ const Index = () => {
                 <div className="w-16 h-16 mx-auto rounded-full bg-green-500/10 border border-green-500/20 flex items-center justify-center mb-5">
                   <Brain size={28} className="text-green-400" />
                 </div>
-                <p className="text-white font-semibold text-lg mb-3">企数大模型（2025年国家级认证备案）· 本地向量化引擎</p>
+                <p className="text-white font-semibold text-lg mb-3">企数大模型 · 本地向量化引擎</p>
                 <p className="text-gray-400 text-xs leading-relaxed max-w-sm mx-auto">
                   采用企数大模型在本机对企业文档进行深度向量化，构建完全私有的知识库。数据全程不出本地网络，不经过任何云端服务器，最大化保障企业数据安全。
                 </p>
@@ -507,6 +507,19 @@ const Index = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* 关于我们 */}
+      <section className="py-16 px-4 border-t border-white/5">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-xl font-bold text-white mb-4">关于我们</h2>
+          <p className="text-gray-400 text-sm leading-relaxed">
+            Q-CLAW 由企数星图（Qeeshu）团队打造，专注于企业级 AI 数字员工解决方案。基于企数大模型（2025年获得国家级大模型认证备案），Q-CLAW 在企业本地构建私有知识库，所有数据全程不上云，以最大化数据安全驱动企业降本增效。
+          </p>
+          <a href="https://qeeshu.com" target="_blank" rel="noopener noreferrer" className="inline-block mt-4 text-purple-400 hover:text-purple-300 text-sm transition-colors">
+            了解更多 → qeeshu.com
+          </a>
         </div>
       </section>
 
