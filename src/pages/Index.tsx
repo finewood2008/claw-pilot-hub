@@ -394,7 +394,7 @@ const Index = () => {
               <p className="text-orange-400 text-xs font-semibold tracking-widest mb-4">01 数据捕获</p>
               <div className="grid grid-cols-2 gap-3">
                 {[
-                  { icon: Layers, label: "历史 ERP 数据" },
+                  { icon: Layers, label: "最新行业报告" },
                   { icon: GraduationCap, label: "SOP/操作手册" },
                   { icon: MessageSquare, label: "业务沟通日志" },
                   { icon: ExternalLink, label: "销售与调研报告" },
