@@ -28,6 +28,12 @@ import deepseekLogo from "@/assets/llm/deepseek.png";
 import llamaLogo from "@/assets/llm/llama.png";
 import { imIconMap } from "@/components/icons/IMIcons";
 import logoImg from "@/assets/logo.png";
+import bgInfoCollect from "@/assets/secretary/info-collect.jpg";
+import bgKnowledgeBase from "@/assets/secretary/knowledge-base.jpg";
+import bgAlwaysOn from "@/assets/secretary/always-on.jpg";
+import bgDataRetrieval from "@/assets/secretary/data-retrieval.jpg";
+import bgDocAssistant from "@/assets/secretary/doc-assistant.jpg";
+import bgMultiChannel from "@/assets/secretary/multi-channel.jpg";
 import qqLogo from "@/assets/im/qq.png";
 import wechatLogo from "@/assets/im/wechat.png";
 import wecomLogo from "@/assets/im/wecom.png";
@@ -77,21 +83,21 @@ const Index = () => {
           {/* Promo tag */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-sm mb-5">
             <Zap size={14} />
-            <span>Qeeshu AI 2025年获得国家级大模型认证</span>
+            <span>Qeeshu AI 2025年获得国家大模型认证</span>
           </div>
 
           {/* Main heading */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4">
-            <span className="text-white my-[15px]">Q-CLAW<br />企业级数字员工管理平台</span>
+            <span className="text-white my-[15px]">Q-CLAW · 企业超级秘书</span>
             <br />
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              本地算力驱动的企业私有知识库
+              基于数字员工平台，重新定义企业效率
             </span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-gray-400 text-base max-w-2xl mx-auto mb-8 leading-relaxed">
-            AI数字员工重新定义企业效率
+            从一个超级秘书开始，到管理一支数字员工团队。Q-CLAW 基于企数大模型构建企业私有知识库，以 OPENCLAW 为底座，让每位员工都拥有 7×24 小时的 AI 数字助手。
           </p>
 
           {/* CTA Buttons */}
@@ -107,13 +113,95 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Enterprise Super Secretary */}
+      <section className="py-16 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">您的第一位数字员工：企业超级秘书</h2>
+            <p className="text-gray-400 max-w-xl mx-auto text-sm">开箱即用的 AI 超级秘书，也是数字员工平台的第一步</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                icon: Globe,
+                title: "主动信息收集",
+                desc: "自动追踪行业动态、竞品情报、政策变化，主动推送关键信息，让企业决策快人一步。",
+                color: "text-yellow-500",
+                bg: "bg-yellow-500/10",
+                bgImg: bgInfoCollect,
+              },
+              {
+                icon: Brain,
+                title: "企业私有知识库",
+                desc: "基于企数大模型对企业文档、SOP、业务日志进行深度向量化，构建专属企业的智能知识中枢。",
+                color: "text-blue-500",
+                bg: "bg-blue-500/10",
+                bgImg: bgKnowledgeBase,
+              },
+              {
+                icon: Zap,
+                title: "7×24 全员即时响应",
+                desc: "全天候随时随地响应每一位员工的需求，不受时区、工位、休假限制，效率永不掉线。",
+                color: "text-green-500",
+                bg: "bg-green-500/10",
+                bgImg: bgAlwaysOn,
+              },
+              {
+                icon: Server,
+                title: "智能数据调取",
+                desc: "一句话即可调取销售报表、财务数据、客户信息，告别繁琐的系统操作与手动查询。",
+                color: "text-cyan-500",
+                bg: "bg-cyan-500/10",
+                bgImg: bgDataRetrieval,
+              },
+              {
+                icon: Layers,
+                title: "文档协作助手",
+                desc: "协助用户撰写、修改、润色文档，自动生成周报、会议纪要、项目方案，大幅提升办公效率。",
+                color: "text-purple-500",
+                bg: "bg-purple-500/10",
+                bgImg: bgDocAssistant,
+              },
+              {
+                icon: MessageSquare,
+                title: "多渠道无缝接入",
+                desc: "支持微信、企业微信、飞书、钉钉等主流 IM 工具，在员工熟悉的沟通环境中直接使用。",
+                color: "text-orange-500",
+                bg: "bg-orange-500/10",
+                bgImg: bgMultiChannel,
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="relative overflow-hidden bg-[#111827]/60 border border-white/5 rounded-2xl p-6 hover:border-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-white/5 group"
+              >
+                {/* Background image with gradient overlay */}
+                <div
+                  className="absolute inset-0 opacity-[0.15] group-hover:opacity-[0.25] transition-opacity duration-500 bg-cover bg-center"
+                  style={{ backgroundImage: `url(${item.bgImg})` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#111827] via-[#111827]/70 to-transparent" />
+                {/* Content */}
+                <div className="relative z-10">
+                  <div className={`w-12 h-12 rounded-xl ${item.bg} flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110`}>
+                    <item.icon className={`w-6 h-6 ${item.color}`} />
+                  </div>
+                  <h3 className="text-white font-semibold text-lg mb-2">{item.title}</h3>
+                  <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Core Features */}
       <section id="features" className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">为什么选择 Q-CLAW</h2>
             <p className="text-gray-400 max-w-xl mx-auto text-sm">
-              重新定义企业效率工具——从 ERP 到 AI 数字员工
+              不只是超级秘书，更是企业数字员工的管理平台
             </p>
           </div>
 
