@@ -77,7 +77,7 @@ const Index = () => {
           {/* Promo tag */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-sm mb-5">
             <Zap size={14} />
-            <span>Qeeshu AI 获得国家级大模型备案</span>
+            <span>限时福利，企业新用户注册赠送 300万 Token</span>
           </div>
 
           {/* Main heading */}
@@ -91,7 +91,7 @@ const Index = () => {
 
           {/* Subtitle */}
           <p className="text-gray-400 text-base max-w-2xl mx-auto mb-8 leading-relaxed">
-            Q-CLAW 基于企数大模型（2025年获得国家级大模型认证备案）在本机构建企业私有知识库，所有数据向量化处理均在本地完成，绝不上云，以最大化数据安全性驱动企业降本增效。
+            Q-CLAW 基于企数大模型，在本地构建企业私有知识库，所有数据向量化处理均在本地完成。基于OPENCLAW底座，打造企业超级秘书数字员工。
           </p>
 
           {/* CTA Buttons */}
