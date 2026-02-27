@@ -28,6 +28,12 @@ import deepseekLogo from "@/assets/llm/deepseek.png";
 import llamaLogo from "@/assets/llm/llama.png";
 import { imIconMap } from "@/components/icons/IMIcons";
 import logoImg from "@/assets/logo.png";
+import bgInfoCollect from "@/assets/secretary/info-collect.jpg";
+import bgKnowledgeBase from "@/assets/secretary/knowledge-base.jpg";
+import bgAlwaysOn from "@/assets/secretary/always-on.jpg";
+import bgDataRetrieval from "@/assets/secretary/data-retrieval.jpg";
+import bgDocAssistant from "@/assets/secretary/doc-assistant.jpg";
+import bgMultiChannel from "@/assets/secretary/multi-channel.jpg";
 import qqLogo from "@/assets/im/qq.png";
 import wechatLogo from "@/assets/im/wechat.png";
 import wecomLogo from "@/assets/im/wecom.png";
@@ -122,7 +128,7 @@ const Index = () => {
                 desc: "自动追踪行业动态、竞品情报、政策变化，主动推送关键信息，让企业决策快人一步。",
                 color: "text-yellow-500",
                 bg: "bg-yellow-500/10",
-                bgImg: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=30",
+                bgImg: bgInfoCollect,
               },
               {
                 icon: Brain,
@@ -130,7 +136,7 @@ const Index = () => {
                 desc: "基于企数大模型对企业文档、SOP、业务日志进行深度向量化，构建专属企业的智能知识中枢。",
                 color: "text-blue-500",
                 bg: "bg-blue-500/10",
-                bgImg: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&q=30",
+                bgImg: bgKnowledgeBase,
               },
               {
                 icon: Zap,
@@ -138,7 +144,7 @@ const Index = () => {
                 desc: "全天候随时随地响应每一位员工的需求，不受时区、工位、休假限制，效率永不掉线。",
                 color: "text-green-500",
                 bg: "bg-green-500/10",
-                bgImg: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&q=30",
+                bgImg: bgAlwaysOn,
               },
               {
                 icon: Server,
@@ -146,7 +152,7 @@ const Index = () => {
                 desc: "一句话即可调取销售报表、财务数据、客户信息，告别繁琐的系统操作与手动查询。",
                 color: "text-cyan-500",
                 bg: "bg-cyan-500/10",
-                bgImg: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=600&q=30",
+                bgImg: bgDataRetrieval,
               },
               {
                 icon: Layers,
@@ -154,7 +160,7 @@ const Index = () => {
                 desc: "协助用户撰写、修改、润色文档，自动生成周报、会议纪要、项目方案，大幅提升办公效率。",
                 color: "text-purple-500",
                 bg: "bg-purple-500/10",
-                bgImg: "https://images.unsplash.com/photo-1456324504439-367cee3b3c32?w=600&q=30",
+                bgImg: bgDocAssistant,
               },
               {
                 icon: MessageSquare,
@@ -162,7 +168,7 @@ const Index = () => {
                 desc: "支持微信、企业微信、飞书、钉钉等主流 IM 工具，在员工熟悉的沟通环境中直接使用。",
                 color: "text-orange-500",
                 bg: "bg-orange-500/10",
-                bgImg: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&q=30",
+                bgImg: bgMultiChannel,
               },
             ].map((item, i) => (
               <div
@@ -171,10 +177,10 @@ const Index = () => {
               >
                 {/* Background image with gradient overlay */}
                 <div
-                  className="absolute inset-0 opacity-[0.06] group-hover:opacity-[0.1] transition-opacity duration-500 bg-cover bg-center"
+                  className="absolute inset-0 opacity-[0.15] group-hover:opacity-[0.25] transition-opacity duration-500 bg-cover bg-center"
                   style={{ backgroundImage: `url(${item.bgImg})` }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#111827] via-[#111827]/80 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#111827] via-[#111827]/70 to-transparent" />
                 {/* Content */}
                 <div className="relative z-10">
                   <div className={`w-12 h-12 rounded-xl ${item.bg} flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110`}>
