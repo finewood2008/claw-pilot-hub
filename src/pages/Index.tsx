@@ -95,14 +95,14 @@ const Index = () => {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col items-center justify-center gap-2">
             <a href="#"
             className="inline-flex items-center gap-2 px-8 py-3 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium hover:opacity-90 transition-opacity">
 
               <Download size={18} />
               下载 Q-CLAW 客户端
             </a>
-            <p className="text-xs text-muted-foreground mt-2">目前仅支持 macOS (Mac Mini / Apple Silicon)</p>
+            <p className="text-xs text-muted-foreground">目前仅支持 macOS (Mac Mini / Apple Silicon)</p>
           </div>
         </div>
       </section>
