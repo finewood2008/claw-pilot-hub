@@ -259,8 +259,8 @@ const Index = () => {
                     <span className="text-xs text-gray-300">SKILL Market</span>
                   </div>
                   <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-orange-500/10 border border-orange-500/20">
-                    <GraduationCap size={14} className="text-orange-400" />
-                    <span className="text-xs text-gray-300">SKILL 训练</span>
+                    <Brain size={14} className="text-orange-400" />
+                    <span className="text-xs text-gray-300">企业私有知识库</span>
                   </div>
                 </div>
                 {/* 隐私提示 */}
