@@ -77,7 +77,7 @@ const Index = () => {
           {/* Promo tag */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-sm mb-5">
             <Zap size={14} />
-            <span>限时福利，企业新用户注册赠送 300万 Token</span>
+            <span>Qeeshu AI 获得国家级大模型备案</span>
           </div>
 
           {/* Main heading */}
