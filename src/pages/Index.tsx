@@ -91,7 +91,7 @@ const Index = () => {
 
           {/* Subtitle */}
           <p className="text-gray-400 text-base max-w-2xl mx-auto mb-8 leading-relaxed">
-            Q-CLAW 基于企数大模型在本机构建企业私有知识库，所有数据向量化处理均在本地完成，绝不上云，以最大化数据安全性驱动企业降本增效。
+            Q-CLAW 基于企数大模型（2025年获得国家级大模型认证备案）在本机构建企业私有知识库，所有数据向量化处理均在本地完成，绝不上云，以最大化数据安全性驱动企业降本增效。
           </p>
 
           {/* CTA Buttons */}
@@ -170,7 +170,7 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">企数大模型本地运行架构</h2>
-            <p className="text-gray-400 text-sm">企业数据全程本地处理，私有知识库不依赖云端</p>
+            <p className="text-gray-400 text-sm">企数大模型（国家级认证备案）· 企业数据全程本地处理，私有知识库不依赖云端</p>
           </div>
 
           {/* === 第1层：LLM 大模型服务层 === */}
@@ -318,8 +318,8 @@ const Index = () => {
                   </div>
                 </div>
                 <div className="text-center mt-2">
-                  <p className="text-purple-300 font-semibold text-sm">企数大模型本地引擎</p>
-                  <p className="text-gray-500 text-xs mt-1">私有知识库向量化，数据全程不上云</p>
+                  <p className="text-purple-300 font-semibold text-sm">核心引擎</p>
+                  <p className="text-gray-500 text-xs mt-1">知识库：基于企数大模型 · 其他功能：基于 OpenClaw</p>
                 </div>
                 <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20">
                   <Shield size={12} className="text-green-400" />
@@ -414,7 +414,7 @@ const Index = () => {
                 <div className="w-16 h-16 mx-auto rounded-full bg-green-500/10 border border-green-500/20 flex items-center justify-center mb-5">
                   <Brain size={28} className="text-green-400" />
                 </div>
-                <p className="text-white font-semibold text-lg mb-3">企数大模型 · 本地向量化引擎</p>
+                <p className="text-white font-semibold text-lg mb-3">企数大模型（2025年国家级认证备案）· 本地向量化引擎</p>
                 <p className="text-gray-400 text-xs leading-relaxed max-w-sm mx-auto">
                   采用企数大模型在本机对企业文档进行深度向量化，构建完全私有的知识库。数据全程不出本地网络，不经过任何云端服务器，最大化保障企业数据安全。
                 </p>
@@ -514,7 +514,7 @@ const Index = () => {
       <footer className="border-t border-white/5 py-6 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-gray-500 text-sm">
-            © 2026 Q-CLAW — 企业级数字员工管理平台. Powered by OpenClaw.
+            © 2026 Q-CLAW — 企业级数字员工管理平台. Powered by Qeeshu AI.
           </p>
         </div>
       </footer>
