@@ -102,6 +102,7 @@ const Index = () => {
               <Download size={18} />
               下载 Q-CLAW 客户端
             </a>
+            <p className="text-xs text-muted-foreground mt-2">目前仅支持 macOS (Mac Mini / Apple Silicon)</p>
           </div>
         </div>
       </section>
