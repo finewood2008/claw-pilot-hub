@@ -91,13 +91,13 @@ const Index = () => {
             <span className="text-white my-[15px]">Q-CLAW · 企业超级秘书</span>
             <br />
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              AI数字员工重新定义企业效率
+              AI 数字员工重新定义企业效率
             </span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-gray-400 text-base max-w-2xl mx-auto mb-8 leading-relaxed">
-            从一个超级秘书开始，到管理一支数字员工团队。Q-CLAW 基于企数大模型构建企业私有知识库，以 OPENCLAW 为底座，让每位员工都拥有 7×24 小时的 AI 数字助手。
+            从一个超级秘书开始，到管理一支 AI 数字员工团队。Q-CLAW 基于企数大模型构建企业私有知识库，以 OPENCLAW 为底座，让每位员工都拥有 7×24 小时的 AI 数字员工。
           </p>
 
           {/* CTA Buttons */}
@@ -210,7 +210,7 @@ const Index = () => {
             {
               icon: Zap,
               title: "即装即用，零门槛部署",
-              desc: "企业无需复杂的环境搭建，下载即用，一键部署数字员工，IT 部门零负担，业务团队即刻上手。",
+              desc: "企业无需复杂的环境搭建，下载即用，一键部署 AI 数字员工，IT 部门零负担，业务团队即刻上手。",
               gradient: "from-yellow-500/20 to-orange-500/20",
               iconColor: "text-yellow-400"
             },
@@ -231,7 +231,7 @@ const Index = () => {
             {
               icon: ShoppingBag,
               title: "SKILL 技能编排",
-              desc: "丰富的企业级预置技能，涵盖客服、财务、HR、数据分析等业务场景，支持自定义训练专属企业技能，打造适配业务流程的数字员工。",
+              desc: "丰富的企业级预置技能，涵盖客服、财务、HR、数据分析等业务场景，支持自定义训练专属企业技能，打造适配业务流程的 AI 数字员工。",
               gradient: "from-purple-500/20 to-pink-500/20",
               iconColor: "text-purple-400"
             }].
@@ -474,7 +474,7 @@ const Index = () => {
           <div className="mb-10">
             <div className="w-10 h-1 bg-orange-500 rounded-full mb-4" />
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">企业知识大脑：实现企业经验的记忆传承</h2>
-            <p className="text-gray-400 text-sm">构建私有化知识库，让数字员工"读懂"公司历史</p>
+            <p className="text-gray-400 text-sm">构建私有化知识库，让 AI 数字员工"读懂"公司历史</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr_1fr] gap-6 items-start">
@@ -516,7 +516,7 @@ const Index = () => {
                 {[
                 { title: "精准决策", desc: "基于过往成功案例，而非泛泛的通用知识进行决策。" },
                 { title: "经验传承", desc: "即便资深员工离职，其操作逻辑与判断准则依然留存。" },
-                { title: "高效对齐", desc: "数字员工执行标准与公司战略高度一致。" }].
+                { title: "高效对齐", desc: "AI 数字员工执行标准与公司战略高度一致。" }].
                 map((item) =>
                 <div key={item.title} className="rounded-lg border border-white/5 bg-[#111827]/60 p-4 border-l-2 border-l-green-500/50">
                     <p className="text-white font-semibold text-sm mb-1">{item.title}</p>
@@ -543,8 +543,8 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           <div className="mb-10">
             <div className="w-10 h-1 bg-purple-500 rounded-full mb-4" />
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">企业级数字员工定制</h2>
-            <p className="text-gray-400 text-sm">用 10% 的成本，雇佣一个 7×24 无休的数字员工，复刻企业高度非标准化工作流</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">企业级 AI 数字员工定制</h2>
+            <p className="text-gray-400 text-sm">用 10% 的成本，雇佣一个 7×24 无休的 AI 数字员工，复刻企业高度非标准化工作流</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -552,21 +552,21 @@ const Index = () => {
             {
               icon: Layers,
               title: "非标工作流复刻",
-              desc: "深度适配企业独有的审批链路、业务规则和分支逻辑，而非套用通用模板。每一个数字员工都按照企业实际流程量身打造。",
+              desc: "深度适配企业独有的审批链路、业务规则和分支逻辑，而非套用通用模板。每一个 AI 数字员工都按照企业实际流程量身打造。",
               gradient: "from-purple-500/20 to-blue-500/20",
               iconColor: "text-purple-400"
             },
             {
               icon: Cpu,
               title: "7×24 全天候运行",
-              desc: "数字员工不请假、不倦怠，全年无休地处理重复性高、规则性强的工作任务，释放人力去做更有价值的创造性工作。",
+              desc: "AI 数字员工不请假、不倦怠，全年无休地处理重复性高、规则性强的工作任务，释放人力去做更有价值的创造性工作。",
               gradient: "from-blue-500/20 to-cyan-500/20",
               iconColor: "text-blue-400"
             },
             {
               icon: Wallet,
               title: "10% 成本替代",
-              desc: "相较传统人力成本，数字员工仅需 10% 的投入即可完成同等工作量。按量计费，无五险一金，无管理开销，ROI 极致可控。",
+              desc: "相较传统人力成本，AI 数字员工仅需 10% 的投入即可完成同等工作量。按量计费，无五险一金，无管理开销，ROI 极致可控。",
               gradient: "from-green-500/20 to-emerald-500/20",
               iconColor: "text-green-400"
             }].
@@ -618,7 +618,7 @@ const Index = () => {
       <footer className="border-t border-white/5 py-6 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-gray-500 text-sm">
-            © 2026 Q-CLAW — 企业级数字员工管理平台. Powered by Qeeshu AI.
+            © 2026 Q-CLAW — 企业级 AI 数字员工管理平台. Powered by Qeeshu AI.
           </p>
         </div>
       </footer>
