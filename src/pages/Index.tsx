@@ -513,7 +513,9 @@ const Index = () => {
       {/* 关于我们 */}
       <section className="py-16 px-4 border-t border-white/5">
         <div className="max-w-3xl mx-auto text-center">
-          <img src="/logo.png" alt="Q-CLAW" className="w-14 h-14 mx-auto mb-4 object-contain" />
+          <div className="w-20 h-20 mx-auto mb-5 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center shadow-[0_0_30px_rgba(168,85,247,0.15)]">
+            <img src="/logo.png" alt="Q-CLAW" className="w-12 h-12 object-contain drop-shadow-[0_0_8px_rgba(168,85,247,0.4)]" />
+          </div>
           <h2 className="text-xl font-bold text-white mb-4">关于我们</h2>
           <p className="text-gray-400 text-sm leading-relaxed">
             Q-CLAW 由企数星图（Qeeshu）团队打造，专注于企业级 AI 数字员工解决方案。基于企数大模型（2025年获得国家级大模型认证备案），Q-CLAW 在企业本地构建私有知识库，所有数据全程不上云，以最大化数据安全驱动企业降本增效。
