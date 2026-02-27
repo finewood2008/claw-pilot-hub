@@ -235,18 +235,23 @@ const Index = () => {
               gradient: "from-purple-500/20 to-pink-500/20",
               iconColor: "text-purple-400"
             }].
-            map((feature) =>
+            map((feature, index) =>
             <div
               key={feature.title}
-              className="group rounded-2xl border border-white/5 bg-[#111827]/60 p-6 hover:border-white/10 transition-colors">
+              className="group relative rounded-2xl border border-white/10 bg-gradient-to-br from-[#111827]/80 to-[#0f172a]/90 p-6 hover:border-white/20 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_8px_30px_-10px_rgba(168,85,247,0.15)] backdrop-blur-sm overflow-hidden animate-fade-in"
+              style={{ animationDelay: `${index * 100}ms`, animationFillMode: 'both' }}>
 
-                <div
-                className={`w-10 h-10 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-4`}>
+                {/* Subtle gradient overlay on hover */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl`} />
 
-                  <feature.icon className={feature.iconColor} size={22} />
+                <div className="relative z-10">
+                  <div
+                    className={`w-11 h-11 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                    <feature.icon className={feature.iconColor} size={22} />
+                  </div>
+                  <h3 className="text-base font-semibold text-white mb-2">{feature.title}</h3>
+                  <p className="text-gray-400 text-xs leading-relaxed group-hover:text-gray-300 transition-colors duration-300">{feature.desc}</p>
                 </div>
-                <h3 className="text-base font-semibold text-white mb-2">{feature.title}</h3>
-                <p className="text-gray-400 text-xs leading-relaxed">{feature.desc}</p>
               </div>
             )}
           </div>
