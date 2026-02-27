@@ -88,16 +88,16 @@ const Index = () => {
 
           {/* Main heading */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4">
-            <span className="text-white my-[15px]">Q-CLAW<br />企业级数字员工管理平台</span>
+            <span className="text-white my-[15px]">Q-CLAW · 企业超级秘书</span>
             <br />
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              本地算力驱动的企业私有知识库
+              基于数字员工平台，重新定义企业效率
             </span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-gray-400 text-base max-w-2xl mx-auto mb-8 leading-relaxed">
-            Q-CLAW 基于企数大模型，在本地构建企业私有知识库，所有数据向量化处理均在本地完成。基于OPENCLAW底座，打造企业超级秘书数字员工。
+            从一个超级秘书开始，到管理一支数字员工团队。Q-CLAW 基于企数大模型构建企业私有知识库，以 OPENCLAW 为底座，让每位员工都拥有 7×24 小时的 AI 数字助手。
           </p>
 
           {/* CTA Buttons */}
@@ -117,8 +117,8 @@ const Index = () => {
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">企业超级秘书 —— 您的 AI 数字员工</h2>
-            <p className="text-gray-400 max-w-xl mx-auto text-sm">7×24 小时全天候响应，赋能企业每一位员工</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">您的第一位数字员工：企业超级秘书</h2>
+            <p className="text-gray-400 max-w-xl mx-auto text-sm">开箱即用的 AI 超级秘书，也是数字员工平台的第一步</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
@@ -201,7 +201,7 @@ const Index = () => {
           <div className="text-center mb-10">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">为什么选择 Q-CLAW</h2>
             <p className="text-gray-400 max-w-xl mx-auto text-sm">
-              重新定义企业效率工具——从 ERP 到 AI 数字员工
+              不只是超级秘书，更是企业数字员工的管理平台
             </p>
           </div>
 
