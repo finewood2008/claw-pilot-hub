@@ -33,6 +33,7 @@ import wechatLogo from "@/assets/im/wechat.png";
 import wecomLogo from "@/assets/im/wecom.png";
 import feishuLogo from "@/assets/im/feishu.png";
 import dingtalkLogo from "@/assets/im/dingtalk.png";
+import certificateImg from "@/assets/certificate.png";
 
 const Index = () => {
   const scrollTo = (id: string) => {
@@ -378,6 +379,32 @@ const Index = () => {
         </div>
       </section>
 
+      {/* About Qeeshu AI */}
+      <section className="py-20 px-4 border-t border-white/5">
+        <div className="max-w-5xl mx-auto">
+          <p className="text-center text-blue-400 text-xs font-semibold tracking-widest mb-3">ABOUT QEESHU AI</p>
+          <h2 className="text-3xl font-bold text-center text-white mb-12">
+            关于<span className="text-blue-400">企数星图</span>
+          </h2>
+          <div className="grid md:grid-cols-2 gap-10 items-center">
+            <div className="text-gray-400 text-sm leading-relaxed space-y-4">
+              <p>
+                企数星图是一家专注于行业智能体开发的AI公司。团队来自阿里、YY、金山等互联网大厂，拥有丰富的AI模型开发与产品落地经验。2025年获得国家大模型备案认证，具备模型私有化部署资质。
+              </p>
+              <p>
+                我们的使命：帮助每一个想要拥有专属AI智能体的企业，从底层模型开始构建真正懂业务的智能体。
+              </p>
+            </div>
+            <div className="flex flex-col items-center gap-3">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium">
+                <ShieldCheck size={14} />
+                国家级认证
+              </div>
+              <img src={certificateImg} alt="生成式人工智能服务备案证明" className="rounded-xl border border-white/10 max-w-[280px] w-full shadow-lg" />
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* 企业知识大脑 */}
       <section className="py-16 px-4 border-t border-white/5">
