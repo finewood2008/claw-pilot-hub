@@ -91,7 +91,7 @@ const Index = () => {
             <span className="text-white my-[15px]">Q-CLAW · 企业超级秘书</span>
             <br />
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              基于数字员工平台，重新定义企业效率
+              AI数字员工重新定义企业效率
             </span>
           </h1>
 
