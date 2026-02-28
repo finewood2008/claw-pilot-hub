@@ -50,11 +50,11 @@ const Index = () => {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a0e1a]/80 backdrop-blur-xl border-b border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-           <div className="flex items-center gap-2">
-            <img src={logoImg} alt="Q-CLAW" className="w-8 h-8 rounded-lg object-contain" />
-            <div className="flex flex-col leading-tight">
-              <span className="text-lg font-bold text-white tracking-tight">Q-CLAW</span>
-              <span className="text-[10px] text-muted-foreground -mt-0.5 tracking-[0.2em]">Qeeshu AI</span>
+           <div className="flex items-center gap-3">
+            <img src={logoImg} alt="Q-CLAW" className="w-9 h-9 rounded-lg object-contain" />
+            <div className="flex flex-col">
+              <span className="text-lg font-bold text-white tracking-tight leading-none">Q-CLAW</span>
+              <span className="text-[9px] text-muted-foreground mt-0.5 leading-none uppercase tracking-widest">Qeeshu AI</span>
             </div>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm text-gray-400">
