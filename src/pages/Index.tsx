@@ -54,7 +54,7 @@ const Index = () => {
             <img src={logoImg} alt="Q-CLAW" className="w-8 h-8 rounded-lg object-contain" />
             <div className="flex flex-col leading-tight">
               <span className="text-lg font-bold text-white tracking-tight">Q-CLAW</span>
-              <span className="text-[10px] text-muted-foreground -mt-0.5">Qeeshu AI</span>
+              <span className="text-[10px] text-muted-foreground -mt-0.5 tracking-[0.2em]">Qeeshu AI</span>
             </div>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm text-gray-400">
