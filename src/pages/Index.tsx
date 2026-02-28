@@ -102,7 +102,7 @@ const Index = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col items-center justify-center gap-2">
-            <a href="#"
+            <a href="https://asset.qitus.cn/download/qclaw/QClaw-1.0.4-20260228-release.dmg"
             className="inline-flex items-center gap-2 px-8 py-3 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium hover:opacity-90 transition-opacity">
 
               <Download size={18} />
