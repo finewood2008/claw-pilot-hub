@@ -95,7 +95,7 @@ const marketSkills: MarketSkill[] = [
     id: "s6", name: "智能家居", icon: "Home", category: "自动化",
     description: "统一管理智能家居设备",
     longDescription: "连接和控制家中的智能设备，包括灯光、空调、窗帘等。支持场景联动，定时任务，语音控制。兼容主流智能家居协议。",
-    version: "v2.0", developer: "QEECLAW 官方", publishedAt: "2025-08-20",
+    version: "v2.0", developer: "QeeClaw 官方", publishedAt: "2025-08-20",
     rating: 4.4, ratingCount: 670, installs: 31200, requirements: "固件 >= 1.5，需要WiFi",
     features: ["多协议兼容", "场景联动", "定时任务", "语音控制", "能耗监控"],
     reviews: [{ user: "周九", rating: 4, comment: "兼容性很好，就是配置稍复杂", date: "2026-01-25" }],
