@@ -100,7 +100,7 @@ const Index = () => {
 
           {/* Subtitle */}
           <p className="text-gray-400 text-base max-w-2xl mx-auto mb-8 leading-relaxed">
-            从一个超级秘书开始，到管理一支 AI 数字员工团队。QeeClaw 基于企数大模型构建企业私有知识库，以 OPENCLAW 为底座，让每位员工都拥有 7×24 小时的 AI 数字员工。
+            从一个超级秘书开始，到管理一支 AI 数字员工团队。QeeClaw 基于企数大模型构建企业私有知识库，以 OPENCLAW 为底座，让每位员工都拥有 7×24 小时的 AI 数字员工。同时提供 OpenClaw 私有化 AI 一体机，让算力与数据完全留在企业内部。
           </p>
 
           {/* CTA Buttons */}
