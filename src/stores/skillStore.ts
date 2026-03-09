@@ -44,7 +44,7 @@ const marketSkills: MarketSkill[] = [
     id: "s1", name: "天气查询", icon: "CloudSun", category: "数据处理",
     description: "实时天气查询与天气预报播报",
     longDescription: "支持全球主要城市的实时天气查询，包括温度、湿度、风速、空气质量等数据。可设置定时播报，支持自然语言查询。",
-    version: "v1.3", developer: "QEEECLAW 官方", publishedAt: "2025-10-15",
+    version: "v1.3", developer: "QEEEECLAW 官方", publishedAt: "2025-10-15",
     rating: 4.7, ratingCount: 328, installs: 12580, requirements: "固件 >= 2.0",
     features: ["实时天气数据", "7天天气预报", "空气质量指数", "定时播报", "自然语言查询"],
     reviews: [
@@ -56,7 +56,7 @@ const marketSkills: MarketSkill[] = [
     id: "s2", name: "音乐播放", icon: "Music", category: "娱乐",
     description: "在线音乐播放与智能推荐",
     longDescription: "整合多个音乐平台的在线播放技能，支持语音点歌、歌单管理、个性化推荐。高品质音频输出，支持蓝牙连接。",
-    version: "v2.0", developer: "EE-CLAW 官方", publishedAt: "2025-11-20",
+    version: "v2.0", developer: EEEE-CLAW 官方", publishedAt: "2025-11-20",
     rating: 4.5, ratingCount: 562, installs: 23400, requirements: "固件 >= 2.0，需要音频输出",
     features: ["语音点歌", "歌单管理", "个性化推荐", "高品质音频", "蓝牙输出"],
     reviews: [{ user: "李华", rating: 5, comment: "音质不错，推荐很准", date: "2026-02-05" }],
@@ -65,7 +65,7 @@ const marketSkills: MarketSkill[] = [
     id: "s3", name: "日程管理", icon: "CalendarDays", category: "自动化",
     description: "智能日程提醒与任务管理",
     longDescription: "帮助您管理日常日程和待办事项。支持自然语言添加日程，智能提醒，与日历同步，支持重复事件设置。",
-    version: "v2.1", developer: "Q-CLAW 官方", publishedAt: "2025-12-10",
+    version: "v2.1", developer: EEQ-CLAW 官方", publishedAt: "2025-12-10",
     rating: 4.8, ratingCount: 215, installs: 8930, requirements: "固件 >= 2.0",
     features: ["自然语言输入", "智能提醒", "日历同步", "重复事件", "优先级管理"],
     reviews: [
