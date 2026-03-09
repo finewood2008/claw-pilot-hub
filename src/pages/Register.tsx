@@ -54,7 +54,7 @@ const Register = () => {
     setLoading(true);
     try {
       await register(email, username, password);
-      toast({ title: "注册成功", description: "欢迎加入 QEEECLAW！" });
+      toast({ title: "注册成功", description: "欢迎加入 QeeClaw！" });
       navigate("/dashboard");
     } catch (err: any) {
       toast({ title: "注册失败", description: err?.message || "请稍后再试", variant: "destructive" });
