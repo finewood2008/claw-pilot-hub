@@ -340,7 +340,7 @@ const Index = () => {
                   <Cloud size={24} className="text-blue-400" />
                 </div>
                 <div className="text-center">
-                   <p className="text-blue-300 font-semibold text-sm">Q-CLAW 企业级 API 管理平台</p>
+                   <p className="text-blue-300 font-semibold text-sm">QEECLAW 企业级 API 管理平台</p>
                    <p className="text-gray-500 text-xs mt-1">Key 鉴权 / Token 计费 / 配置同步</p>
                 </div>
                 <div className="grid grid-cols-2 gap-2 w-full">
