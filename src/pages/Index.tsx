@@ -51,9 +51,9 @@ const Index = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a0e1a]/80 backdrop-blur-xl border-b border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
            <div className="flex items-center gap-2">
-            <img src={logoImg} alt="QEECLAW" className="w-8 h-8 rounded-lg object-contain" />
+            <img src={logoImg} alt="QeeClaw" className="w-8 h-8 rounded-lg object-contain" />
             <div className="flex flex-col leading-tight">
-              <span className="text-lg font-bold text-white tracking-tight">QEECLAW</span>
+              <span className="text-lg font-bold text-white tracking-tight">QeeClaw</span>
               <span className="text-[10px] text-muted-foreground -mt-0.5 tracking-[0.2em] text-center">Qeeshu AI</span>
             </div>
           </div>
