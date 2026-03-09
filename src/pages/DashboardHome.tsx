@@ -31,7 +31,7 @@ const DashboardHome = () => {
   ];
 
   const quickActions = [
-    { label: "添加设备", icon: Plus, path: "/dashboard/devices", desc: "绑定新的 Q-CLAW 设备" },
+    { label: "添加设备", icon: Plus, path: "/dashboard/devices", desc: "绑定新的 QEECLAW 设备" },
     { label: "浏览技能", icon: ShoppingBag, path: "/dashboard/market", desc: "发现更多 AI 技能" },
     { label: "充值余额", icon: Wallet, path: "/dashboard/billing", desc: "为账户增加余额" },
     { label: "使用报告", icon: TrendingUp, path: "/dashboard/billing", desc: "查看消费与分析" },
