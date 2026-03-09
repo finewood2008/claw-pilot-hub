@@ -626,7 +626,7 @@ const Index = () => {
       <footer className="border-t border-white/5 py-6 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-gray-500 text-sm">
-            © 2026 Q-CLAW — 企业级 AI 数字员工管理平台. Powered by Qeeshu AI.
+            © 2026 QEECLAW — 企业级 AI 数字员工管理平台. Powered by Qeeshu AI.
           </p>
         </div>
       </footer>
