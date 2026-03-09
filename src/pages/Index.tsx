@@ -610,7 +610,7 @@ const Index = () => {
       <section className="py-16 px-4 border-t border-white/5">
         <div className="max-w-3xl mx-auto text-center">
           <div className="w-20 h-20 mx-auto mb-5 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center shadow-[0_0_30px_rgba(168,85,247,0.15)]">
-            <img src="/logo.png" alt="QEECLAW" className="w-12 h-12 object-contain drop-shadow-[0_0_8px_rgba(168,85,247,0.4)]" />
+            <img src="/logo.png" alt="QeeClaw" className="w-12 h-12 object-contain drop-shadow-[0_0_8px_rgba(168,85,247,0.4)]" />
           </div>
           <h2 className="text-xl font-bold text-white mb-4">关于我们</h2>
           <p className="text-gray-400 text-sm leading-relaxed">
