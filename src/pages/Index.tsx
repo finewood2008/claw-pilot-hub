@@ -91,7 +91,7 @@ const Index = () => {
 
           {/* Main heading */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4">
-            <span className="text-white my-[15px]">Q-CLAW · 企业超级秘书</span>
+            <span className="text-white my-[15px]">QEECLAW · 企业超级秘书</span>
             <br />
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               AI 数字员工重新定义企业效率
