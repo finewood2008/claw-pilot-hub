@@ -138,7 +138,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
         {/* Footer */}
         <footer className="border-t border-border bg-card px-4 md:px-6 py-3">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-muted-foreground">
-            <span>© 2026 Q-CLAW. All rights reserved.</span>
+            <span>© 2026 QEECLAW. All rights reserved.</span>
             <div className="flex gap-4">
               <span className="hover:text-foreground cursor-pointer transition-colors">帮助中心</span>
               <span className="hover:text-foreground cursor-pointer transition-colors">文档</span>

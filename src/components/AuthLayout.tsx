@@ -28,9 +28,9 @@ const AuthLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <div className="w-full max-w-md space-y-8">
           <div className="lg:hidden flex items-center justify-center gap-3 mb-8">
             <div className="flex items-center justify-center w-10 h-10 rounded-xl">
-              <img src="/logo.png" alt="Q-CLAW" className="w-10 h-10 object-contain" />
-            </div>
-            <span className="text-xl font-bold text-foreground">Q-CLAW</span>
+               <img src="/logo.png" alt="QEECLAW" className="w-10 h-10 object-contain" />
+             </div>
+             <span className="text-xl font-bold text-foreground">QEECLAW</span>
           </div>
           {children}
         </div>
