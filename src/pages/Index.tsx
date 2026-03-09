@@ -330,7 +330,7 @@ const Index = () => {
             </div>
           </div>
 
-          {/* === 第2层：QEECLAW 管理平台 + OPENCLAW Core Engine 并排 === */}
+          {/* === 第2层：QeeClaw 管理平台 + OPENCLAW Core Engine 并排 === */}
           <div className="animate-fade-in-up flex flex-col md:flex-row gap-4 relative" style={{ animationDelay: '0.1s' }}>
             
             {/* 左侧：QEECLAW API 管理平台 */}
