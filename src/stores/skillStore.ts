@@ -65,7 +65,7 @@ const marketSkills: MarketSkill[] = [
     id: "s3", name: "日程管理", icon: "CalendarDays", category: "自动化",
     description: "智能日程提醒与任务管理",
     longDescription: "帮助您管理日常日程和待办事项。支持自然语言添加日程，智能提醒，与日历同步，支持重复事件设置。",
-    version: "v2.1", developer: "QEECLAW 官方", publishedAt: "2025-12-10",
+    version: "v2.1", developer: "QeeClaw 官方", publishedAt: "2025-12-10",
     rating: 4.8, ratingCount: 215, installs: 8930, requirements: "固件 >= 2.0",
     features: ["自然语言输入", "智能提醒", "日历同步", "重复事件", "优先级管理"],
     reviews: [
