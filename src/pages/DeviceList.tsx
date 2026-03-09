@@ -142,7 +142,7 @@ const DeviceList = () => {
                       <EmptyState
                         icon={MonitorSmartphone}
                         title="还没有设备"
-                        description="绑定你的第一个 Q-CLAW 设备，开始体验 AI 技能"
+                        description="绑定你的第一个 QEECLAW 设备，开始体验 AI 技能"
                         actionLabel="添加新设备"
                         onAction={() => setAddOpen(true)}
                       />

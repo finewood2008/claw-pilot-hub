@@ -330,10 +330,10 @@ const Index = () => {
             </div>
           </div>
 
-          {/* === 第2层：Q-CLAW 管理平台 + OPENCLAW Core Engine 并排 === */}
+          {/* === 第2层：QEECLAW 管理平台 + OPENCLAW Core Engine 并排 === */}
           <div className="animate-fade-in-up flex flex-col md:flex-row gap-4 relative" style={{ animationDelay: '0.1s' }}>
             
-            {/* 左侧：Q-CLAW API 管理平台 */}
+            {/* 左侧：QEECLAW API 管理平台 */}
             <div className="flex-1 rounded-2xl border border-white/5 bg-[#111827]/40 p-6">
               <div className="flex flex-col items-center gap-4">
                 <div className="w-14 h-14 rounded-full border-2 border-blue-500/40 bg-blue-600/10 flex items-center justify-center animate-float">
