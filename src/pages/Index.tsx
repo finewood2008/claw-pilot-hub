@@ -541,7 +541,7 @@ const Index = () => {
               <ShieldCheck size={16} />
               <span className="text-xs font-medium">数据主权保障：全栈私有化部署，确保商业机密绝对安全</span>
             </div>
-            <span className="text-xs text-gray-600">QEECLAW KNOWLEDGE ENGINE v1.0</span>
+            <span className="text-xs text-gray-600">QeeClaw KNOWLEDGE ENGINE v1.0</span>
           </div>
         </div>
       </section>
