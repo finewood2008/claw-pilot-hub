@@ -606,6 +606,53 @@ const Index = () => {
         </div>
       </section>
 
+      {/* OpenClaw 私有化 AI 一体机 */}
+      <section className="py-20 px-4 border-t border-white/5">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-purple-500/20 bg-purple-500/5 text-purple-400 text-xs font-medium mb-4">
+              <Server className="w-3.5 h-3.5" />
+              硬件产品
+            </div>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">OpenClaw 私有化 AI 一体机</h2>
+            <p className="text-gray-400 text-sm max-w-xl mx-auto">
+              开箱即用的企业级 AI 算力设备，数据全程不出门，无需 Token 费用，真正实现 AI 能力私有化部署。
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {[
+              {
+                icon: <Zap className="w-6 h-6" />,
+                title: "零配置即用",
+                desc: "内置企数大模型与全套 AI 能力，插电联网即可使用，无需专业运维团队。",
+              },
+              {
+                icon: <CreditCard className="w-6 h-6" />,
+                title: "无限使用 · 零 Token 费",
+                desc: "一次采购，无限调用，告别按量计费的焦虑，AI 成本完全可控。",
+              },
+              {
+                icon: <Shield className="w-6 h-6" />,
+                title: "数据物理隔离",
+                desc: "所有数据与模型运算均在本地完成，满足金融、政务等高安全场景需求。",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="group rounded-2xl border border-white/5 bg-[#111827]/60 p-6 hover:border-purple-500/20 hover:bg-[#111827]/80 transition-all duration-300"
+              >
+                <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center text-purple-400 mb-4 group-hover:scale-110 transition-transform">
+                  {item.icon}
+                </div>
+                <h3 className="text-white font-semibold mb-2">{item.title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* 关于我们 */}
       <section className="py-16 px-4 border-t border-white/5">
         <div className="max-w-3xl mx-auto text-center">
