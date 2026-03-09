@@ -468,7 +468,7 @@ const Index = () => {
           <div className="mt-6 rounded-xl border border-emerald-500/20 bg-emerald-500/5 px-5 py-3 flex items-center gap-3">
             <ShieldCheck size={18} className="text-emerald-400 shrink-0" />
             <p className="text-xs text-emerald-300/80 leading-relaxed">
-              Q-CLAW 采用企数大模型在企业本地服务器运行，所有知识库数据的向量化与检索均在本机完成，绝不上云，最大化保障企业数据主权与商业机密安全。
+              QEECLAW 采用企数大模型在企业本地服务器运行，所有知识库数据的向量化与检索均在本机完成，绝不上云，最大化保障企业数据主权与商业机密安全。
             </p>
           </div>
         </div>
