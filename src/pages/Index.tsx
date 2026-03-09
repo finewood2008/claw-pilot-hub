@@ -109,7 +109,7 @@ const Index = () => {
             className="inline-flex items-center gap-2 px-8 py-3 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium hover:opacity-90 transition-opacity">
 
               <Download size={18} />
-              下载 QEECLAW 客户端
+              下载 QeeClaw 客户端
             </a>
             <p className="text-xs text-muted-foreground">目前仅支持 macOS (Mac Mini / Apple Silicon)</p>
           </div>
