@@ -51,9 +51,9 @@ const Index = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a0e1a]/80 backdrop-blur-xl border-b border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
            <div className="flex items-center gap-2">
-            <img src={logoImg} alt="Q-CLAW" className="w-8 h-8 rounded-lg object-contain" />
+            <img src={logoImg} alt="QEECLAW" className="w-8 h-8 rounded-lg object-contain" />
             <div className="flex flex-col leading-tight">
-              <span className="text-lg font-bold text-white tracking-tight">Q-CLAW</span>
+              <span className="text-lg font-bold text-white tracking-tight">QEECLAW</span>
               <span className="text-[10px] text-muted-foreground -mt-0.5 tracking-[0.2em] text-center">Qeeshu AI</span>
             </div>
           </div>
@@ -91,7 +91,7 @@ const Index = () => {
 
           {/* Main heading */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4">
-            <span className="text-white my-[15px]">Q-CLAW · 企业超级秘书</span>
+            <span className="text-white my-[15px]">QEECLAW · 企业超级秘书</span>
             <br />
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               AI 数字员工重新定义企业效率
@@ -100,7 +100,7 @@ const Index = () => {
 
           {/* Subtitle */}
           <p className="text-gray-400 text-base max-w-2xl mx-auto mb-8 leading-relaxed">
-            从一个超级秘书开始，到管理一支 AI 数字员工团队。Q-CLAW 基于企数大模型构建企业私有知识库，以 OPENCLAW 为底座，让每位员工都拥有 7×24 小时的 AI 数字员工。
+            从一个超级秘书开始，到管理一支 AI 数字员工团队。QEECLAW 基于企数大模型构建企业私有知识库，以 OPENCLAW 为底座，让每位员工都拥有 7×24 小时的 AI 数字员工。
           </p>
 
           {/* CTA Buttons */}
@@ -109,7 +109,7 @@ const Index = () => {
             className="inline-flex items-center gap-2 px-8 py-3 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium hover:opacity-90 transition-opacity">
 
               <Download size={18} />
-              下载 Q-CLAW 客户端
+              下载 QEECLAW 客户端
             </a>
             <p className="text-xs text-muted-foreground">目前仅支持 macOS (Mac Mini / Apple Silicon)</p>
           </div>
@@ -202,7 +202,7 @@ const Index = () => {
       <section id="features" className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">为什么选择 Q-CLAW</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">为什么选择 QEECLAW</h2>
             <p className="text-gray-400 max-w-xl mx-auto text-sm">
               不只是超级秘书，更是企业数字员工的管理平台
             </p>
@@ -295,7 +295,7 @@ const Index = () => {
             </div>
           </div>
 
-          {/* === SVG 连接线 A：LLM → Q-CLAW（向下偏左）=== */}
+          {/* === SVG 连接线 A：LLM → QEECLAW（向下偏左）=== */}
           <div className="relative h-16 hidden md:block">
             <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
               <line x1="35%" y1="0" x2="30%" y2="100%" stroke="rgba(59,130,246,0.4)" strokeWidth="2" strokeDasharray="6 4" className="animate-dash-flow" />
@@ -330,17 +330,17 @@ const Index = () => {
             </div>
           </div>
 
-          {/* === 第2层：Q-CLAW 管理平台 + OPENCLAW Core Engine 并排 === */}
+          {/* === 第2层：QEECLAW 管理平台 + OPENCLAW Core Engine 并排 === */}
           <div className="animate-fade-in-up flex flex-col md:flex-row gap-4 relative" style={{ animationDelay: '0.1s' }}>
             
-            {/* 左侧：Q-CLAW API 管理平台 */}
+            {/* 左侧：QEECLAW API 管理平台 */}
             <div className="flex-1 rounded-2xl border border-white/5 bg-[#111827]/40 p-6">
               <div className="flex flex-col items-center gap-4">
                 <div className="w-14 h-14 rounded-full border-2 border-blue-500/40 bg-blue-600/10 flex items-center justify-center animate-float">
                   <Cloud size={24} className="text-blue-400" />
                 </div>
                 <div className="text-center">
-                   <p className="text-blue-300 font-semibold text-sm">Q-CLAW 企业级 API 管理平台</p>
+                   <p className="text-blue-300 font-semibold text-sm">QEECLAW 企业级 API 管理平台</p>
                    <p className="text-gray-500 text-xs mt-1">Key 鉴权 / Token 计费 / 配置同步</p>
                 </div>
                 <div className="grid grid-cols-2 gap-2 w-full">
@@ -468,7 +468,7 @@ const Index = () => {
           <div className="mt-6 rounded-xl border border-emerald-500/20 bg-emerald-500/5 px-5 py-3 flex items-center gap-3">
             <ShieldCheck size={18} className="text-emerald-400 shrink-0" />
             <p className="text-xs text-emerald-300/80 leading-relaxed">
-              Q-CLAW 采用企数大模型在企业本地服务器运行，所有知识库数据的向量化与检索均在本机完成，绝不上云，最大化保障企业数据主权与商业机密安全。
+              QEECLAW 采用企数大模型在企业本地服务器运行，所有知识库数据的向量化与检索均在本机完成，绝不上云，最大化保障企业数据主权与商业机密安全。
             </p>
           </div>
         </div>
@@ -541,7 +541,7 @@ const Index = () => {
               <ShieldCheck size={16} />
               <span className="text-xs font-medium">数据主权保障：全栈私有化部署，确保商业机密绝对安全</span>
             </div>
-            <span className="text-xs text-gray-600">Q-CLAW KNOWLEDGE ENGINE v1.0</span>
+            <span className="text-xs text-gray-600">QEECLAW KNOWLEDGE ENGINE v1.0</span>
           </div>
         </div>
       </section>
@@ -610,11 +610,11 @@ const Index = () => {
       <section className="py-16 px-4 border-t border-white/5">
         <div className="max-w-3xl mx-auto text-center">
           <div className="w-20 h-20 mx-auto mb-5 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center shadow-[0_0_30px_rgba(168,85,247,0.15)]">
-            <img src="/logo.png" alt="Q-CLAW" className="w-12 h-12 object-contain drop-shadow-[0_0_8px_rgba(168,85,247,0.4)]" />
+            <img src="/logo.png" alt="QEECLAW" className="w-12 h-12 object-contain drop-shadow-[0_0_8px_rgba(168,85,247,0.4)]" />
           </div>
           <h2 className="text-xl font-bold text-white mb-4">关于我们</h2>
           <p className="text-gray-400 text-sm leading-relaxed">
-            Q-CLAW 由企数星图（Qeeshu）团队打造，专注于企业级 AI 数字员工解决方案。基于企数大模型（2025年获得国家级大模型认证备案），Q-CLAW 在企业本地构建私有知识库，所有数据全程不上云，以最大化数据安全驱动企业降本增效。
+            QEECLAW 由企数星图（Qeeshu）团队打造，专注于企业级 AI 数字员工解决方案。基于企数大模型（2025年获得国家级大模型认证备案），QEECLAW 在企业本地构建私有知识库，所有数据全程不上云，以最大化数据安全驱动企业降本增效。
           </p>
           <a target="_blank" rel="noopener noreferrer" className="inline-block mt-4 text-purple-400 hover:text-purple-300 text-sm transition-colors" href="https://www.qeeshu.com">
             了解更多 → qeeshu.com
@@ -626,7 +626,7 @@ const Index = () => {
       <footer className="border-t border-white/5 py-6 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-gray-500 text-sm">
-            © 2026 Q-CLAW — 企业级 AI 数字员工管理平台. Powered by Qeeshu AI.
+            © 2026 QEECLAW — 企业级 AI 数字员工管理平台. Powered by Qeeshu AI.
           </p>
         </div>
       </footer>
