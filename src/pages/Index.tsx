@@ -295,7 +295,7 @@ const Index = () => {
             </div>
           </div>
 
-          {/* === SVG 连接线 A：LLM → QEECLAW（向下偏左）=== */}
+          {/* === SVG 连接线 A：LLM → QeeClaw（向下偏左）=== */}
           <div className="relative h-16 hidden md:block">
             <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
               <line x1="35%" y1="0" x2="30%" y2="100%" stroke="rgba(59,130,246,0.4)" strokeWidth="2" strokeDasharray="6 4" className="animate-dash-flow" />
