@@ -122,7 +122,7 @@ const marketSkills: MarketSkill[] = [
     id: "s9", name: "闹钟", icon: "AlarmClock", category: "自动化",
     description: "智能闹钟与唤醒服务",
     longDescription: "比普通闹钟更智能，根据天气和日程动态调整唤醒时间。支持自然声音唤醒、渐强唤醒等多种模式。",
-    version: "v1.1", developer: "QEECLAW 官方", publishedAt: "2025-07-15",
+    version: "v1.1", developer: "QeeClaw 官方", publishedAt: "2025-07-15",
     rating: 4.9, ratingCount: 890, installs: 42000, requirements: "固件 >= 1.0",
     features: ["智能唤醒", "多种铃声", "渐强模式", "日程联动", "贪睡设置"],
     reviews: [{ user: "孙一", rating: 5, comment: "渐强唤醒太舒服了", date: "2026-02-08" }],
