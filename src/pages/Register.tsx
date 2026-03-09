@@ -54,7 +54,7 @@ const Register = () => {
     setLoading(true);
     try {
       await register(email, username, password);
-      toast({ title: "注册成功", description: "欢迎加入 QEEECLAW！" });
+      toast({ title: "注册成功", description: "欢迎加入 QeeClaw��" });
       navigate("/dashboard");
     } catch (err: any) {
       toast({ title: "注册失败", description: err?.message || "请稍后再试", variant: "destructive" });
@@ -67,7 +67,7 @@ const Register = () => {
     <AuthLayout>
       <div className="space-y-2">
         <h2 className="text-2xl font-bold text-foreground">创建账户</h2>
-        <p className="text-muted-foreground">注册 EE-CLAW 设备管理中心</p>
+        <p className="text-muted-foreground">注册 EQeeClaw设备管理中心</p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">

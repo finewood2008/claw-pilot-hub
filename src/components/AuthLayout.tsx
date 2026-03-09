@@ -8,9 +8,9 @@ const AuthLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <div className="hidden lg:flex lg:w-1/2 auth-gradient items-center justify-center p-12">
         <div className="max-w-md text-center space-y-6">
           <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-primary-foreground/20 backdrop-blur-sm">
-             <img src="/logo.png" alt="QEECLAW" className="w-14 h-14 object-contain" />
+             <img src="/logo.png" alt="QeeClaw" className="w-14 h-14 object-contain" />
            </div>
-           <h1 className="text-4xl font-bold text-primary-foreground">QEECLAW</h1>
+           <h1 className="text-4xl font-bold text-primary-foreground">QeeClaw</h1>
           <p className="text-lg text-primary-foreground/80">
             本地AI助手设备管理平台
           </p>
@@ -28,9 +28,9 @@ const AuthLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <div className="w-full max-w-md space-y-8">
           <div className="lg:hidden flex items-center justify-center gap-3 mb-8">
             <div className="flex items-center justify-center w-10 h-10 rounded-xl">
-               <img src="/logo.png" alt="QEECLAW" className="w-10 h-10 object-contain" />
+               <img src="/logo.png" alt="QeeClaw" className="w-10 h-10 object-contain" />
              </div>
-             <span className="text-xl font-bold text-foreground">QEECLAW</span>
+             <span className="text-xl font-bold text-foreground">QeeClaw</span>
           </div>
           {children}
         </div>

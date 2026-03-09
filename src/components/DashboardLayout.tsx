@@ -57,8 +57,8 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
   const SidebarContent = () => (
     <div className="flex flex-col h-full">
       <div className="flex items-center gap-3 px-4 h-16 border-b border-sidebar-border">
-         <img src="/logo.png" alt="QEECLAW" className="w-8 h-8 rounded-lg object-contain flex-shrink-0" />
-         {!collapsed && <span className="text-lg font-bold text-sidebar-accent-foreground">QEECLAW</span>}
+         <img src="/logo.png" alt="QeeClaw" className="w-8 h-8 rounded-lg object-contain flex-shrink-0" />
+         {!collapsed && <span className="text-lg font-bold text-sidebar-accent-foreground">QeeClaw</span>}
       </div>
       <nav className="flex-1 p-3 space-y-1 overflow-y-auto">
         {navItems.map((item) => {
@@ -138,7 +138,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
         {/* Footer */}
         <footer className="border-t border-border bg-card px-4 md:px-6 py-3">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-muted-foreground">
-            <span>© 2026 QEECLAW. All rights reserved.</span>
+            <span>© 2026 QeeClaw. All rights reserved.</span>
             <div className="flex gap-4">
               <span className="hover:text-foreground cursor-pointer transition-colors">帮助中心</span>
               <span className="hover:text-foreground cursor-pointer transition-colors">文档</span>
