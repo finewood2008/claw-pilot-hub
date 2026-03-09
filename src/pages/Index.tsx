@@ -202,7 +202,7 @@ const Index = () => {
       <section id="features" className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">为什么选择 Q-CLAW</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">为什么选择 QEECLAW</h2>
             <p className="text-gray-400 max-w-xl mx-auto text-sm">
               不只是超级秘书，更是企业数字员工的管理平台
             </p>
