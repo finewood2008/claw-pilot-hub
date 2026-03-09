@@ -56,7 +56,7 @@ const marketSkills: MarketSkill[] = [
     id: "s2", name: "音乐播放", icon: "Music", category: "娱乐",
     description: "在线音乐播放与智能推荐",
     longDescription: "整合多个音乐平台的在线播放技能，支持语音点歌、歌单管理、个性化推荐。高品质音频输出，支持蓝牙连接。",
-    version: "v2.0", developerEEEEEEEE-CLAW 官方", publishedAt: "2025-11-20",
+    version: "v2.0", developer: "QEECLAW 官方", publishedAt: "2025-11-20",
     rating: 4.5, ratingCount: 562, installs: 23400, requirements: "固件 >= 2.0，需要音频输出",
     features: ["语音点歌", "歌单管理", "个性化推荐", "高品质音频", "蓝牙输出"],
     reviews: [{ user: "李华", rating: 5, comment: "音质不错，推荐很准", date: "2026-02-05" }],
