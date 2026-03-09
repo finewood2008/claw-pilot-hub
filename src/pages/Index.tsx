@@ -104,13 +104,19 @@ const Index = () => {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col items-center justify-center gap-2">
-            <a href="https://asset.qeeshu.com/download/qclaw/QClaw-1.0.4-20260228-release.dmg"
-            className="inline-flex items-center gap-2 px-8 py-3 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium hover:opacity-90 transition-opacity">
-
-              <Download size={18} />
-              下载 QeeClaw 客户端
-            </a>
+          <div className="flex flex-col items-center justify-center gap-3">
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <a href="https://asset.qeeshu.com/download/qclaw/QClaw-1.0.4-20260228-release.dmg"
+                className="inline-flex items-center gap-2 px-8 py-3 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium hover:opacity-90 transition-opacity">
+                <Download size={18} />
+                下载 QeeClaw 客户端
+              </a>
+              <a href="/docs/Qeeshu_Company_Profile_2026.pdf" download
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-white/10 bg-white/5 text-gray-300 font-medium hover:bg-white/10 transition-colors">
+                <ArrowRight size={18} />
+                企数星图公司介绍 2026
+              </a>
+            </div>
             <p className="text-xs text-muted-foreground">目前仅支持 macOS (Mac Mini / Apple Silicon)</p>
           </div>
         </div>
