@@ -8,9 +8,9 @@ const AuthLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <div className="hidden lg:flex lg:w-1/2 auth-gradient items-center justify-center p-12">
         <div className="max-w-md text-center space-y-6">
           <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-primary-foreground/20 backdrop-blur-sm">
-            <img src="/logo.png" alt="Q-CLAW" className="w-14 h-14 object-contain" />
-          </div>
-          <h1 className="text-4xl font-bold text-primary-foreground">Q-CLAW</h1>
+             <img src="/logo.png" alt="QEECLAW" className="w-14 h-14 object-contain" />
+           </div>
+           <h1 className="text-4xl font-bold text-primary-foreground">QEECLAW</h1>
           <p className="text-lg text-primary-foreground/80">
             本地AI助手设备管理平台
           </p>
