@@ -44,7 +44,7 @@ const marketSkills: MarketSkill[] = [
     id: "s1", name: "天气查询", icon: "CloudSun", category: "数据处理",
     description: "实时天气查询与天气预报播报",
     longDescription: "支持全球主要城市的实时天气查询，包括温度、湿度、风速、空气质量等数据。可设置定时播报，支持自然语言查询。",
-    version: "v1.3", developer: "Q-CLAW 官方", publishedAt: "2025-10-15",
+    version: "v1.3", developer: "QEECLAW 官方", publishedAt: "2025-10-15",
     rating: 4.7, ratingCount: 328, installs: 12580, requirements: "固件 >= 2.0",
     features: ["实时天气数据", "7天天气预报", "空气质量指数", "定时播报", "自然语言查询"],
     reviews: [
