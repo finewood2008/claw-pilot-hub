@@ -656,6 +656,17 @@ const Index = () => {
               </div>
             ))}
           </div>
+
+          <div className="mt-8 text-center">
+            <a
+              href="/docs/QEECLAW_Product_Brochure_2026.pdf"
+              download
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-purple-500/30 bg-purple-500/10 text-purple-300 font-medium hover:bg-purple-500/20 hover:border-purple-500/50 transition-colors"
+            >
+              <Download size={18} />
+              下载一体机产品手册
+            </a>
+          </div>
         </div>
       </section>
 
