@@ -1,22 +1,25 @@
 
 
-## 计划：在首页底部增加一体机板块
+## 计划：更新 Website Info（HTML 元信息）
 
-### 改动内容
+当前 `index.html` 中的 title、description、Open Graph、Twitter Card 等信息仍为旧版文案，需要与首页新定位保持一致。
 
-**文件：`src/pages/Index.tsx`**
+### 修改文件：`index.html`
 
-1. **在"关于我们"section 之前**（约第609行前），插入一个新的一体机板块：
-   - 标题："OpenClaw 私有化 AI 一体机"
-   - 副标题：简短描述一体机的核心价值（开箱即用、数据不出门、无限使用）
-   - 三列卡片展示三大核心卖点：零配置即用、无限使用无Token费、数据物理隔离
-   - 视觉风格与现有板块一致（暗色卡片、渐变图标、hover 动效）
-
-2. **在 Hero 区域的整体描述中**（约第102-104行），补充提及一体机内容，例如在现有描述末尾加上"同时提供私有化 AI 一体机，让算力与数据完全留在企业内部。"
+| 字段 | 当前值 | 更新为 |
+|------|--------|--------|
+| `<title>` | `Q-CLAW 让每个人都能轻松驾驭 AI 助手` | `Q-CLAW · 企业超级秘书 — AI 数字员工重新定义企业效率` |
+| `meta description` | `Q-CLAW 本地AI助手设备管理平台` | `Q-CLAW 企业级 AI 数字员工管理平台，基于企数大模型构建企业私有知识库，7×24 小时全天候服务` |
+| `og:title` | 同旧 title | 同新 title |
+| `og:description` | 同旧 description | 同新 description |
+| `twitter:title` | 同旧 title | 同新 title |
+| `twitter:description` | 同旧 description | 同新 description |
+| `meta author` | `Lovable` | `Qeeshu AI` |
+| `twitter:site` | `@Lovable` | 移除或改为 `@Qeeshu`（无官方账号则移除） |
+| `og:image` | Lovable 默认图 | 保留现有（后续可替换为品牌图） |
+| `twitter:image` | Lovable 默认图 | 保留现有 |
 
 ### 技术细节
-
-- 使用已有的 lucide 图标（`Server`、`Shield`、`CreditCard` 等）
-- 沿用现有的卡片样式：`rounded-2xl border border-white/5 bg-[#111827]/60`
-- 新 section 使用 `border-t border-white/5` 分隔，与其他板块保持一致
+- 仅修改 `index.html`，约 8 处 meta 标签文案
+- 无依赖变更
 
