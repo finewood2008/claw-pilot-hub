@@ -612,7 +612,7 @@ const Index = () => {
           <div className="mb-10">
             <div className="w-10 h-1 bg-purple-500 rounded-full mb-4" />
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">企业级 AI 数字员工定制</h2>
-            <p className="text-gray-400 text-sm">用 10% 的成本，雇佣一个 7×24 无休的 AI 数字员工，复刻企业高度非标准化工作流</p>
+            <p className="text-gray-400 text-sm">用 10% 的成本，雇佣一个 7×24 无休的 AI 数字员工，复刻企业高度非标准化的工作流</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
