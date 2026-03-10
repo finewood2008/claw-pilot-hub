@@ -40,6 +40,7 @@ import wecomLogo from "@/assets/im/wecom.png";
 import feishuLogo from "@/assets/im/feishu.png";
 import dingtalkLogo from "@/assets/im/dingtalk.png";
 import aioMachineImg from "@/assets/aio-machine.jpg";
+import qeeclawLogo3d from "@/assets/qeeclaw-logo-3d.png";
 
 const Index = () => {
   const scrollTo = (id: string) => {
