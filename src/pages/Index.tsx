@@ -259,7 +259,7 @@ const Index = () => {
               {
                 icon: Shield,
                 title: "自研知识库引擎",
-                desc: "基于 OpenClaw 深度二次开发，打造企业专属知识库引擎——这是我们与其他 OpenClaw 方案的本质区别。支持企业私有数据智能检索与知识沉淀。",
+                desc: "基于 OpenClaw 深度二次开发，深度集成企数大模型的向量化能力，实现企业私有知识库的本地化存储与高效检索，数据绝不上云。",
                 gradient: "from-blue-500/20 to-cyan-500/20",
                 iconColor: "text-blue-400"
               },
