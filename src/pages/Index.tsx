@@ -87,7 +87,7 @@ const Index = () => {
           {/* Promo tag */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-sm mb-5">
             <ShieldCheck size={14} />
-            <span>国家大模型备案认证 · 100% 合规 · 企业级私有部署</span>
+            <span>企业级 AI · 国家大模型备案 · 全栈私有部署</span>
           </div>
 
           {/* Main heading */}
@@ -101,7 +101,8 @@ const Index = () => {
 
           {/* Subtitle */}
           <p className="text-gray-400 text-base max-w-2xl mx-auto mb-8 leading-relaxed">
-            区别于 ChatGPT、Dify、Coze 等消费级工具，QeeClaw 是真正为企业打造的 AI 数字员工平台。基于开源引擎 OpenClaw 深度二次开发，已获国家大模型备案认证，100% 私有化部署，数据不出门。搭配企数 OPENCLAW 一体机，开箱即用，零门槛拥有企业专属 AI 能力。
+            深度自研企业知识库引擎，为企业构建专属 AI 智慧中枢。<br />
+            国家大模型备案认证，数据全链路私有，安全合规无忧。
           </p>
 
           {/* CTA Buttons */}
@@ -219,29 +220,29 @@ const Index = () => {
             {[
             {
               icon: ShieldCheck,
-              title: "国家级合规认证",
-              desc: "2025年获国家大模型备案认证，满足金融、医疗、政务等高合规行业准入要求，企业放心使用，合规无忧。",
+              title: "企业级基因",
+              desc: "专为企业场景深度打造，从架构到交付全面对标企业级标准，而非消费级工具的简单套壳。",
               gradient: "from-green-500/20 to-emerald-500/20",
               iconColor: "text-green-400"
             },
             {
               icon: Shield,
-              title: "100% 私有化部署",
-              desc: "全栈本地部署，数据不出门，杜绝泄露风险。基于企数大模型构建企业私有知识库，商业机密绝对安全。",
+              title: "自研知识库引擎",
+              desc: "基于 OpenClaw 深度二次开发，打造企业专属知识库引擎——这是我们与其他 OpenClaw 方案的本质区别。支持企业私有数据智能检索与知识沉淀。",
               gradient: "from-blue-500/20 to-cyan-500/20",
               iconColor: "text-blue-400"
             },
             {
               icon: Server,
-              title: "OPENCLAW 一体机 · 开箱即用",
-              desc: "企数 OPENCLAW 一体机，插电联网即可使用，零配置零运维。内置企数大模型与全套 AI 能力，一次采购无限调用。",
+              title: "合规 · 安全 · 可信",
+              desc: "已获国家大模型备案认证，全栈私有部署，数据全链路不出门，满足金融、医疗、政务等高合规行业严苛要求。",
               gradient: "from-purple-500/20 to-pink-500/20",
               iconColor: "text-purple-400"
             },
             {
               icon: ShoppingBag,
-              title: "SKILL 技能编排",
-              desc: "丰富的企业级预置技能，涵盖客服、财务、HR、数据分析等业务场景，支持自定义训练专属企业技能，打造适配业务流程的 AI 数字员工。",
+              title: "OPENCLAW 一体机",
+              desc: "企数 OPENCLAW 一体机即将面向市场发售，开箱即用，内置全套 AI 能力与企业知识库，一次部署，持续赋能。",
               gradient: "from-yellow-500/20 to-orange-500/20",
               iconColor: "text-yellow-400"
             }].
@@ -623,7 +624,7 @@ const Index = () => {
             </div>
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">企数 OPENCLAW 一体机</h2>
             <p className="text-gray-400 text-sm max-w-xl mx-auto">
-              企业级开箱即用的 AI 算力设备，插电联网即刻拥有企业专属 AI 能力，数据全程不出门，无需 Token 费用。
+              企数 OPENCLAW 一体机即将面向市场发售。开箱即用的企业级 AI 算力设备，内置自研知识库引擎与全套 AI 能力，一次部署，持续赋能，无需 Token 费用。
             </p>
            </div>
 
