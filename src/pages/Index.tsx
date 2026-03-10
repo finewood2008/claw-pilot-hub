@@ -219,20 +219,30 @@ const Index = () => {
 
           <div className="flex flex-col lg:flex-row items-center gap-8">
             {/* Left: Logo */}
-            <div className="flex-shrink-0 flex flex-col items-center justify-center lg:w-[320px]">
-              <div className="relative group">
-                {/* Glow ring */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500/20 via-cyan-400/10 to-purple-500/20 blur-2xl scale-110 group-hover:scale-125 transition-transform duration-700" />
-                {/* Rotating border ring */}
-                <div className="absolute -inset-3 rounded-full border border-white/5 animate-[spin_20s_linear_infinite]" />
-                <div className="absolute -inset-6 rounded-full border border-white/[0.03] animate-[spin_30s_linear_infinite_reverse]" />
+            <div className="flex-shrink-0 flex flex-col items-center justify-center lg:w-[340px]">
+              <div className="relative group cursor-pointer">
+                {/* Ambient glow - large soft */}
+                <div className="absolute -inset-8 rounded-full bg-gradient-to-tr from-blue-600/25 via-cyan-400/15 to-blue-500/20 blur-3xl scale-100 group-hover:scale-130 transition-all duration-1000 animate-pulse" />
+                {/* Inner glow - sharper */}
+                <div className="absolute -inset-2 rounded-full bg-gradient-to-b from-cyan-400/10 to-blue-600/15 blur-xl group-hover:from-cyan-400/20 group-hover:to-blue-600/25 transition-all duration-700" />
+                
+                {/* Rotating orbital rings */}
+                <div className="absolute -inset-4 rounded-full border border-cyan-400/10 animate-[spin_15s_linear_infinite]" />
+                <div className="absolute -inset-8 rounded-full border border-blue-400/[0.06] animate-[spin_25s_linear_infinite_reverse]" />
+                <div className="absolute -inset-12 rounded-full border border-purple-400/[0.04] animate-[spin_35s_linear_infinite]" />
+                
+                {/* Floating particles */}
+                <div className="absolute top-2 -right-2 w-1.5 h-1.5 rounded-full bg-cyan-400/40 animate-[bounce_3s_ease-in-out_infinite]" />
+                <div className="absolute -bottom-1 -left-3 w-1 h-1 rounded-full bg-blue-400/30 animate-[bounce_4s_ease-in-out_infinite_0.5s]" />
+                <div className="absolute top-1/2 -right-6 w-1 h-1 rounded-full bg-purple-400/25 animate-[bounce_5s_ease-in-out_infinite_1s]" />
+                
                 <img
                   src={qeeclawLogo3d}
                   alt="QeeClaw Logo"
-                  className="relative w-52 h-52 lg:w-64 lg:h-64 object-contain drop-shadow-[0_0_60px_rgba(56,189,248,0.3)] animate-fade-in group-hover:scale-105 transition-transform duration-500"
+                  className="relative w-56 h-56 lg:w-72 lg:h-72 object-contain drop-shadow-[0_0_80px_rgba(56,189,248,0.35)] animate-fade-in group-hover:scale-105 group-hover:drop-shadow-[0_0_100px_rgba(56,189,248,0.5)] transition-all duration-700"
                 />
               </div>
-              <p className="text-gray-500 text-xs mt-6 tracking-widest uppercase">Powered by OpenClaw</p>
+              <p className="text-gray-500/80 text-xs mt-8 tracking-[0.25em] uppercase font-light">Powered by OpenClaw</p>
             </div>
 
             {/* Right: Cards */}
