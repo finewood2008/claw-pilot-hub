@@ -146,7 +146,7 @@ const Index = () => {
             {
               icon: Brain,
               title: "企业私有知识库",
-              desc: "基于企数大模型对企业文档、SOP、业务日志进行深度向量化，构建专属企业的智能知识中枢。",
+              desc: "基于企数大模型对企业文档、SOP、业务日志进行深度向量化，构建专属的、可记忆、可传承的智能知识中枢。",
               color: "text-blue-500",
               bg: "bg-blue-500/10",
               bgImg: bgKnowledgeBase
