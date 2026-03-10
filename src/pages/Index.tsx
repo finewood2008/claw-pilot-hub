@@ -87,7 +87,7 @@ const Index = () => {
           {/* Promo tag */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-sm mb-5">
             <ShieldCheck size={14} />
-            <span>国家大模型备案认证 · 100% 合规 · 企业级私有部署</span>
+            <span>企业级 AI · 国家大模型备案 · 全栈私有部署</span>
           </div>
 
           {/* Main heading */}
