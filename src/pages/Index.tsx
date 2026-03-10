@@ -218,32 +218,32 @@ const Index = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
             {
-              icon: Zap,
-              title: "即装即用，零门槛部署",
-              desc: "企业无需复杂的环境搭建，下载即用，一键部署 AI 数字员工，IT 部门零负担，业务团队即刻上手。",
-              gradient: "from-yellow-500/20 to-orange-500/20",
-              iconColor: "text-yellow-400"
-            },
-            {
-              icon: Wallet,
-              title: "灵活计费，成本可控",
-              desc: "支持微信、支付宝等主流支付方式，按需充值、按量计费，企业无需预付高额许可费，真正做到成本透明可控。",
+              icon: ShieldCheck,
+              title: "国家级合规认证",
+              desc: "2025年获国家大模型备案认证，满足金融、医疗、政务等高合规行业准入要求，企业放心使用，合规无忧。",
               gradient: "from-green-500/20 to-emerald-500/20",
               iconColor: "text-green-400"
             },
             {
-              icon: Brain,
-              title: "企业私有知识库，数据不出门",
-              desc: "基于本地算力与企数大模型，对企业文档、SOP、业务日志进行向量化处理，构建完全私有的知识库。数据全程不上云，确保商业机密绝对安全。",
-              gradient: "from-blue-500/20 to-purple-500/20",
+              icon: Shield,
+              title: "100% 私有化部署",
+              desc: "全栈本地部署，数据不出门，杜绝泄露风险。基于企数大模型构建企业私有知识库，商业机密绝对安全。",
+              gradient: "from-blue-500/20 to-cyan-500/20",
               iconColor: "text-blue-400"
+            },
+            {
+              icon: Server,
+              title: "OPENCLAW 一体机 · 开箱即用",
+              desc: "企数 OPENCLAW 一体机，插电联网即可使用，零配置零运维。内置企数大模型与全套 AI 能力，一次采购无限调用。",
+              gradient: "from-purple-500/20 to-pink-500/20",
+              iconColor: "text-purple-400"
             },
             {
               icon: ShoppingBag,
               title: "SKILL 技能编排",
               desc: "丰富的企业级预置技能，涵盖客服、财务、HR、数据分析等业务场景，支持自定义训练专属企业技能，打造适配业务流程的 AI 数字员工。",
-              gradient: "from-purple-500/20 to-pink-500/20",
-              iconColor: "text-purple-400"
+              gradient: "from-yellow-500/20 to-orange-500/20",
+              iconColor: "text-yellow-400"
             }].
             map((feature, index) =>
             <div
