@@ -252,7 +252,7 @@ const Index = () => {
               {
                 icon: ShieldCheck,
                 title: "企业级基因",
-                desc: "专为企业场景深度打造，从架构到交付全面对标企业级标准，而非消费级工具的简单套壳。",
+                desc: "从底层模型到上层应用，全面对标企业级标准。我们不是简单地封装第三方 API，而是为企业构建完整的自主可控 AI 能力体系。",
                 gradient: "from-green-500/20 to-emerald-500/20",
                 iconColor: "text-green-400"
               },
