@@ -86,8 +86,8 @@ const Index = () => {
         <div className="relative max-w-4xl mx-auto px-4 text-center pt-16">
           {/* Promo tag */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-sm mb-5">
-            <Zap size={14} />
-            <span>Qeeshu AI 2025年获得国家大模型认证</span>
+            <ShieldCheck size={14} />
+            <span>国家大模型备案认证 · 100% 合规 · 企业级私有部署</span>
           </div>
 
           {/* Main heading */}
