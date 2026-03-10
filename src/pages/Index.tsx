@@ -39,6 +39,7 @@ import wechatLogo from "@/assets/im/wechat.png";
 import wecomLogo from "@/assets/im/wecom.png";
 import feishuLogo from "@/assets/im/feishu.png";
 import dingtalkLogo from "@/assets/im/dingtalk.png";
+import aioMachineImg from "@/assets/aio-machine.jpg";
 
 const Index = () => {
   const scrollTo = (id: string) => {
