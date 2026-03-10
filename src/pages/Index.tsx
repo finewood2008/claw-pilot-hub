@@ -624,7 +624,7 @@ const Index = () => {
             </div>
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">企数 OPENCLAW 一体机</h2>
             <p className="text-gray-400 text-sm max-w-xl mx-auto">
-              企业级开箱即用的 AI 算力设备，插电联网即刻拥有企业专属 AI 能力，数据全程不出门，无需 Token 费用。
+              企数 OPENCLAW 一体机即将面向市场发售。开箱即用的企业级 AI 算力设备，内置自研知识库引擎与全套 AI 能力，一次部署，持续赋能，无需 Token 费用。
             </p>
            </div>
 
