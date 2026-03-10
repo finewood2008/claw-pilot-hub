@@ -217,55 +217,68 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-            {
-              icon: ShieldCheck,
-              title: "企业级基因",
-              desc: "专为企业场景深度打造，从架构到交付全面对标企业级标准，而非消费级工具的简单套壳。",
-              gradient: "from-green-500/20 to-emerald-500/20",
-              iconColor: "text-green-400"
-            },
-            {
-              icon: Shield,
-              title: "自研知识库引擎",
-              desc: "基于 OpenClaw 深度二次开发，打造企业专属知识库引擎——这是我们与其他 OpenClaw 方案的本质区别。支持企业私有数据智能检索与知识沉淀。",
-              gradient: "from-blue-500/20 to-cyan-500/20",
-              iconColor: "text-blue-400"
-            },
-            {
-              icon: Server,
-              title: "合规 · 安全 · 可信",
-              desc: "已获国家大模型备案认证，全栈私有部署，数据全链路不出门，满足金融、医疗、政务等高合规行业严苛要求。",
-              gradient: "from-purple-500/20 to-pink-500/20",
-              iconColor: "text-purple-400"
-            },
-            {
-              icon: ShoppingBag,
-              title: "OPENCLAW 一体机",
-              desc: "企数 OPENCLAW 一体机即将面向市场发售，开箱即用，内置全套 AI 能力与企业知识库，一次部署，持续赋能。",
-              gradient: "from-yellow-500/20 to-orange-500/20",
-              iconColor: "text-yellow-400"
-            }].
-            map((feature, index) =>
-            <div
-              key={feature.title}
-              className="group relative rounded-2xl border border-white/10 bg-gradient-to-br from-[#111827]/80 to-[#0f172a]/90 p-6 hover:border-white/20 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_8px_30px_-10px_rgba(168,85,247,0.15)] backdrop-blur-sm overflow-hidden animate-fade-in"
-              style={{ animationDelay: `${index * 100}ms`, animationFillMode: 'both' }}>
+          <div className="flex flex-col lg:flex-row items-center gap-8">
+            {/* Left: Logo */}
+            <div className="flex-shrink-0 flex flex-col items-center justify-center lg:w-[280px]">
+              <img
+                src={qeeclawLogo3d}
+                alt="QeeClaw Logo"
+                className="w-48 h-48 lg:w-56 lg:h-56 object-contain drop-shadow-[0_0_40px_rgba(56,189,248,0.25)] animate-fade-in"
+              />
+              <p className="text-gray-500 text-xs mt-4 tracking-widest uppercase">Powered by OpenClaw</p>
+            </div>
 
-                {/* Subtle gradient overlay on hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl`} />
+            {/* Right: Cards */}
+            <div className="flex-1 grid sm:grid-cols-2 gap-4">
+              {[
+              {
+                icon: ShieldCheck,
+                title: "企业级基因",
+                desc: "专为企业场景深度打造，从架构到交付全面对标企业级标准，而非消费级工具的简单套壳。",
+                gradient: "from-green-500/20 to-emerald-500/20",
+                iconColor: "text-green-400"
+              },
+              {
+                icon: Shield,
+                title: "自研知识库引擎",
+                desc: "基于 OpenClaw 深度二次开发，打造企业专属知识库引擎——这是我们与其他 OpenClaw 方案的本质区别。支持企业私有数据智能检索与知识沉淀。",
+                gradient: "from-blue-500/20 to-cyan-500/20",
+                iconColor: "text-blue-400"
+              },
+              {
+                icon: Server,
+                title: "合规 · 安全 · 可信",
+                desc: "已获国家大模型备案认证，全栈私有部署，数据全链路不出门，满足金融、医疗、政务等高合规行业严苛要求。",
+                gradient: "from-purple-500/20 to-pink-500/20",
+                iconColor: "text-purple-400"
+              },
+              {
+                icon: ShoppingBag,
+                title: "OPENCLAW 一体机",
+                desc: "企数 OPENCLAW 一体机即将面向市场发售，开箱即用，内置全套 AI 能力与企业知识库，一次部署，持续赋能。",
+                gradient: "from-yellow-500/20 to-orange-500/20",
+                iconColor: "text-yellow-400"
+              }].
+              map((feature, index) =>
+              <div
+                key={feature.title}
+                className="group relative rounded-2xl border border-white/10 bg-gradient-to-br from-[#111827]/80 to-[#0f172a]/90 p-6 hover:border-white/20 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_8px_30px_-10px_rgba(168,85,247,0.15)] backdrop-blur-sm overflow-hidden animate-fade-in"
+                style={{ animationDelay: `${index * 100}ms`, animationFillMode: 'both' }}>
 
-                <div className="relative z-10">
-                  <div
-                  className={`w-11 h-11 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                    <feature.icon className={feature.iconColor} size={22} />
+                  {/* Subtle gradient overlay on hover */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl`} />
+
+                  <div className="relative z-10">
+                    <div
+                    className={`w-11 h-11 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                      <feature.icon className={feature.iconColor} size={22} />
+                    </div>
+                    <h3 className="text-base font-semibold text-white mb-2">{feature.title}</h3>
+                    <p className="text-gray-400 text-xs leading-relaxed group-hover:text-gray-300 transition-colors duration-300">{feature.desc}</p>
                   </div>
-                  <h3 className="text-base font-semibold text-white mb-2">{feature.title}</h3>
-                  <p className="text-gray-400 text-xs leading-relaxed group-hover:text-gray-300 transition-colors duration-300">{feature.desc}</p>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
       </section>
