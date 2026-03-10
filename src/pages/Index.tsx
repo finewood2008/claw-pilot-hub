@@ -101,7 +101,8 @@ const Index = () => {
 
           {/* Subtitle */}
           <p className="text-gray-400 text-base max-w-2xl mx-auto mb-8 leading-relaxed">
-            区别于 ChatGPT、Dify、Coze 等消费级工具，QeeClaw 是真正为企业打造的 AI 数字员工平台。基于开源引擎 OpenClaw 深度二次开发，已获国家大模型备案认证，100% 私有化部署，数据不出门。搭配企数 OPENCLAW 一体机，开箱即用，零门槛拥有企业专属 AI 能力。
+            深度自研企业知识库引擎，为企业构建专属 AI 智慧中枢。<br />
+            国家大模型备案认证，数据全链路私有，安全合规无忧。
           </p>
 
           {/* CTA Buttons */}
