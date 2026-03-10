@@ -694,7 +694,7 @@ const Index = () => {
               {
                 icon: <Zap className="w-6 h-6" />,
                 title: "零配置即用",
-                desc: "内置企数大模型与全套 AI 能力，插电联网即可使用，无需专业运维团队。",
+                desc: "内置企数大模型与全套 AI 能力，开箱即用，无需专业运维团队。",
               },
               {
                 icon: <CreditCard className="w-6 h-6" />,
