@@ -214,7 +214,7 @@ const Index = () => {
           <div className="text-center mb-10">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">为什么选择 QeeClaw</h2>
             <p className="text-gray-400 max-w-xl mx-auto text-sm">
-              不只是超级秘书，更是企业数字员工的管理平台
+              专为企业场景深度打造，从底层模型到上层应用构建自主可控的 AI 能力体系
             </p>
           </div>
 
