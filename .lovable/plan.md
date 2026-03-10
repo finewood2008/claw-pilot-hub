@@ -1,39 +1,25 @@
 
 
-## 首页文案调整计划
+## 计划：更新 Website Info（HTML 元信息）
 
-根据公司介绍文档，核心要突出三个差异化卖点：**企业级产品**、**中国完全合规**、**OPENCLAW 一体机开箱即用**。同时需要将上传的新版公司介绍 PDF 替换旧版。
+当前 `index.html` 中的 title、description、Open Graph、Twitter Card 等信息仍为旧版文案，需要与首页新定位保持一致。
 
-### 文案调整内容
+### 修改文件：`index.html`
 
-**1. Hero 区域（第88-104行）**
-- Promo tag：改为强调"国家大模型备案认证 · 100% 合规"
-- 主标题保持不变
-- 副标题重写，突出三个核心卖点：
-  - 企业级产品（非消费级工具）
-  - 中国完全合规（国家大模型备案、数据安全认证）
-  - OPENCLAW 一体机开箱即用
-- 参考文案："区别于 ChatGPT、Dify、Coze 等消费级工具，QeeClaw 是真正为企业打造的 AI 数字员工平台。基于开源引擎 OpenClaw 深度二次开发，已获国家大模型备案认证，100% 私有化部署，数据不出门。搭配企数 OPENCLAW 一体机，开箱即用，零门槛拥有企业专属 AI 能力。"
+| 字段 | 当前值 | 更新为 |
+|------|--------|--------|
+| `<title>` | `Q-CLAW 让每个人都能轻松驾驭 AI 助手` | `Q-CLAW · 企业超级秘书 — AI 数字员工重新定义企业效率` |
+| `meta description` | `Q-CLAW 本地AI助手设备管理平台` | `Q-CLAW 企业级 AI 数字员工管理平台，基于企数大模型构建企业私有知识库，7×24 小时全天候服务` |
+| `og:title` | 同旧 title | 同新 title |
+| `og:description` | 同旧 description | 同新 description |
+| `twitter:title` | 同旧 title | 同新 title |
+| `twitter:description` | 同旧 description | 同新 description |
+| `meta author` | `Lovable` | `Qeeshu AI` |
+| `twitter:site` | `@Lovable` | 移除或改为 `@Qeeshu`（无官方账号则移除） |
+| `og:image` | Lovable 默认图 | 保留现有（后续可替换为品牌图） |
+| `twitter:image` | Lovable 默认图 | 保留现有 |
 
-**2. "为什么选择 QeeClaw" 板块（第209-268行）**
-- 调整四张卡片，突出企业级 + 合规 + 一体机：
-  - 卡片1：**国家级合规认证** — 2025年获国家大模型备案，满足金融、医疗、政务等高合规行业准入
-  - 卡片2：**100% 私有化部署** — 全栈本地部署，数据不出门，杜绝泄露风险
-  - 卡片3：**OPENCLAW 一体机 · 开箱即用** — 插电联网即可使用，零配置零运维
-  - 卡片4：**SKILL 技能编排**（保留）
-
-**3. 一体机板块标题微调（第616-628行）**
-- 标题改为"企数 OPENCLAW 一体机"
-- 副标题强调"企业级开箱即用"
-
-**4. 关于我们（第689-692行）**
-- 补充团队背景：来自阿里、腾讯、字节、百度
-- 补充资质：国家大模型备案、数据安全认证、ISO 27001
-
-**5. 替换公司介绍 PDF**
-- 将上传的新版 PDF 复制到 `public/docs/Qeeshu_Company_Profile_2026.pdf` 替换旧版
-
-### 涉及文件
-- `src/pages/Index.tsx` — 文案修改
-- `public/docs/Qeeshu_Company_Profile_2026.pdf` — 替换为新版 PDF
+### 技术细节
+- 仅修改 `index.html`，约 8 处 meta 标签文案
+- 无依赖变更
 

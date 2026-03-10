@@ -86,8 +86,8 @@ const Index = () => {
         <div className="relative max-w-4xl mx-auto px-4 text-center pt-16">
           {/* Promo tag */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-sm mb-5">
-            <Zap size={14} />
-            <span>Qeeshu AI 2025年获得国家大模型认证</span>
+            <ShieldCheck size={14} />
+            <span>国家大模型备案认证 · 100% 合规 · 企业级私有部署</span>
           </div>
 
           {/* Main heading */}
@@ -101,7 +101,7 @@ const Index = () => {
 
           {/* Subtitle */}
           <p className="text-gray-400 text-base max-w-2xl mx-auto mb-8 leading-relaxed">
-            从一个超级秘书开始，到管理一支 AI 数字员工团队。QeeClaw 基于企数大模型构建企业私有知识库，以 OPENCLAW 为底座，让每位员工都拥有 7×24 小时的 AI 数字员工。同时提供 OpenClaw 私有化 AI 一体机，让算力与数据完全留在企业内部。
+            区别于 ChatGPT、Dify、Coze 等消费级工具，QeeClaw 是真正为企业打造的 AI 数字员工平台。基于开源引擎 OpenClaw 深度二次开发，已获国家大模型备案认证，100% 私有化部署，数据不出门。搭配企数 OPENCLAW 一体机，开箱即用，零门槛拥有企业专属 AI 能力。
           </p>
 
           {/* CTA Buttons */}
@@ -218,32 +218,32 @@ const Index = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
             {
-              icon: Zap,
-              title: "即装即用，零门槛部署",
-              desc: "企业无需复杂的环境搭建，下载即用，一键部署 AI 数字员工，IT 部门零负担，业务团队即刻上手。",
-              gradient: "from-yellow-500/20 to-orange-500/20",
-              iconColor: "text-yellow-400"
-            },
-            {
-              icon: Wallet,
-              title: "灵活计费，成本可控",
-              desc: "支持微信、支付宝等主流支付方式，按需充值、按量计费，企业无需预付高额许可费，真正做到成本透明可控。",
+              icon: ShieldCheck,
+              title: "国家级合规认证",
+              desc: "2025年获国家大模型备案认证，满足金融、医疗、政务等高合规行业准入要求，企业放心使用，合规无忧。",
               gradient: "from-green-500/20 to-emerald-500/20",
               iconColor: "text-green-400"
             },
             {
-              icon: Brain,
-              title: "企业私有知识库，数据不出门",
-              desc: "基于本地算力与企数大模型，对企业文档、SOP、业务日志进行向量化处理，构建完全私有的知识库。数据全程不上云，确保商业机密绝对安全。",
-              gradient: "from-blue-500/20 to-purple-500/20",
+              icon: Shield,
+              title: "100% 私有化部署",
+              desc: "全栈本地部署，数据不出门，杜绝泄露风险。基于企数大模型构建企业私有知识库，商业机密绝对安全。",
+              gradient: "from-blue-500/20 to-cyan-500/20",
               iconColor: "text-blue-400"
+            },
+            {
+              icon: Server,
+              title: "OPENCLAW 一体机 · 开箱即用",
+              desc: "企数 OPENCLAW 一体机，插电联网即可使用，零配置零运维。内置企数大模型与全套 AI 能力，一次采购无限调用。",
+              gradient: "from-purple-500/20 to-pink-500/20",
+              iconColor: "text-purple-400"
             },
             {
               icon: ShoppingBag,
               title: "SKILL 技能编排",
               desc: "丰富的企业级预置技能，涵盖客服、财务、HR、数据分析等业务场景，支持自定义训练专属企业技能，打造适配业务流程的 AI 数字员工。",
-              gradient: "from-purple-500/20 to-pink-500/20",
-              iconColor: "text-purple-400"
+              gradient: "from-yellow-500/20 to-orange-500/20",
+              iconColor: "text-yellow-400"
             }].
             map((feature, index) =>
             <div
@@ -621,9 +621,9 @@ const Index = () => {
               <Server className="w-3.5 h-3.5" />
               硬件产品
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">OpenClaw 私有化 AI 一体机</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">企数 OPENCLAW 一体机</h2>
             <p className="text-gray-400 text-sm max-w-xl mx-auto">
-              开箱即用的企业级 AI 算力设备，数据全程不出门，无需 Token 费用，真正实现 AI 能力私有化部署。
+              企业级开箱即用的 AI 算力设备，插电联网即刻拥有企业专属 AI 能力，数据全程不出门，无需 Token 费用。
             </p>
            </div>
 
@@ -687,8 +687,11 @@ const Index = () => {
             <img src="/logo.png" alt="QeeClaw" className="w-12 h-12 object-contain drop-shadow-[0_0_8px_rgba(168,85,247,0.4)]" />
           </div>
           <h2 className="text-xl font-bold text-white mb-4">关于我们</h2>
-          <p className="text-gray-400 text-sm leading-relaxed">
-            QeeClaw 由企数星图（Qeeshu）团队打造，专注于企业级 AI 数字员工解决方案。基于企数大模型（2025年获得国家级大模型认证备案），QeeClaw 在企业本地构建私有知识库，所有数据全程不上云，以最大化数据安全驱动企业降本增效。
+          <p className="text-gray-400 text-sm leading-relaxed mb-3">
+            QeeClaw 由企数星图（Qeeshu）团队打造，核心成员来自阿里巴巴、腾讯、字节跳动、百度等一线互联网企业，专注于企业级 AI 数字员工解决方案。基于企数大模型（2025年获国家大模型备案认证），QeeClaw 在企业本地构建私有知识库，所有数据全程不上云，以最大化数据安全驱动企业降本增效。
+          </p>
+          <p className="text-gray-500 text-xs">
+            已获认证：国家大模型备案 · 数据安全认证 · ISO 27001 信息安全管理体系
           </p>
           <a target="_blank" rel="noopener noreferrer" className="inline-block mt-4 text-purple-400 hover:text-purple-300 text-sm transition-colors" href="https://www.qeeshu.com">
             了解更多 → qeeshu.com
