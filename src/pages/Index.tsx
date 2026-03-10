@@ -103,8 +103,8 @@ const Index = () => {
 
           {/* Subtitle */}
           <p className="text-gray-400 text-base max-w-2xl mx-auto mb-8 leading-relaxed">
-            深度自研企业知识库引擎，为企业构建专属 AI 智慧中枢。<br />
-            国家大模型备案认证，数据全链路私有，安全合规无忧。
+            基于全球知名开源智能体引擎 OpenClaw 深度二次开发，为企业构建完全合规、安全可控的 AI 数字员工平台。<br />
+            从一个超级秘书开始，到管理一支 AI 数字员工团队。
           </p>
 
           {/* CTA Buttons */}
