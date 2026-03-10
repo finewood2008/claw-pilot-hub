@@ -219,13 +219,20 @@ const Index = () => {
 
           <div className="flex flex-col lg:flex-row items-center gap-8">
             {/* Left: Logo */}
-            <div className="flex-shrink-0 flex flex-col items-center justify-center lg:w-[280px]">
-              <img
-                src={qeeclawLogo3d}
-                alt="QeeClaw Logo"
-                className="w-48 h-48 lg:w-56 lg:h-56 object-contain drop-shadow-[0_0_40px_rgba(56,189,248,0.25)] animate-fade-in"
-              />
-              <p className="text-gray-500 text-xs mt-4 tracking-widest uppercase">Powered by OpenClaw</p>
+            <div className="flex-shrink-0 flex flex-col items-center justify-center lg:w-[320px]">
+              <div className="relative group">
+                {/* Glow ring */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500/20 via-cyan-400/10 to-purple-500/20 blur-2xl scale-110 group-hover:scale-125 transition-transform duration-700" />
+                {/* Rotating border ring */}
+                <div className="absolute -inset-3 rounded-full border border-white/5 animate-[spin_20s_linear_infinite]" />
+                <div className="absolute -inset-6 rounded-full border border-white/[0.03] animate-[spin_30s_linear_infinite_reverse]" />
+                <img
+                  src={qeeclawLogo3d}
+                  alt="QeeClaw Logo"
+                  className="relative w-52 h-52 lg:w-64 lg:h-64 object-contain drop-shadow-[0_0_60px_rgba(56,189,248,0.3)] animate-fade-in group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <p className="text-gray-500 text-xs mt-6 tracking-widest uppercase">Powered by OpenClaw</p>
             </div>
 
             {/* Right: Cards */}
