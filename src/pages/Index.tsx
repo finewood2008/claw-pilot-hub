@@ -41,6 +41,7 @@ import feishuLogo from "@/assets/im/feishu.png";
 import dingtalkLogo from "@/assets/im/dingtalk.png";
 import aioMachineImg from "@/assets/aio-machine.jpg";
 import qeeclawLogo3d from "@/assets/qeeclaw-logo-3d.png";
+import kbScreenshot from "@/assets/knowledge-base-screenshot.png";
 
 const Index = () => {
   const scrollTo = (id: string) => {
@@ -524,58 +525,78 @@ const Index = () => {
             <p className="text-gray-400 text-sm">构建私有化知识库，让 AI 数字员工"读懂"公司历史</p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr_1fr] gap-6 items-start">
-            {/* 左侧：数据捕获 */}
-            <div className="pt-2">
-              <p className="text-orange-400 text-xs font-semibold tracking-widest mb-4">01 数据捕获</p>
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                { icon: Layers, label: "最新行业报告" },
-                { icon: GraduationCap, label: "SOP/操作手册" },
-                { icon: MessageSquare, label: "业务沟通日志" },
-                { icon: ExternalLink, label: "销售与调研报告" }].
-                map((item) =>
-                <div key={item.label} className="flex items-center gap-2 px-3 py-3 rounded-lg bg-[#111827]/60 border border-white/5">
-                    <item.icon size={14} className="text-blue-400 shrink-0" />
-                    <span className="text-xs text-gray-300">{item.label}</span>
-                  </div>
-                )}
+          {/* 上方：截图 + 向量化引擎说明 左右布局 */}
+          <div className="grid lg:grid-cols-2 gap-6 mb-8">
+            {/* 左：知识库截图 */}
+            <div className="group relative rounded-2xl border border-white/10 overflow-hidden bg-[#111827]/40">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0e1a] via-transparent to-transparent z-10 pointer-events-none" />
+              <img
+                src={kbScreenshot}
+                alt="QeeClaw 本地知识库界面"
+                className="w-full h-full object-cover object-left-top group-hover:scale-[1.02] transition-transform duration-700"
+              />
+              <div className="absolute bottom-4 left-5 z-20">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-medium backdrop-blur-sm">
+                  <ShieldCheck size={12} /> 数据全程本地处理
+                </span>
               </div>
             </div>
 
-            {/* 中间：向量化引擎 */}
-            <div className="flex items-center justify-center">
-              <div className="w-full rounded-2xl border border-white/5 bg-[#111827]/40 px-6 py-10 text-center">
-                <div className="w-16 h-16 mx-auto rounded-full bg-green-500/10 border border-green-500/20 flex items-center justify-center mb-5">
-                  <Brain size={28} className="text-green-400" />
+            {/* 右：向量化引擎 + 能力说明 */}
+            <div className="flex flex-col gap-4">
+              {/* 引擎卡片 */}
+              <div className="rounded-2xl border border-white/5 bg-[#111827]/40 px-6 py-8 text-center flex-1 flex flex-col items-center justify-center">
+                <div className="w-14 h-14 mx-auto rounded-full bg-green-500/10 border border-green-500/20 flex items-center justify-center mb-4">
+                  <Brain size={26} className="text-green-400" />
                 </div>
-                <p className="text-white font-semibold text-lg mb-3">企数大模型 · 本地向量化引擎</p>
-                <p className="text-gray-400 text-xs leading-relaxed max-w-sm mx-auto">
+                <p className="text-white font-semibold text-lg mb-2">企数大模型 · 本地向量化引擎</p>
+                <p className="text-gray-400 text-xs leading-relaxed max-w-md mx-auto">
                   采用企数大模型在本机对企业文档进行深度向量化，构建完全私有的知识库。数据全程不出本地网络，不经过任何云端服务器，最大化保障企业数据安全。
                 </p>
               </div>
-            </div>
 
-            {/* 右侧：决策执行 */}
-            <div className="pt-2">
-              <p className="text-orange-400 text-xs font-semibold tracking-widest mb-4">02 决策执行</p>
-              <div className="space-y-3">
-                {[
-                { title: "精准决策", desc: "基于过往成功案例，而非泛泛的通用知识进行决策。" },
-                { title: "经验传承", desc: "即便资深员工离职，其操作逻辑与判断准则依然留存。" },
-                { title: "高效对齐", desc: "AI 数字员工执行标准与公司战略高度一致。" }].
-                map((item) =>
-                <div key={item.title} className="rounded-lg border border-white/5 bg-[#111827]/60 p-4 border-l-2 border-l-green-500/50">
-                    <p className="text-white font-semibold text-sm mb-1">{item.title}</p>
-                    <p className="text-gray-400 text-xs leading-relaxed">{item.desc}</p>
+              {/* 数据捕获 + 决策执行 */}
+              <div className="grid sm:grid-cols-2 gap-4">
+                {/* 数据捕获 */}
+                <div className="rounded-2xl border border-white/5 bg-[#111827]/40 p-5">
+                  <p className="text-orange-400 text-xs font-semibold tracking-widest mb-3">01 数据捕获</p>
+                  <div className="grid grid-cols-2 gap-2">
+                    {[
+                      { icon: Layers, label: "最新行业报告" },
+                      { icon: GraduationCap, label: "SOP/操作手册" },
+                      { icon: MessageSquare, label: "业务沟通日志" },
+                      { icon: ExternalLink, label: "销售与调研报告" }
+                    ].map((item) => (
+                      <div key={item.label} className="flex items-center gap-2 px-2.5 py-2.5 rounded-lg bg-[#0a0e1a]/60 border border-white/5">
+                        <item.icon size={13} className="text-blue-400 shrink-0" />
+                        <span className="text-[11px] text-gray-300">{item.label}</span>
+                      </div>
+                    ))}
                   </div>
-                )}
+                </div>
+
+                {/* 决策执行 */}
+                <div className="rounded-2xl border border-white/5 bg-[#111827]/40 p-5">
+                  <p className="text-orange-400 text-xs font-semibold tracking-widest mb-3">02 决策执行</p>
+                  <div className="space-y-2">
+                    {[
+                      { title: "精准决策", desc: "基于过往成功案例进行决策" },
+                      { title: "经验传承", desc: "员工离职，知识永久留存" },
+                      { title: "高效对齐", desc: "执行标准与公司战略一致" }
+                    ].map((item) => (
+                      <div key={item.title} className="rounded-lg bg-[#0a0e1a]/60 border border-white/5 p-3 border-l-2 border-l-green-500/50">
+                        <p className="text-white font-semibold text-xs mb-0.5">{item.title}</p>
+                        <p className="text-gray-500 text-[11px]">{item.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
           {/* 底部安全声明 */}
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 border-t border-white/5">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 border-t border-white/5">
             <div className="flex items-center gap-2 text-emerald-400">
               <ShieldCheck size={16} />
               <span className="text-xs font-medium">数据主权保障：全栈私有化部署，确保商业机密绝对安全</span>
