@@ -95,7 +95,7 @@ const Index = () => {
             <span className="text-white my-[15px]">QeeClaw · 企业超级秘书</span>
             <br />
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              AI 数字员工重新定义企业效率
+              安全合规的企业级OPENCLAW
             </span>
           </h1>
 
