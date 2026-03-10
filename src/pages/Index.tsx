@@ -131,7 +131,7 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">您的第一位数字员工：企业超级秘书</h2>
-            <p className="text-gray-400 max-w-xl mx-auto text-sm">开箱即用的 AI 超级秘书，也是数字员工平台的第一步</p>
+            <p className="text-gray-400 max-w-xl mx-auto text-sm">不仅仅是一个智能助手，更是一个可持续进化的 AI 数字员工平台</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
