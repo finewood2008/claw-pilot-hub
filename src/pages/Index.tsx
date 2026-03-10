@@ -162,7 +162,7 @@ const Index = () => {
             {
               icon: Server,
               title: "智能数据调取",
-              desc: "一句话即可调取销售报表、财务数据、客户信息，告别繁琐的系统操作与手动查询。",
+              desc: "一句自然语言即可调取销售报表、财务数据、客户信息，告别繁琐的系统操作与手动查询。",
               color: "text-cyan-500",
               bg: "bg-cyan-500/10",
               bgImg: bgDataRetrieval
