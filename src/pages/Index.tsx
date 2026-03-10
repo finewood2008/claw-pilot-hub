@@ -687,8 +687,11 @@ const Index = () => {
             <img src="/logo.png" alt="QeeClaw" className="w-12 h-12 object-contain drop-shadow-[0_0_8px_rgba(168,85,247,0.4)]" />
           </div>
           <h2 className="text-xl font-bold text-white mb-4">关于我们</h2>
-          <p className="text-gray-400 text-sm leading-relaxed">
-            QeeClaw 由企数星图（Qeeshu）团队打造，专注于企业级 AI 数字员工解决方案。基于企数大模型（2025年获得国家级大模型认证备案），QeeClaw 在企业本地构建私有知识库，所有数据全程不上云，以最大化数据安全驱动企业降本增效。
+          <p className="text-gray-400 text-sm leading-relaxed mb-3">
+            QeeClaw 由企数星图（Qeeshu）团队打造，核心成员来自阿里巴巴、腾讯、字节跳动、百度等一线互联网企业，专注于企业级 AI 数字员工解决方案。基于企数大模型（2025年获国家大模型备案认证），QeeClaw 在企业本地构建私有知识库，所有数据全程不上云，以最大化数据安全驱动企业降本增效。
+          </p>
+          <p className="text-gray-500 text-xs">
+            已获认证：国家大模型备案 · 数据安全认证 · ISO 27001 信息安全管理体系
           </p>
           <a target="_blank" rel="noopener noreferrer" className="inline-block mt-4 text-purple-400 hover:text-purple-300 text-sm transition-colors" href="https://www.qeeshu.com">
             了解更多 → qeeshu.com
