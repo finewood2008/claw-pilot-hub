@@ -621,9 +621,9 @@ const Index = () => {
               <Server className="w-3.5 h-3.5" />
               硬件产品
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">OpenClaw 私有化 AI 一体机</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">企数 OPENCLAW 一体机</h2>
             <p className="text-gray-400 text-sm max-w-xl mx-auto">
-              开箱即用的企业级 AI 算力设备，数据全程不出门，无需 Token 费用，真正实现 AI 能力私有化部署。
+              企业级开箱即用的 AI 算力设备，插电联网即刻拥有企业专属 AI 能力，数据全程不出门，无需 Token 费用。
             </p>
            </div>
 
