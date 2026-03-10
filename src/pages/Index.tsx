@@ -89,7 +89,7 @@ const Index = () => {
           {/* Promo tag */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-sm mb-5">
             <ShieldCheck size={14} />
-            <span>企业级 AI · 国家大模型备案 · 全栈私有部署</span>
+            <span>企业级 AI · 国家大模型备案认证（2025） · 全栈私有化部署</span>
           </div>
 
           {/* Main heading */}
@@ -103,8 +103,8 @@ const Index = () => {
 
           {/* Subtitle */}
           <p className="text-gray-400 text-base max-w-2xl mx-auto mb-8 leading-relaxed">
-            深度自研企业知识库引擎，为企业构建专属 AI 智慧中枢。<br />
-            国家大模型备案认证，数据全链路私有，安全合规无忧。
+            基于全球知名开源智能体引擎 OpenClaw 深度二次开发，为企业构建完全合规、安全可控的 AI 数字员工平台。<br />
+            从一个超级秘书开始，到管理一支 AI 数字员工团队。
           </p>
 
           {/* CTA Buttons */}
@@ -131,7 +131,7 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">您的第一位数字员工：企业超级秘书</h2>
-            <p className="text-gray-400 max-w-xl mx-auto text-sm">开箱即用的 AI 超级秘书，也是数字员工平台的第一步</p>
+            <p className="text-gray-400 max-w-xl mx-auto text-sm">不仅仅是一个智能助手，更是一个可持续进化的 AI 数字员工平台</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
@@ -146,7 +146,7 @@ const Index = () => {
             {
               icon: Brain,
               title: "企业私有知识库",
-              desc: "基于企数大模型对企业文档、SOP、业务日志进行深度向量化，构建专属企业的智能知识中枢。",
+              desc: "基于企数大模型对企业文档、SOP、业务日志进行深度向量化，构建专属的、可记忆、可传承的智能知识中枢。",
               color: "text-blue-500",
               bg: "bg-blue-500/10",
               bgImg: bgKnowledgeBase
@@ -162,7 +162,7 @@ const Index = () => {
             {
               icon: Server,
               title: "智能数据调取",
-              desc: "一句话即可调取销售报表、财务数据、客户信息，告别繁琐的系统操作与手动查询。",
+              desc: "一句自然语言即可调取销售报表、财务数据、客户信息，告别繁琐的系统操作与手动查询。",
               color: "text-cyan-500",
               bg: "bg-cyan-500/10",
               bgImg: bgDataRetrieval
@@ -214,7 +214,7 @@ const Index = () => {
           <div className="text-center mb-10">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">为什么选择 QeeClaw</h2>
             <p className="text-gray-400 max-w-xl mx-auto text-sm">
-              不只是超级秘书，更是企业数字员工的管理平台
+              专为企业场景深度打造，从底层模型到上层应用构建自主可控的 AI 能力体系
             </p>
           </div>
 
@@ -252,21 +252,21 @@ const Index = () => {
               {
                 icon: ShieldCheck,
                 title: "企业级基因",
-                desc: "专为企业场景深度打造，从架构到交付全面对标企业级标准，而非消费级工具的简单套壳。",
+                desc: "从底层模型到上层应用，全面对标企业级标准。我们不是简单地封装第三方 API，而是为企业构建完整的自主可控 AI 能力体系。",
                 gradient: "from-green-500/20 to-emerald-500/20",
                 iconColor: "text-green-400"
               },
               {
                 icon: Shield,
                 title: "自研知识库引擎",
-                desc: "基于 OpenClaw 深度二次开发，打造企业专属知识库引擎——这是我们与其他 OpenClaw 方案的本质区别。支持企业私有数据智能检索与知识沉淀。",
+                desc: "基于 OpenClaw 深度二次开发，深度集成企数大模型的向量化能力，实现企业私有知识库的本地化存储与高效检索，数据绝不上云。",
                 gradient: "from-blue-500/20 to-cyan-500/20",
                 iconColor: "text-blue-400"
               },
               {
                 icon: Server,
                 title: "合规 · 安全 · 可信",
-                desc: "已获国家大模型备案认证，全栈私有部署，数据全链路不出门，满足金融、医疗、政务等高合规行业严苛要求。",
+                desc: "已获国家大模型备案认证（2025年），100% 私有化部署，数据全程不出门，彻底杜绝数据外泄风险，满足最严格的安全合规要求。",
                 gradient: "from-purple-500/20 to-pink-500/20",
                 iconColor: "text-purple-400"
               },
@@ -551,7 +551,7 @@ const Index = () => {
                 </div>
                 <p className="text-white font-semibold text-lg mb-2">企数大模型 · 本地向量化引擎</p>
                 <p className="text-gray-400 text-xs leading-relaxed max-w-md mx-auto">
-                  采用企数大模型在本机对企业文档进行深度向量化，构建完全私有的知识库。数据全程不出本地网络，不经过任何云端服务器，最大化保障企业数据安全。
+                  深度集成企数大模型的向量化能力，在本机对企业文档进行向量化处理，构建完全私有的知识库。数据全程不出本地网络，绝不上云，最大化保障企业数据主权。
                 </p>
               </div>
 
@@ -612,7 +612,7 @@ const Index = () => {
           <div className="mb-10">
             <div className="w-10 h-1 bg-purple-500 rounded-full mb-4" />
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">企业级 AI 数字员工定制</h2>
-            <p className="text-gray-400 text-sm">用 10% 的成本，雇佣一个 7×24 无休的 AI 数字员工，复刻企业高度非标准化工作流</p>
+            <p className="text-gray-400 text-sm">用 10% 的成本，雇佣一个 7×24 无休的 AI 数字员工，复刻企业高度非标准化的工作流</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -694,7 +694,7 @@ const Index = () => {
               {
                 icon: <Zap className="w-6 h-6" />,
                 title: "零配置即用",
-                desc: "内置企数大模型与全套 AI 能力，插电联网即可使用，无需专业运维团队。",
+                desc: "内置企数大模型与全套 AI 能力，开箱即用，无需专业运维团队。",
               },
               {
                 icon: <CreditCard className="w-6 h-6" />,
@@ -741,7 +741,7 @@ const Index = () => {
           </div>
           <h2 className="text-xl font-bold text-white mb-4">关于我们</h2>
           <p className="text-gray-400 text-sm leading-relaxed mb-3">
-            QeeClaw 由企数星图（Qeeshu）团队打造，核心成员来自阿里巴巴、腾讯、字节跳动、百度等一线互联网企业，专注于企业级 AI 数字员工解决方案。基于企数大模型（2025年获国家大模型备案认证），QeeClaw 在企业本地构建私有知识库，所有数据全程不上云，以最大化数据安全驱动企业降本增效。
+            企数星图（Qeeshu AI）是一家专注于企业级 AI 落地的科技公司，致力于将前沿大模型技术转化为真正可用、可控、合规的企业生产力工具。核心团队来自阿里巴巴、腾讯、字节跳动、百度等知名互联网企业，已取得国家大模型备案认证（2025年），是国内少数具备完整合规资质的企业级 AI 服务商。
           </p>
           <p className="text-gray-500 text-xs">
             已获认证：国家大模型备案 · 数据安全认证 · ISO 27001 信息安全管理体系
