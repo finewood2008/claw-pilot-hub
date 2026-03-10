@@ -551,7 +551,7 @@ const Index = () => {
                 </div>
                 <p className="text-white font-semibold text-lg mb-2">企数大模型 · 本地向量化引擎</p>
                 <p className="text-gray-400 text-xs leading-relaxed max-w-md mx-auto">
-                  采用企数大模型在本机对企业文档进行深度向量化，构建完全私有的知识库。数据全程不出本地网络，不经过任何云端服务器，最大化保障企业数据安全。
+                  深度集成企数大模型的向量化能力，在本机对企业文档进行向量化处理，构建完全私有的知识库。数据全程不出本地网络，绝不上云，最大化保障企业数据主权。
                 </p>
               </div>
 
