@@ -41,6 +41,7 @@ import feishuLogo from "@/assets/im/feishu.png";
 import dingtalkLogo from "@/assets/im/dingtalk.png";
 import aioMachineImg from "@/assets/aio-machine.jpg";
 import qeeclawLogo3d from "@/assets/qeeclaw-logo-3d.png";
+import kbScreenshot from "@/assets/knowledge-base-screenshot.png";
 
 const Index = () => {
   const scrollTo = (id: string) => {
