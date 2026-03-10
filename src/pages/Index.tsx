@@ -624,6 +624,15 @@ const Index = () => {
             <p className="text-gray-400 text-sm max-w-xl mx-auto">
               开箱即用的企业级 AI 算力设备，数据全程不出门，无需 Token 费用，真正实现 AI 能力私有化部署。
             </p>
+           </div>
+
+          {/* 产品实物图 */}
+          <div className="mb-10 rounded-2xl overflow-hidden border border-white/5 bg-[#111827]/40">
+            <img
+              src={aioMachineImg}
+              alt="OpenClaw 私有化 AI 一体机产品实物图"
+              className="w-full h-auto object-cover max-h-[360px]"
+            />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
